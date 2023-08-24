@@ -39,7 +39,11 @@ npm install
 3. Create a `.env` file in the root of the project with the following content:
 
 ```
-VITE_API_URL=http://localhost:3000/api
+# Backend API
+VITE_API_URL = "http://localhost:3000/api"
+
+# Google API
+VITE_GOOGLE_CLIENT_ID = "794172397872-2ej6omeqm6n4hv81r43j2amodvdn817r.apps.googleusercontent.com"
 ```
 
 4. Run the project:

@@ -1,0 +1,116 @@
+
+body, html {
+  overflow: hidden;
+}
+
+.logintext{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #c54d19;
+}
+.card{
+    background-color: white;
+    border-bottom: 5px solid #c54d19;
+    border-radius: 10px;
+    border-right:  5px solid #c54d19;
+    
+    
+}
+
+
+.container {
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    /* Ajusta el tamaño de acuerdo a tus necesidades */
+    height: 100
+   
+  }
+  
+  .image-container {
+    flex: 1;
+    margin-right: 20px;
+    height: 100%;
+    align-items: center;
+  }
+  .overlay{
+
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  top: 30%;
+  left: 20%;
+  padding: 10px;
+  text-align: center;
+  }
+  .titulo{
+    font-size: 140px;
+    font-weight: bold;
+ 
+  }
+ 
+  
+  .image-container img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    
+  }
+  
+  .login-container {
+    flex: 1;
+    margin-left: 20px;
+    /* Ajusta el ancho del formulario de login */
+    max-width: 300px;
+    margin-right: 40px;
+  }
+  
+  /* Estilos adicionales para el formulario de login, si es necesario */
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-container input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .login-container button {
+    background-color: #2a66e7;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+  }
+
+  
+
+
+   
+  
+  /* Media Query para ocultar la imagen en dispositivos móviles */
+  @media (max-width: 767px) {
+    .container {
+      flex-direction: column-reverse;
+    }
+    .image-container {
+      display: none;
+
+    }
+    .card {
+      margin-top: 50%;
+    }
+    
+    
+  }
+  
