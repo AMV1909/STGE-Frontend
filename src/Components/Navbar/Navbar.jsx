@@ -4,34 +4,34 @@ export function Navbar() {
     if (window.location.pathname === "/") return null;
 
     return (
-    <div>
-        <nav class="navbar navbar-expand-lg ">
-  <div class="container-fluid navcolor">
-    <a class="navbar-brand" href="#">Logo Aca</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">Listado de estudiantes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Administradores</a>
-        </li>
-        
-       
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2 search" type="Buscar" placeholder="Search" aria-label="Search"/>
-       
-      </form>
-      <button type="button" class="btn btn-outline-light btn-user"><i class="fa-regular fa-user"></i></button>
-    </div>
-  </div>
-</nav>
- 
+        <div>
+            <nav class="navbar navbar-expand-lg ">
+                <div class="container-fluid navcolor">
+                    <a class="navbar-brand" href="#">Logo Aca</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#">Listado de estudiantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Administradores</a>
+                            </li>
 
-    </div>
+
+                        </ul>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 search" type="Buscar" placeholder="Search" aria-label="Search" />
+
+                        </form>
+                        <button type="button" class="btn btn-outline-light btn-user"><i class="fa-regular fa-user"></i></button>
+                    </div>
+                </div>
+            </nav>
+
+
+        </div>
     );
 } 
