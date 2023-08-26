@@ -47,9 +47,12 @@ export function SignUp() {
 
     return (
         <div className="container">
+           
 
+         
             <div className="login-container">
-                <div className="card-Register" >
+           
+                <div className="card card-Register" >
                     <div className="card-header">
                         <h3 className="logintext">Register</h3>
 
@@ -79,6 +82,7 @@ export function SignUp() {
                     </div>
 
                 </div>
+                
             </div>
 
             <div className="image-container ">
