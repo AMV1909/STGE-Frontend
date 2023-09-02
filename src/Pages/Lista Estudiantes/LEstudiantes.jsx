@@ -26,19 +26,9 @@ export function LEstudiantes() {
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body cardUser">
-                                        <p class="card-nombre"><b>Nombre:</b></p>
-                                        <p class="card-text programa"><b>Programa:</b></p>
-                    
-                                        <ReactStars
-                                            count={5}
-                                            onChange={ratingChanged}
-                                            size={24}
-                                            isHalf={true}
-                                            activeColor="#ffd700"
-                                        />
-
-                                    
-                                    
+                                        <p class="card-nombre"><b>Nombre</b></p>
+                                        <p class="card-text"><b>Programa</b></p>
+                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>
                             </div>
