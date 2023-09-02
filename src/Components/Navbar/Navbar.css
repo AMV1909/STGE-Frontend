@@ -1,0 +1,32 @@
+.navbar {
+    background-color: #c54d19;
+
+}
+.navbar-brand{
+    color: white;
+    font-weight: bold;
+}
+.nav-link{
+  color: white;   
+}
+
+a{
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.btn-user{
+    background-color: #c54d19;
+    border-color: #c54d19;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 30px;
+}
+.search{
+    border-radius: 10px;
+}

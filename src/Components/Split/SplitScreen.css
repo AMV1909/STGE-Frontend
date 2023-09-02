@@ -1,0 +1,38 @@
+.split-screen {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Columna más grande */
+  .split-screen > .large-column {
+    flex: 2;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  /* Columna más pequeña */
+  .split-screen > .small-column {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  /* Media query para dispositivos pequeños */
+  @media (max-width: 768px) {
+    .split-screen {
+      flex-direction: column;
+    }
+  }
+  
+  /* Media query para dispositivos pequeños */
+  @media (max-width: 768px) {
+    .split-screen {
+      flex-direction: column;
+    }
+  }
+  
