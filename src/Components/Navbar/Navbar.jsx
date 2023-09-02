@@ -7,7 +7,7 @@ export function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid navcolor">
-                    <a class="navbar-brand" href="#">Logo Aca</a>
+                    <a className="navbar-brand" href="#">Logo Aca</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -26,7 +26,7 @@ export function Navbar() {
                             <input className="form-control me-2 search" type="Buscar" placeholder="Search" aria-label="Search" />
 
                         </form>
-                        <button type="button" className="btn btn-outline-light btn-user"><i class="fa-regular fa-user"></i></button>
+                        <button type="button" className="btn btn-outline-light btn-user"><i className="fa-regular fa-user"></i></button>
                     </div>
                 </div>
             </nav>
