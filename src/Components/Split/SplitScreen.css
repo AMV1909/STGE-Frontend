@@ -22,6 +22,7 @@
     overflow-y: auto;
   }
   
+  
   /* Media query para dispositivos pequeños */
   @media (max-width: 768px) {
     .split-screen {
