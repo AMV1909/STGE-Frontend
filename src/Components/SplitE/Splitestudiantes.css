@@ -1,0 +1,29 @@
+.splitestudiante {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Columna izquierda */
+.splitestudiante > .left-column {
+  flex: 1;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* Columna derecha */
+.splitestudiante > .right-column {
+  flex: 1;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}

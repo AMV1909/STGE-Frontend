@@ -1,0 +1,27 @@
+.containerList{
+     justify-content: center;
+}
+.divList{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+       
+}
+.head{
+    padding: 0%;
+    margin-bottom: 10px;
+   
+    
+}
+.imgUserdiv{
+margin: auto;; 
+}
+.imgUserdiv img{
+   padding: 10%;
+}
+ 
+
+.cardUser p{
+ font-size: small;
+    
+}

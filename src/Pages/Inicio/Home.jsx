@@ -20,7 +20,7 @@ export function Home() {
           </div>
 
 
-          <div className="row  ">
+          <div className="row rowbuttons ">
           <button type="button" class="btn btn-light">Horarios</button>
           <button type="button" class="btn btn-light">Reuniones agendadas</button>
           <button type="button" class="btn btn-light">Reuniones realizadas</button>
