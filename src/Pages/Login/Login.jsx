@@ -8,7 +8,7 @@ import "./Login.css";
 
 export function Login() {
     const [user, setUser] = useState(null);
-
+  
     // eslint-disable-next-line no-unused-vars
     const [cookies, removeCookie] = useCookies(["g_state"]);
 
@@ -93,7 +93,5 @@ export function Login() {
                 </div>
             </div>
         </div>
-
-
     );
 }

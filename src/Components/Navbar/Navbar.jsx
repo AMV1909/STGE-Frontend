@@ -2,7 +2,7 @@ import "./Navbar.css";
 
 export function Navbar() {
     if (window.location.pathname === "/") return null;
-
+  
     return (
         <div>
             <nav class="navbar navbar-expand-lg ">
@@ -34,4 +34,4 @@ export function Navbar() {
 
         </div>
     );
-} 
+}
