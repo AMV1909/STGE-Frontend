@@ -21,8 +21,8 @@ export function LEstudiantes() {
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body cardUser">
-                                        <p class="card-nombre"><b>Nombre</b></p>
-                                        <p class="card-text"><b>Programa</b></p>
+                                        <p class="card-nombre"><b>Nombre:</b></p>
+                                        <p class="card-text"><b>Programa:</b></p>
                                         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                                     </div>
                                 </div>
