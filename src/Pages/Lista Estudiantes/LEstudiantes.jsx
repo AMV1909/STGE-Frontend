@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactStars from "react-rating-stars-component";
 import { Navbar } from '../../Components/Navbar/Navbar'
-import splitestudiantes from '../../Components/SplitE/splitestudiantes'
+import Splitestudiantes from '../../Components/SplitE/Splitestudiantes'
 import './LEstudiantes.css'
 
 const ratingChanged = (newRating) => {
@@ -14,7 +14,7 @@ export function LEstudiantes() {
     return (
         <div>
             <Navbar />
-            <splitestudiantes>
+            <Splitestudiantes>
                 <div className='left-column'>
 
 
@@ -96,7 +96,7 @@ export function LEstudiantes() {
                     </div>
 
                 </div>
-            </splitestudiantes>
+            </Splitestudiantes>
         </div>
     )
 }
