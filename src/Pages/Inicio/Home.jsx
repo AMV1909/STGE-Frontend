@@ -1,6 +1,4 @@
-import React from 'react'
-import { Navbar } from '../../Components/Navbar/Navbar'
-import SplitScreen from '../../Components/Split/SplitScreen'
+import { Navbar, SplitScreen } from '../../Components'
 import './Home.css'
 
 export function Home() {

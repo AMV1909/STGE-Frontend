@@ -1,7 +1,5 @@
-import React from 'react'
 import ReactStars from "react-rating-stars-component";
-import { Navbar } from '../../Components/Navbar/Navbar'
-import Splitestudiantes from '../../Components/SplitE/Splitestudiantes'
+import { Navbar, Splitestudiantes } from '../../Components'
 import './LEstudiantes.css'
 
 const ratingChanged = (newRating) => {

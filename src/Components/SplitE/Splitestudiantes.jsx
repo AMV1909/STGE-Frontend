@@ -1,4 +1,3 @@
-import React from 'react';
 import './Splitestudiantes.css';
 
 const Splitestudiantes = ({ children }) => {
