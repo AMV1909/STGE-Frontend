@@ -1,11 +1,9 @@
 import './Splitestudiantes.css';
 
-const Splitestudiantes = ({ children }) => {
+export const Splitestudiantes = ({ children }) => {
   return (
     <div className="splitestudiante">
       {children}
     </div>
   );
 };
-
-export default Splitestudiantes;
