@@ -1,11 +1,9 @@
 import './SplitScreen.css'; // Asegúrate de tener un archivo CSS para aplicar estilos
 
-const SplitScreen = ({ children }) => {
+export const SplitScreen = ({ children }) => {
   return (
     <div className="split-screen">
       {children}
     </div>
   );
 };
-
-export default SplitScreen;
