@@ -8,6 +8,7 @@ const initialState: User = {
     email: "",
     // password: "",
     picture: "",
+    career: "",
     coursesToTeach: [],
     score: 0,
 };

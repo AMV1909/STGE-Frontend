@@ -3,8 +3,8 @@ import { configureStore, Middleware } from "@reduxjs/toolkit";
 import userReducer from "./User/slice";
 
 const syncWithDatabaseMiddleware: Middleware =
-    (store) => (next) => (action) => {
-        const { type, payload } = action;
+    () => (next) => (action) => {
+        const { type } = action;
 
         next(action);
 
