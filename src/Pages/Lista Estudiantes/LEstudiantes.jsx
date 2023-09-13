@@ -86,7 +86,7 @@ export function LEstudiantes() {
                                             <p class="card-text"><small class="text-body-secondary"><b>Nombre</b></small></p>
                                             <p class="card-text"><small class="text-body-secondary"><b>Programa</b></small></p>
                                             <p class="card-text"><small class="text-body-secondary"><b>Tiempo de reunión</b></small></p>
-                                            <p class="card-text"><small class="text-body-secondary"><b>Fecha</b></small></p>
+                                            <p class="card-text"><small class="text-body-secondary"><b>Fecha de reunión</b></small></p>
                                         </div>
                                     </div>
                                 </div>
