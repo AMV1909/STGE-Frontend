@@ -93,8 +93,13 @@ body, html {
     border-radius: 15px;
   }
 
-  
-
+  .login-container a {
+    color: #2a66e7;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 0;
+  }
 
    
   
