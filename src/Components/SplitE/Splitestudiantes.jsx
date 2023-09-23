@@ -7,3 +7,5 @@ export const Splitestudiantes = ({ children }) => {
     </div>
   );
 };
+
+export default Splitestudiantes;

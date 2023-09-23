@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import jwtDecode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 /* boostrap*/
 import "./SignUp.css";
-import { Link } from "react-router-dom";
 
 export function SignUp() {
     const [user, setUser] = useState(null);
@@ -41,7 +40,6 @@ export function SignUp() {
 
     const handleCallbackResponse = (response) => {
         localStorage.setItem("googleToken", response?.credential);
-        setUser(jwtDecode(response?.credential));
     };
 
     const handleSignOut = () => {
@@ -70,7 +68,7 @@ export function SignUp() {
                                 </div>
                             )}
                             <hr />
-                            <form>
+                            <form className="login">
                                 <input
                                     type="text"
                                     placeholder="Nombre de usuario"
@@ -79,7 +77,9 @@ export function SignUp() {
                                     type="password"
                                     placeholder="Contraseña"
                                 />
+                                
                                 <button type="submit">Registrarme</button>
+                                <a href="/">Iniciar Sesion</a>
                             </form>
 
                             <hr />

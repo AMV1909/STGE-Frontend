@@ -15,6 +15,16 @@
   overflow-y: auto;
 }
 
+.splitestudiante > .left-columnCursos {
+  flex: 1;
+
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
 /* Columna derecha */
 .splitestudiante > .right-column {
   flex: 1;
@@ -25,3 +35,11 @@
   box-sizing: border-box;
   overflow-y: auto;
 }
+
+/* Media query para dispositivos pequeños */
+@media (max-width: 768px) {
+  .splitestudiante {
+    flex-direction: column;
+  }
+}
+

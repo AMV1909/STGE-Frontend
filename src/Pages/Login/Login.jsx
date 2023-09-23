@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import jwtDecode from "jwt-decode";
 
 /* boostrap*/
 import "./Login.css";
 import { Link } from "react-router-dom";
+
 
 export function Login() {
     const [user, setUser] = useState(null);
@@ -49,6 +51,8 @@ export function Login() {
         setUser(null);
     };
 
+    const navigate = useNavigate();
+
     return (
         <div className="container">
             <div className="image-container ">
@@ -84,7 +88,7 @@ export function Login() {
                                 </div>
                             )}
                             <hr />
-                            <form>
+                            <form className="login">
                                 <input
                                     type="text"
                                     placeholder="Nombre de usuario"
@@ -93,7 +97,12 @@ export function Login() {
                                     type="password"
                                     placeholder="Contraseña"
                                 />
-                                <button type="submit">Iniciar sesión</button>
+
+                                
+                                <button type="submit" onClick={() => navigate("home")}>Iniciar sesión</button>
+
+
+                                <a href="/sign-up">Registrarse</a>
                             </form>
 
                             <hr />
@@ -105,5 +114,7 @@ export function Login() {
                 </div>
             </div>
         </div>
+
+
     );
 }
