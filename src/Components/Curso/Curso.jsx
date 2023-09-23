@@ -1,3 +1,4 @@
+import './Curso.css'
 export function Curso({ course, handleSelectCourse }) {
     return (
         <div className="card cardstyle">
@@ -40,3 +41,4 @@ export function Curso({ course, handleSelectCourse }) {
         </div>
     );
 }
+export default Curso;
