@@ -4,6 +4,7 @@ import jwtDecode from "jwt-decode";
 
 /* boostrap*/
 import "./SignUp.css";
+import { Route } from "react-router-dom";
 
 export function SignUp() {
     const [user, setUser] = useState(null);
@@ -69,7 +70,7 @@ export function SignUp() {
                                 </div>
                             )}
                             <hr />
-                            <form>
+                            <form className="login">
                                 <input
                                     type="text"
                                     placeholder="Nombre de usuario"
@@ -78,7 +79,9 @@ export function SignUp() {
                                     type="password"
                                     placeholder="Contraseña"
                                 />
+                                
                                 <button type="submit">Registrarme</button>
+                                <a href="/">Iniciar Sesion</a>
                             </form>
                         </div>
                     </div>

@@ -1,0 +1,142 @@
+.Textdiv {
+    background-color: #c54d19;
+}
+
+.textside {
+
+
+    color: white;
+    font-weight: bolder;
+    margin-top: 30%;
+
+    padding: 5px;
+    text-align: center;
+}
+
+.titulo1 {
+    font-size: 80px;
+    font-weight: bold;
+
+}
+
+.text {
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+.Cursos {
+
+    color: white;
+    font-weight: bolder;
+
+    text-align: center;
+    font-size: 60px;
+}
+
+.cardCurso p {
+    font-size: large;
+    text-align: left;
+
+}
+
+.cardstyle {
+    margin-bottom: 10px;
+}
+
+.tituloCursos {
+    color: #201f1f;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.PGA {
+
+    color: rgb(34, 34, 34);
+    font-weight: 500;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.imgCurso {
+
+    border-radius: 10px;
+
+}
+
+.Checkbox {
+
+    width: 30px;
+    height: 48px;
+    margin-top: 100%;
+
+    cursor: pointer;
+}
+
+.Checkbox:checked {
+    background-color: #c54d19;
+
+
+}
+
+.chekCol {
+    background-color: #c54d19;
+    width: auto;
+}
+@media screen and (max-width: 600px) {
+     
+    .textside {
+        margin-top: 10%;
+    }
+    .titulo1 {
+        font-size: 50px;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .Cursos {
+        font-size: 40px;
+    }
+    .tituloCursos {
+        font-size: 30px;
+    }
+    .cardCurso p {
+        font-size: 15px;
+    }
+    .imgCurso {
+        width: 100%;
+        height: 100%;
+    }
+    .Checkbox {
+        width: 20px;
+        height: 30px;
+        margin-top: 100%;
+    }
+    .Checkbox:checked {
+        background-color: #c54d19;
+    }
+    .chekCol {
+        background-color: #c54d19;
+        width: auto;
+    }
+
+}
+
+.btnCurso{
+    background-color: #c54d19;
+    color: white;
+    border: 0px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btnCurso:hover{
+    background-color: #e26935;
+    
+}
