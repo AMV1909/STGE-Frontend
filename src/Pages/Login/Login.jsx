@@ -1,57 +1,80 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import jwtDecode from "jwt-decode";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
+
+import { useUserActions } from "../../Hooks/useUserActions";
+import { googleLogin } from "../../API/Session";
 
 /* boostrap*/
 import "./Login.css";
-import { Link } from "react-router-dom";
-
 
 export function Login() {
-    const [user, setUser] = useState(null);
-
-    // eslint-disable-next-line no-unused-vars
-    const [cookies, removeCookie] = useCookies(["g_state"]);
-
-    useEffect(() => {
-        if (!google) window.location.reload();
-    }, []);
-
-    useEffect(() => {
-        // Global Google
-        google.accounts.id.initialize({
-            client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-            callback: handleCallbackResponse,
-        });
-
-        // Google Button
-        google.accounts.id.renderButton(
-            document.getElementById("google-login-button"),
-            {
-                theme: "outline",
-                size: "large",
-            }
-        );
-
-        // Google Prompt
-        if (!user) {
-            removeCookie("g_state");
-            google.accounts.id.prompt();
-        }
-    }, [user, removeCookie]);
-
-    const handleCallbackResponse = (response) => {
-        localStorage.setItem("googleToken", response?.credential);
-        setUser(jwtDecode(response?.credential));
-    };
-
-    const handleSignOut = () => {
-        localStorage.removeItem("googleToken");
-        setUser(null);
-    };
-
     const navigate = useNavigate();
+    const { setUser } = useUserActions();
+    const [, removeCookie] = useCookies(["g_state"]);
+    const [data, setData] = useState({
+        email: "",
+        password: "",
+    });
+
+    useEffect(() => {
+        removeCookie("g_state", []);
+    }, [removeCookie]);
+
+    const onChange = (e) => {
+        setData({
+            ...data,
+            [e.currentTarget.name]: e.currentTarget.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    const handleGoogleLogin = async (response) => {
+        if (!response.credential) {
+            return toast.error("Error al iniciar sesión", { duration: 5000 });
+        }
+
+        localStorage.setItem("google-token", response.credential);
+
+        toast.loading("Iniciando sesión...", { id: "loading", duration: 5000 });
+
+        await googleLogin()
+            .then((res) => {
+                toast.dismiss("loading");
+
+                setUser(res.data);
+                localStorage.setItem("token", res.token);
+                navigate("/home");
+
+                toast.success("Sesion iniciada con éxito", { duration: 5000 });
+            })
+            .catch((err) => {
+                toast.dismiss("loading");
+                toast.error("Error al iniciar sesión", { duration: 5000 });
+
+                if (!err.response) return toast.error(err.message);
+                if (err.response.status === 404)
+                    toast.error(
+                        "No se encontró un usuario registrado con ese correo",
+                        {
+                            duration: 5000,
+                        }
+                    );
+            });
+    };
+
+    useGoogleOneTapLogin({
+        onSuccess: (response) => handleGoogleLogin(response),
+        onError: () =>
+            toast.error("Error al iniciar sesión", { duration: 5000 }),
+
+        cancel_on_tap_outside: false,
+    });
 
     return (
         <div className="container">
@@ -75,34 +98,40 @@ export function Login() {
                         <h3 className="logintext">Login</h3>
 
                         <div className="card-body">
-                            {!user && <div id="google-login-button"></div>}
-
-                            {user && (
-                                <div>
-                                    <h2>User</h2>
-                                    <p>{user.name}</p>
-                                    <img src={user.picture} alt={user.name} />
-                                    <button onClick={(e) => handleSignOut(e)}>
-                                        Sign Out
-                                    </button>
-                                </div>
-                            )}
+                            <div id="google-login-button">
+                                <GoogleLogin
+                                    size="large"
+                                    onSuccess={handleGoogleLogin}
+                                    onError={() =>
+                                        toast.error("Error al iniciar sesión", {
+                                            duration: 5000,
+                                        })
+                                    }
+                                />
+                            </div>
                             <hr />
-                            <form className="login">
+                            <form onSubmit={handleSubmit} className="login">
                                 <input
-                                    type="text"
-                                    placeholder="Nombre de usuario"
+                                    name="email"
+                                    type="email"
+                                    placeholder="Correo electrónico"
+                                    onChange={onChange}
+                                    required
                                 />
                                 <input
+                                    name="password"
                                     type="password"
                                     placeholder="Contraseña"
+                                    onChange={onChange}
+                                    required
                                 />
 
-                                
-                                <button type="submit" onClick={() => navigate("home")}>Iniciar sesión</button>
-
-
-                                <a href="/sign-up">Registrarse</a>
+                                <button
+                                    type="submit"
+                                    onClick={() => navigate("home")}
+                                >
+                                    Iniciar sesión
+                                </button>
                             </form>
 
                             <hr />
@@ -114,7 +143,5 @@ export function Login() {
                 </div>
             </div>
         </div>
-
-
     );
 }
