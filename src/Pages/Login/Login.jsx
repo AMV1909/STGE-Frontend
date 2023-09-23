@@ -5,6 +5,7 @@ import jwtDecode from "jwt-decode";
 
 /* boostrap*/
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 
 export function Login() {
@@ -104,7 +105,10 @@ export function Login() {
                                 <a href="/sign-up">Registrarse</a>
                             </form>
 
-                          
+                            <hr />
+                            <div>
+                                <Link to="/sign-up">Registrarse</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
