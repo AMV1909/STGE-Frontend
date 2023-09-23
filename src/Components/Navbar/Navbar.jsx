@@ -11,7 +11,7 @@ export function Navbar() {
         <div>
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid navcolor">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="/home">
                         Logo Aca
                     </a>
                     <button
@@ -34,7 +34,7 @@ export function Navbar() {
                                 <a
                                     className="nav-link "
                                     aria-current="page"
-                                    href="#"
+                                    href="/listado-estudiantes"
                                 >
                                     Listado de estudiantes
                                 </a>

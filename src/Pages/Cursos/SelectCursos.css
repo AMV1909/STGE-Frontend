@@ -33,15 +33,6 @@
     font-size: 60px;
 }
 
-.cardCurso p {
-    font-size: large;
-    text-align: left;
-
-}
-
-.cardstyle {
-    margin-bottom: 10px;
-}
 
 .tituloCursos {
     color: #201f1f;
@@ -60,31 +51,9 @@
 
 }
 
-.imgCurso {
-
-    border-radius: 10px;
-
-}
-
-.Checkbox {
-
-    width: 30px;
-    height: 48px;
-    margin-top: 100%;
-
-    cursor: pointer;
-}
-
-.Checkbox:checked {
-    background-color: #c54d19;
 
 
-}
 
-.chekCol {
-    background-color: #c54d19;
-    width: auto;
-}
 @media screen and (max-width: 600px) {
      
     .textside {
@@ -102,25 +71,7 @@
     .tituloCursos {
         font-size: 30px;
     }
-    .cardCurso p {
-        font-size: 15px;
-    }
-    .imgCurso {
-        width: 100%;
-        height: 100%;
-    }
-    .Checkbox {
-        width: 20px;
-        height: 30px;
-        margin-top: 100%;
-    }
-    .Checkbox:checked {
-        background-color: #c54d19;
-    }
-    .chekCol {
-        background-color: #c54d19;
-        width: auto;
-    }
+    
 
 }
 

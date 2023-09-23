@@ -1,4 +1,4 @@
-import { Splitestudiantes } from '../../Components'
+import { Splitestudiantes,Curso } from '../../Components'
 import './SelectCursos.css'
 
 export function SelectCursos() {
@@ -20,6 +20,7 @@ export function SelectCursos() {
 
                         <div className='Cursos-Container'>
 
+                            <Curso />
                             
 
                         </div>
