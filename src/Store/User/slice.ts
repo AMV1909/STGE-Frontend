@@ -11,6 +11,7 @@ const initialState: User = {
     career: "",
     coursesToTeach: [],
     score: 0,
+    pga: 0
 };
 
 export const userSlice = createSlice({
