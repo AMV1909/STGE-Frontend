@@ -9,6 +9,7 @@ import { getUserData } from "../../API/Session";
 
 /* boostrap*/
 import "./SignUp.css";
+import { ToastRegistro } from "../../Components/Toast Registro/ToastRegistro";
 
 export function SignUp() {
     const navigate = useNavigate();
@@ -123,7 +124,7 @@ export function SignUp() {
                                     required
                                 />
 
-                                <button type="submit">Registrarme</button>
+                                <button type="submit" onClick={ () => toast (<ToastRegistro/> ,{duration : 1000000} )  }>Registrarme</button>
                             </form>
 
                             <hr />

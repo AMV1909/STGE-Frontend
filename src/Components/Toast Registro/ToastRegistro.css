@@ -1,0 +1,28 @@
+.divform{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.estudianteLabel{
+    margin-left: 130px;
+}
+.btnToast{
+    background-color: #3d62e7;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 30%;
+}
+.divSeleccion{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
