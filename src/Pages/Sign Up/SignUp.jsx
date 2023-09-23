@@ -1,51 +1,90 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
+
+import { useTempUserActions } from "../../Hooks/useTempUserActions";
+import { getUserData } from "../../API/Session";
 
 /* boostrap*/
 import "./SignUp.css";
 
 export function SignUp() {
-    const [user, setUser] = useState(null);
-
-    // eslint-disable-next-line no-unused-vars
-    const [cookies, removeCookie] = useCookies(["g_state"]);
+    const navigate = useNavigate();
+    const { setTempUser } = useTempUserActions();
+    const [, removeCookie] = useCookies(["g_state"]);
+    const [data, setData] = useState({
+        email: "",
+        password: "",
+    });
 
     useEffect(() => {
-        if (!google) window.location.reload();
-    }, []);
+        removeCookie("g_state", []);
+    }, [removeCookie]);
 
-    useEffect(() => {
-        // Global Google
-        google.accounts.id.initialize({
-            client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-            callback: handleCallbackResponse,
+    const onChange = (e) => {
+        setData({
+            ...data,
+            [e.currentTarget.name]: e.currentTarget.value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    const handleGoogleRegister = async (response) => {
+        if (!response.credential) {
+            return toast.error("Error al registrarse", { duration: 5000 });
+        }
+
+        localStorage.setItem("google-token", response.credential);
+
+        toast.loading("Obteniendo información...", {
+            id: "loading",
+            duration: 5000,
         });
 
-        // Google Button
-        google.accounts.id.renderButton(
-            document.getElementById("google-login-button"),
-            {
-                theme: "outline",
-                size: "large",
-            }
-        );
+        await getUserData()
+            .then((res) => {
+                toast.dismiss("loading");
 
-        // Google Prompt
-        if (!user) {
-            removeCookie("g_state");
-            google.accounts.id.prompt();
-        }
-    }, [user, removeCookie]);
+                res.courses.forEach((course) => {
+                    return (course.grade = Number(course.grade));
+                });
 
-    const handleCallbackResponse = (response) => {
-        localStorage.setItem("googleToken", response?.credential);
+                setTempUser(res);
+                navigate("/select-cursos");
+
+                toast.success("Bienvenido", { duration: 5000 });
+                toast.success(
+                    "Por favor, seleccione los cursos que desea registrar",
+                    {
+                        duration: 5000,
+                    }
+                );
+            })
+            .catch((err) => {
+                toast.dismiss("loading");
+                toast.error("Error al registrarse", { duration: 5000 });
+
+                if (err.response?.status === 405) {
+                    return toast.error("Ya existe una cuenta con este correo", {
+                        duration: 5000,
+                    });
+                }
+
+                toast.error(err.message, { duration: 5000 });
+            });
     };
 
-    const handleSignOut = () => {
-        localStorage.removeItem("googleToken");
-        setUser(null);
-    };
+    useGoogleOneTapLogin({
+        onSuccess: (response) => handleGoogleRegister(response),
+        onError: () => toast.error("Error al registrarse", { duration: 5000 }),
+
+        cancel_on_tap_outside: false,
+    });
 
     return (
         <div className="container">
@@ -55,31 +94,36 @@ export function SignUp() {
                         <h3 className="logintext">Register</h3>
 
                         <div className="card-body">
-                            {!user && <div id="google-login-button"></div>}
+                            <div id="google-login-button">
+                                <GoogleLogin
+                                    size="large"
+                                    onSuccess={handleGoogleRegister}
+                                    onError={() =>
+                                        toast.error("Error al registrarse", {
+                                            duration: 5000,
+                                        })
+                                    }
+                                />
+                            </div>
 
-                            {user && (
-                                <div>
-                                    <h2>User</h2>
-                                    <p>{user.name}</p>
-                                    <img src={user.picture} alt={user.name} />
-                                    <button onClick={(e) => handleSignOut(e)}>
-                                        Sign Out
-                                    </button>
-                                </div>
-                            )}
                             <hr />
-                            <form className="login">
+                            <form onSubmit={handleSubmit} className="login">
                                 <input
-                                    type="text"
-                                    placeholder="Nombre de usuario"
+                                    name="email"
+                                    type="email"
+                                    placeholder="Correo electrónico"
+                                    onChange={onChange}
+                                    required
                                 />
                                 <input
+                                    name="password"
                                     type="password"
                                     placeholder="Contraseña"
+                                    onChange={onChange}
+                                    required
                                 />
-                                
+
                                 <button type="submit">Registrarme</button>
-                                <a href="/">Iniciar Sesion</a>
                             </form>
 
                             <hr />

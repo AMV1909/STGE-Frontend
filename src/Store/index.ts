@@ -1,30 +1,12 @@
-import { configureStore, Middleware } from "@reduxjs/toolkit";
-
+import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "./User/slice";
-
-const syncWithDatabaseMiddleware: Middleware =
-    () => (next) => (action) => {
-        const { type } = action;
-
-        next(action);
-
-        switch (type) {
-            case "user/setUserInfo": {
-                // TODO: sync with database
-
-                break;
-            }
-
-            default:
-                break;
-        }
-    };
+import tempUserReducer from "./TempUser/slice";
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
+        tempUser: tempUserReducer,
     },
-    middleware: [syncWithDatabaseMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
