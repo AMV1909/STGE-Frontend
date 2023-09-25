@@ -1,28 +1,12 @@
 
-.divList{
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-   
-}
-.head{
-padding: 0%;
-margin-bottom: 10px;
-
-
-}
 .headUser img{
 width: 100%;
 height: 100%;
 margin: auto;
 padding: 10px;
 }
-.imgUserdiv{
-margin: auto;; 
-}
-.imgUserdiv img{
-padding: 10%;
-}
+
+
 .imgcontainer{
 border: 1px solid #ccc;
 width: auto;
@@ -35,9 +19,7 @@ margin: auto;
 
 
 }
-.programa{
-margin-bottom: 0%;
-}
+
 
 #UserSeleccionado{
 background-color: #ccc;
@@ -49,19 +31,5 @@ width: 30%;
 height: 30%;
 
 }
-.rowUsuario{
-
-flex-direction: column;
 
 
-margin: 10px;
-padding: 10px;
-border-radius: 10px;
-width: auto 
-}
-
-.cardUser p{
-font-size: small;
-text-align: left;
-
-}

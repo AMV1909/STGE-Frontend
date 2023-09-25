@@ -34,7 +34,7 @@ export function Navbar() {
                                 <a
                                     className="nav-link "
                                     aria-current="page"
-                                    href="/listado-estudiantes"
+                                    href="/lista-estudiantes"
                                 >
                                     Listado de estudiantes
                                 </a>

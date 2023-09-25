@@ -1,0 +1,37 @@
+#UserSeleccionado {
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    margin-left: 35%;
+    width: 30%;
+    height: 30%;
+
+}
+
+.imgcontainer {
+    border: 1px solid #ccc;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+
+
+.rowUsuario{
+flex-direction: column;
+margin: 10px;
+padding: 10px;
+border-radius: 10px;
+width: auto 
+}
+
+.imgcontainer p {
+    
+    margin: auto;
+}
+.cardUser p{
+    font-size: small;
+    text-align: left;
+    
+    }
