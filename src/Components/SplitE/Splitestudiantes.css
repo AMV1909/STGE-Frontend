@@ -36,6 +36,18 @@
   overflow-y: auto;
 }
 
+.splitestudiante > .right-columnHome {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+
 /* Media query para dispositivos pequeños */
 @media (max-width: 768px) {
   .splitestudiante {

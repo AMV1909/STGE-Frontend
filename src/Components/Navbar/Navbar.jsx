@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
+
 export function Navbar() {
+    const navigate = useNavigate();
+    
     if (
         window.location.pathname === "/" ||
         window.location.pathname === "/sign-up"
+        
     )
         return null;
 
@@ -34,7 +39,7 @@ export function Navbar() {
                                 <a
                                     className="nav-link "
                                     aria-current="page"
-                                    href="/listado-estudiantes"
+                                    href="/lista-estudiantes"
                                 >
                                     Listado de estudiantes
                                 </a>
@@ -54,9 +59,11 @@ export function Navbar() {
                             />
                         </form>
                         <button
+                            onClick={() => navigate("/perfil")}
                             type="button"
                             className="btn btn-outline-light btn-user"
                         >
+                            
                             <i className="fa-regular fa-user"></i>
                         </button>
                     </div>
