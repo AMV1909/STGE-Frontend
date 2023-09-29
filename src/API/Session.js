@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export const getUserData = async () => {
+export const getTempUserData = async () => {
     return await axios
         .get(`${API_URL}/google/user`, {
             headers: {
@@ -12,7 +12,7 @@ export const getUserData = async () => {
         .then((res) => res.data);
 };
 
-// export const login = async (email, password) => {};
+// export const login = async (email: string, password: string) => {};
 
 export const googleLogin = async () => {
     return await axios
@@ -24,14 +24,11 @@ export const googleLogin = async () => {
         .then((res) => res.data);
 };
 
-export const googleRegister = async (coursesToTeach, role = "Student") => {
+export const googleRegisterTutor = async (coursesToTeach) => {
     return await axios
         .post(
-            `${API_URL}/google/register`,
-            {
-                role,
-                coursesToTeach,
-            },
+            `${API_URL}/google/register/tutor`,
+            { coursesToTeach },
             {
                 headers: {
                     "x-google-access-token":
@@ -39,5 +36,15 @@ export const googleRegister = async (coursesToTeach, role = "Student") => {
                 },
             }
         )
+        .then((res) => res.data);
+};
+
+export const googleRegisterStudent = async () => {
+    return await axios
+        .post(`${API_URL}/google/register/student`, null, {
+            headers: {
+                "x-google-access-token": localStorage.getItem("google-token"),
+            },
+        })
         .then((res) => res.data);
 };

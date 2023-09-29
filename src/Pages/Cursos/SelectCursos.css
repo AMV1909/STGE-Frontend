@@ -33,6 +33,15 @@
     font-size: 60px;
 }
 
+.Cursos-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Cursos p {
+    display: inline;
+}
+
 
 .tituloCursos {
     color: #201f1f;
@@ -81,7 +90,7 @@
     border: 0px;
     font-weight: bold;
     border-radius: 10px;
-    width: 100%;
+    padding: 0.5rem;
     height: 50px;
     font-size: 20px;
     margin-top: 10px;

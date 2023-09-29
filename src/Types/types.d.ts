@@ -5,10 +5,27 @@ export type User = {
     email: string;
     // password: string;
     picture: string;
-    career: string;
-    pga: number;
+    career?: string;
+    pga?: number;
     coursesToTeach?: Course[];
     score?: number;
+    countReviews?: number;
+    meetingTime?: number;
+};
+
+export type Tutor = {
+    _id: string;
+    role: "Tutor";
+    name: string;
+    email: string;
+    // password: string;
+    picture: string;
+    career: string;
+    pga: number;
+    coursesToTeach: Course;
+    score: number;
+    countReviews: number;
+    meetingTime: number;
 };
 
 export type Course = {
@@ -35,4 +52,14 @@ export enum PathRoutes {
     Login = "/login",
     Register = "/register",
     SelectCoursesToTeach = "/select-courses-to-teach",
+    TutorsList = "/tutors-list",
+    Admin = "/admin",
+    Profile = "/profile",
 }
+
+export type ProfileTabs =
+    | ""
+    | "schedule"
+    | "scheduled"
+    | "completed"
+    | "modify";

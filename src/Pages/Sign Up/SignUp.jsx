@@ -1,19 +1,14 @@
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
-
-import { useTempUserActions } from "../../Hooks/useTempUserActions";
-import { getUserData } from "../../API/Session";
 
 /* boostrap*/
 import "./SignUp.css";
 import { ToastRegistro } from "../../Components/Toast Registro/ToastRegistro";
 
 export function SignUp() {
-    const navigate = useNavigate();
-    const { setTempUser } = useTempUserActions();
     const [, removeCookie] = useCookies(["g_state"]);
     const [data, setData] = useState({
         email: "",
@@ -42,42 +37,7 @@ export function SignUp() {
 
         localStorage.setItem("google-token", response.credential);
 
-        toast.loading("Obteniendo información...", {
-            id: "loading",
-            duration: 5000,
-        });
-
-        await getUserData()
-            .then((res) => {
-                toast.dismiss("loading");
-
-                res.courses.forEach((course) => {
-                    return (course.grade = Number(course.grade));
-                });
-
-                setTempUser(res);
-                navigate("/select-cursos");
-
-                toast.success("Bienvenido", { duration: 5000 });
-                toast.success(
-                    "Por favor, seleccione los cursos que desea registrar",
-                    {
-                        duration: 5000,
-                    }
-                );
-            })
-            .catch((err) => {
-                toast.dismiss("loading");
-                toast.error("Error al registrarse", { duration: 5000 });
-
-                if (err.response?.status === 405) {
-                    return toast.error("Ya existe una cuenta con este correo", {
-                        duration: 5000,
-                    });
-                }
-
-                toast.error(err.message, { duration: 5000 });
-            });
+        toast((t) => <ToastRegistro t={t} />, { duration: Infinity });
     };
 
     useGoogleOneTapLogin({
@@ -124,7 +84,16 @@ export function SignUp() {
                                     required
                                 />
 
-                                <button type="submit" onClick={ () => toast (<ToastRegistro/> ,{duration : 1000000} )  }>Registrarme</button>
+                                <button
+                                    type="submit"
+                                    onClick={() =>
+                                        toast(<ToastRegistro />, {
+                                            duration: 1000000,
+                                        })
+                                    }
+                                >
+                                    Registrarme
+                                </button>
                             </form>
 
                             <hr />

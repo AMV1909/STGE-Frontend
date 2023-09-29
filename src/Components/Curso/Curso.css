@@ -3,6 +3,7 @@
 .cardCurso p {
     font-size: large;
     text-align: left;
+    display: block !important;
 
 }
 

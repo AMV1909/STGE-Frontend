@@ -1,14 +1,23 @@
-import './Curso.css'
+import "./Curso.css";
+
 export function Curso({ course, handleSelectCourse }) {
     return (
         <div className="card cardstyle">
             <div className="row g-0">
                 <div className="col-md-1 checkCol">
                     <input
+                        style={
+                            course.grade >= 3.8
+                                ? {}
+                                : { appearance: "none", cursor: "auto" }
+                        }
                         type="checkbox"
                         name="SeleccionCurso"
-                        id=""
+                        id={course.nrc}
                         className="Checkbox"
+                        onClick={() =>
+                            course.grade >= 3.8 && handleSelectCourse(course)
+                        }
                     />
                 </div>
                 <div className="col-md-3 imgCurso">
@@ -22,17 +31,20 @@ export function Curso({ course, handleSelectCourse }) {
                     <div className="card-body cardCurso">
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                <b>Nombre del curso :</b>
+                                <b>Nombre del curso : {course.name}</b>
                             </small>
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                <b>Nota final :</b>
+                                <b>Nota final : {course.grade}</b>
                             </small>
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                <b>Aprobado :</b>
+                                <b>
+                                    Aprobado :{" "}
+                                    {course.grade >= 3.8 ? "Sí" : "No"}
+                                </b>
                             </small>
                         </p>
                     </div>

@@ -17,11 +17,8 @@ export const tempUserSlice = createSlice({
     name: "tempUser",
     initialState,
     reducers: {
-        setTempUserInfo: (state, action: PayloadAction<TempUser>) => {
-            return {
-                ...state,
-                ...action.payload,
-            };
+        setTempUserInfo: (_, action: PayloadAction<TempUser>) => {
+            return { ...action.payload };
         },
 
         deleteTempUserInfo: () => {

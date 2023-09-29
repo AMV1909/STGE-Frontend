@@ -1,36 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../Types/types";
+import { User } from "../../Types/types.d";
 
 const initialState: User = {
     _id: "",
     role: "Student",
     name: "",
     email: "",
-    // password: "",
     picture: "",
     career: "",
     coursesToTeach: [],
     score: 0,
-    pga: 0
+    pga: 0,
+    countReviews: 0,
+    meetingTime: 0,
 };
 
 export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        setUserInfo: (state, action: PayloadAction<User>) => {
-            return {
-                ...state,
-                ...action.payload,
-                coursesToTeach:
-                    action.payload.role === "Tutor"
-                        ? action.payload.coursesToTeach
-                        : undefined,
-                score:
-                    action.payload.role === "Tutor"
-                        ? action.payload.score
-                        : undefined,
-            };
+        setUserInfo: (_, action: PayloadAction<User>) => {
+            return { ...action.payload };
         },
 
         logout: () => {
