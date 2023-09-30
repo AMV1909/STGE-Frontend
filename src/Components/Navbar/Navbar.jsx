@@ -57,6 +57,11 @@ export function Navbar() {
                                 placeholder="Search"
                                 aria-label="Search"
                             />
+                            <select name="" id="Filtro">
+                                <option value="">Cursos</option>
+                                <option value="">Tutores</option>
+                                
+                            </select>
                         </form>
                         <button
                             onClick={() => navigate("/perfil")}

@@ -36,13 +36,31 @@ export function Curso({ course, handleSelectCourse }) {
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                <b>Nota final : {course.grade}</b>
+                            <b>Nota final : </b>
+                                <b
+                                    style={
+                                        course.grade >= 3.8
+                                            ? { color: "#1E8449" }
+                                            : { color: "#C0392B" }
+                                    }
+                                >
+                                {course.grade}
+                                </b>
                             </small>
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
                                 <b>
-                                    Aprobado :{" "}
+                                    Aprobado :
+                                </b>
+                                <b
+                                style={
+                                    course.grade >= 3.8
+                                        ? { color: "#1E8449" }
+                                        : { color: "#C0392B" }
+                                }
+                                >
+                                    {" "}
                                     {course.grade >= 3.8 ? "Sí" : "No"}
                                 </b>
                             </small>
