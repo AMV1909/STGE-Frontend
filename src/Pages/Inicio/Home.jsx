@@ -11,8 +11,9 @@ export function Home() {
 
 
           <div className="row divList ">
+          
 
-            <CardTutor />
+            <CardTutor/>
 
           </div>
         </div>

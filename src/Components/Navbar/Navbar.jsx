@@ -50,19 +50,22 @@ export function Navbar() {
                                 </a>
                             </li>
                         </ul>
+                        
                         <form className="d-flex" role="search">
                             <input
                                 className="form-control me-2 search"
                                 type="Buscar"
-                                placeholder="Search"
+                                placeholder="Buscar"
                                 aria-label="Search"
                             />
-                            <select name="" id="Filtro">
-                                <option value="">Cursos</option>
-                                <option value="">Tutores</option>
+                             <select className="form-select" name="" id="Filtro">
+                                <option className="options" value="">Cursos</option>
+                                <option className="options" value="">Tutores</option>
                                 
                             </select>
+                            
                         </form>
+                       
                         <button
                             onClick={() => navigate("/perfil")}
                             type="button"
