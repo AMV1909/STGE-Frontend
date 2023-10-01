@@ -1,5 +1,7 @@
 // this is the card for the tutors
 
+import { getTutors } from "../../API/Tutors";
+import { useAppSelector } from "../../Hooks/store";
 import "./CardTutor.css";
 import ReactStars from "react-rating-stars-component";
 export function CardTutor() {
@@ -8,7 +10,7 @@ export function CardTutor() {
         console.log(newRating);
       };
         document.getElementById("where-to-render")
-
+      
     return (
 
         <>
@@ -19,8 +21,8 @@ export function CardTutor() {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body cardUserT">
-                            <p className="card-nombre"><b>Nombre:</b></p>
-                            <p className="card-text programa"><b>Programa:</b></p>
+                            <p className="card-nombre"><b>Nombre: </b></p>
+                            <p className="card-text programa"><b>Programa:  </b></p>
 
                             <ReactStars
                                 count={5}

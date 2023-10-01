@@ -30,3 +30,26 @@
 .search{
     border-radius: 10px;
 }
+#Filtro{
+    background-color: #c54d19;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-color: #c54d19;
+    width: 10%;
+    
+    
+}
+
+.options{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-color: #c54d19;
+    border-radius: 30px;
+}
