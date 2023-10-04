@@ -43,6 +43,10 @@ p.dato{
     background-color:rgb(215, 215, 215);
     
 }
+
+.HiddenAsignatura{
+    display: none;
+}
 @media screen and (max-width: 600px) {
     #imgUsuario{
         width: 100px;
