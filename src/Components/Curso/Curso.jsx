@@ -2,7 +2,9 @@ import "./Curso.css";
 
 export function Curso({ course, handleSelectCourse }) {
     return (
+      
         <div className="card cardstyle">
+            
             <div className="row g-0">
                 <div className="col-md-1 checkCol">
                     <input
