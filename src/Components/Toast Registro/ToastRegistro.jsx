@@ -57,6 +57,8 @@ export function ToastRegistro({ t }) {
                     toast.dismiss("loading");
                     toast.error("Error al registrarse", { duration: 5000 });
 
+                    console.log(err);
+
                     if (err.response?.status === 400) {
                         return toast.error(
                             "El correo seleccionado no es válido",

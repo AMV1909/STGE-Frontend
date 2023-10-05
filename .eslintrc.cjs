@@ -17,8 +17,5 @@ module.exports = {
             { allowConstantExport: true },
         ],
         "react/prop-types": "off",
-    },
-    globals: {
-        google: "readonly",
-    },
+    }
 };

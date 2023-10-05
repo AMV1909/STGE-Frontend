@@ -1,23 +1,19 @@
-import { useState, useEffect } from "react";
-import { useCookies } from "react-cookie";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
+import {
+    useGoogleLogin,
+} from "@react-oauth/google";
 
 /* boostrap*/
 import "./SignUp.css";
 import { ToastRegistro } from "../../Components/Toast Registro/ToastRegistro";
 
 export function SignUp() {
-    const [, removeCookie] = useCookies(["g_state"]);
     const [data, setData] = useState({
         email: "",
         password: "",
     });
-
-    useEffect(() => {
-        removeCookie("g_state", []);
-    }, [removeCookie]);
 
     const onChange = (e) => {
         setData({
@@ -31,20 +27,23 @@ export function SignUp() {
     };
 
     const handleGoogleRegister = async (response) => {
-        if (!response.credential) {
+        if (!response) {
             return toast.error("Error al registrarse", { duration: 5000 });
         }
 
-        localStorage.setItem("google-token", response.credential);
+        localStorage.setItem("google-token", response.access_token);
 
         toast((t) => <ToastRegistro t={t} />, { duration: Infinity });
     };
 
-    useGoogleOneTapLogin({
-        onSuccess: (response) => handleGoogleRegister(response),
-        onError: () => toast.error("Error al registrarse", { duration: 5000 }),
-
-        cancel_on_tap_outside: false,
+    const googleRegisterHook = useGoogleLogin({
+        flow: "implicit",
+        scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/gmail.send",
+        onSuccess: handleGoogleRegister,
+        onError: () =>
+            toast.error("Error al registrarse", {
+                duration: 5000,
+            }),
     });
 
     return (
@@ -55,16 +54,13 @@ export function SignUp() {
                         <h3 className="logintext">Register</h3>
 
                         <div className="card-body">
-                            <div id="google-login-button">
-                                <GoogleLogin
-                                    size="large"
-                                    onSuccess={handleGoogleRegister}
-                                    onError={() =>
-                                        toast.error("Error al registrarse", {
-                                            duration: 5000,
-                                        })
-                                    }
-                                />
+                            <div id="google-register-button">
+                                <button
+                                    type="button"
+                                    onClick={() => googleRegisterHook()}
+                                >
+                                    Registrarse con Google 🚀
+                                </button>
                             </div>
 
                             <hr />

@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { useCookies } from "react-cookie";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 
 import { useUserActions } from "../../Hooks/useUserActions";
 import { googleLogin } from "../../API/Session";
@@ -13,15 +12,10 @@ import "./Login.css";
 export function Login() {
     const navigate = useNavigate();
     const { setUser } = useUserActions();
-    const [, removeCookie] = useCookies(["g_state"]);
     const [data, setData] = useState({
         email: "",
         password: "",
     });
-
-    useEffect(() => {
-        removeCookie("g_state", []);
-    }, [removeCookie]);
 
     const onChange = (e) => {
         setData({
@@ -35,11 +29,11 @@ export function Login() {
     };
 
     const handleGoogleLogin = async (response) => {
-        if (!response.credential) {
+        if (!response) {
             return toast.error("Error al iniciar sesión", { duration: 5000 });
         }
 
-        localStorage.setItem("google-token", response.credential);
+        localStorage.setItem("google-token", response.access_token);
 
         toast.loading("Iniciando sesión...", { id: "loading", duration: 5000 });
 
@@ -68,12 +62,14 @@ export function Login() {
             });
     };
 
-    useGoogleOneTapLogin({
-        onSuccess: (response) => handleGoogleLogin(response),
+    const googleLoginHook = useGoogleLogin({
+        flow: "implicit",
+        scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/gmail.send",
+        onSuccess: handleGoogleLogin,
         onError: () =>
-            toast.error("Error al iniciar sesión", { duration: 5000 }),
-
-        cancel_on_tap_outside: false,
+            toast.error("Error al iniciar sesión", {
+                duration: 5000,
+            }),
     });
 
     return (
@@ -99,15 +95,12 @@ export function Login() {
 
                         <div className="card-body">
                             <div id="google-login-button">
-                                <GoogleLogin
-                                    size="large"
-                                    onSuccess={handleGoogleLogin}
-                                    onError={() =>
-                                        toast.error("Error al iniciar sesión", {
-                                            duration: 5000,
-                                        })
-                                    }
-                                />
+                                <button
+                                    type="button"
+                                    onClick={() => googleLoginHook()}
+                                >
+                                    Iniciar Sesión con Google 🚀
+                                </button>
                             </div>
                             <hr />
                             <form onSubmit={handleSubmit} className="login">

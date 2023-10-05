@@ -94,6 +94,13 @@ body, html {
     border-radius: 15px;
   }
 
+  #google-register-button {
+    width: 100%;
+  }
+
+  #google-register-button button {
+    width: 100%;
+  }
   
 
 
