@@ -3,7 +3,7 @@ import './Home.css'
 
 export function Home() {
   return (
-    <div>
+    <div className='home'>
       <Navbar />
       <Splitestudiantes>
         <div className='left-column'>

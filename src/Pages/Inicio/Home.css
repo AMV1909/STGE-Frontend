@@ -25,3 +25,7 @@
     background-color: #e26935;
     
 }
+
+.home .left-column {
+    align-items: start;
+}

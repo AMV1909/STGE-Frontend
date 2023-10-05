@@ -11,6 +11,7 @@ export type User = {
     score?: number;
     countReviews?: number;
     meetingTime?: number;
+    tutorCalendarId?: string;
 };
 
 export type Tutor = {
@@ -26,6 +27,7 @@ export type Tutor = {
     score: number;
     countReviews: number;
     meetingTime: number;
+    tutorCalendarId: string;
 };
 
 export type Course = {

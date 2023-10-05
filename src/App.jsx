@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
+import { ProtectedRoute } from "./Auth/ProtectedRoute";
 import { PageLoader } from "./Components";
 import {
     Login,
@@ -23,19 +24,61 @@ export function App() {
             ) : (
                 <Router>
                     <Routes>
-                        <Route path="/" element={<Login />} />
-                        <Route path="/sign-up" element={<SignUp />} />
-                        <Route path="/home" element={<Home />} />
+                        <Route
+                            path="/"
+                            element={
+                                <ProtectedRoute>
+                                    <Login />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path="/sign-up"
+                            element={
+                                <ProtectedRoute>
+                                    <SignUp />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route
+                            path="/home"
+                            element={
+                                <ProtectedRoute>
+                                    <Home />
+                                </ProtectedRoute>
+                            }
+                        />
+
                         <Route
                             path="/lista-estudiantes"
-                            element={<LEstudiantes />}
+                            element={
+                                <ProtectedRoute>
+                                    <LEstudiantes />
+                                </ProtectedRoute>
+                            }
                         />
-                        <Route path="*" element={<NotFound />} />
+
                         <Route
                             path="/select-cursos"
-                            element={<SelectCursos />}
+                            element={
+                                <ProtectedRoute>
+                                    <SelectCursos />
+                                </ProtectedRoute>
+                            }
                         />
-                        <Route path="/perfil" element={<PerfilUser />} />
+
+                        <Route
+                            path="/perfil"
+                            element={
+                                <ProtectedRoute>
+                                    <PerfilUser />
+                                </ProtectedRoute>
+                            }
+                        />
+
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
 
                     <Toaster />
