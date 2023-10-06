@@ -56,6 +56,9 @@ export function CardTutor() {
                                             isHalf={true}
                                             activeColor="#ffd700"
                                             value={tutor.score}
+                                            disabled={  
+                                                tutor.score === 0 ? true : false
+                                            }
                                         />
 
                                         <p>({tutor.score})</p>

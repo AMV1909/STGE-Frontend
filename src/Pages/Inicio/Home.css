@@ -29,3 +29,16 @@
 .home .left-column {
     align-items: start;
 }
+.imgcontainer{
+border: 1px solid #ccc;
+width: auto;
+height: auto;
+justify-content: center; 
+}
+.imgcontainer p{
+text-align: center;
+margin: auto;
+
+
+}
+

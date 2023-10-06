@@ -11,6 +11,7 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-bottom: 4%;
   }
   
   /* Columna más pequeña */
@@ -20,7 +21,11 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-bottom: 4%;
+    overflow: hidden;
+    
   }
+ 
   
   
   /* Media query para dispositivos pequeños */

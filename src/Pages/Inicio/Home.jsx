@@ -12,7 +12,7 @@ export function Home() {
 
           <div className="row divList ">
           
-
+              
             <CardTutor/>
 
           </div>

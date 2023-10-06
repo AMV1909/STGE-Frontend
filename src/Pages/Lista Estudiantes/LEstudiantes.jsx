@@ -7,7 +7,7 @@ import './LEstudiantes.css'
 
 export function LEstudiantes() {
     return (
-        <div>
+        <>
         <Navbar />
         <Splitestudiantes>
             <div className='left-column'>
@@ -21,7 +21,7 @@ export function LEstudiantes() {
                 </div>
             </div>
             <div className='right-column'>
-                <div className='imgcontainer'>
+                <div className='imgcontainer1'>
 
                    <PTutorHome/>
 
@@ -34,6 +34,6 @@ export function LEstudiantes() {
 
             </div>
         </Splitestudiantes>
-    </div>
+    </>
     )
 }
