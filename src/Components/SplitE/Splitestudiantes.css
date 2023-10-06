@@ -17,7 +17,6 @@
 
 .splitestudiante > .left-columnCursos {
   flex: 1;
-
   justify-content: center; /* Centrar horizontalmente los elementos */
   align-items: center; /* Centrar verticalmente los elementos */
   padding: 20px;
@@ -30,11 +29,20 @@
   flex: 1;
   display: flex;
   justify-content: center; /* Centrar horizontalmente los elementos */
-  
+
   padding: 20px;
   margin-bottom: 6%;
   box-sizing: border-box;
   overflow-y: auto;
+}
+
+.splitestudiante > .right-columnSelectCurso {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y:   auto;
 }
 
 .splitestudiante > .right-columnHome {

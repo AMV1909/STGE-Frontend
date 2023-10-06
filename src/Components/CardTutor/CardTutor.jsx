@@ -64,7 +64,8 @@ export function CardTutor() {
                                         <p>({tutor.score})</p>
                                     </div>
                                 </div>
-
+                            
+                            
                                 <p>
                                     {tutor.coursesToTeach.name} (
                                     {tutor.coursesToTeach.grade})

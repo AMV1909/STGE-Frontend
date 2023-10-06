@@ -2,12 +2,13 @@
     background-color: #c54d19;
 }
 
-.textside {
 
+.textside {
 
     color: white;
     font-weight: bolder;
-    margin-top: 30%;
+    margin-top: 20%;
+    justify-content: center;
 
     padding: 5px;
     text-align: center;
@@ -35,7 +36,7 @@
 
 .Cursos-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .Cursos p {
@@ -93,10 +94,29 @@
     padding: 0.5rem;
     height: 50px;
     font-size: 20px;
+    margin-left: 0px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 .btnCurso:hover{
+    background-color: #e26935;
+    
+}
+
+.btnCurso1{
+    background-color: #c54d19;
+    color: white;
+    border: 0px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.5rem;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btnCurso1:hover{
     background-color: #e26935;
     
 }

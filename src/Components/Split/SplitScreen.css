@@ -33,6 +33,10 @@
     .split-screen {
       flex-direction: column;
     }
+    .split-screen > .small-column {
+      flex: 1;
+      overflow: auto;
+    }
   }
   
   /* Media query para dispositivos pequeños */

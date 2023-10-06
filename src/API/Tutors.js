@@ -25,3 +25,13 @@ export const searchTutors = async ({ type_search, search }) => {
         })
         .then((res) => res.data);
 };
+
+export const getCourse = async () => {
+    return await axios
+        .get(`${API_URL}/courses-to-teach`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        })
+        .then((res) => res.data);
+}
