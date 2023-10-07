@@ -13,6 +13,16 @@
 }
 .cardstyle {
     margin-bottom: 10px;
+    width: auto;
+    height:25%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dddada;
+    
+    
+
+   
+
 }
 
 
@@ -26,9 +36,13 @@
 
 .Checkbox {
 
-    width: 30px;
+    width: 40px;
     height: 30px;
+    margin-left: 15%;
     margin-top: 100%;
+    
+    
+   
     
 }
 
@@ -39,8 +53,10 @@
 }
 
 .chekCol {
-    background-color: #c54d19;
-    width: auto;
+ 
+    display: flex;
+    margin-bottom: 100px;
+  
 }
 @media screen and (max-width: 600px) {
   

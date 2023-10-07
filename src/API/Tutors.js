@@ -27,11 +27,34 @@ export const searchTutors = async ({ type_search, search }) => {
 };
 
 export const getCourse = async () => {
+    let sessionToken = localStorage.getItem("token")
+    console.log(sessionToken);
+    console.log(API_URL);
     return await axios
         .get(`${API_URL}/courses-to-teach`, {
             headers: {
+                "x-access-token":sessionToken ,
+            },
+        })
+        .then((res) => res.data);
+}
+
+  
+export const putCourse = async (updateCourses ) => {
+    return await axios
+    
+        .put(`${API_URL}/courses-to-teach`, { coursesToTeach: updateCourses },  {
+            headers: {
+              
                 "x-access-token": localStorage.getItem("token"),
             },
+             
+            body: {
+                coursesToTeach : updateCourses
+                
+            },
+           
+            
         })
         .then((res) => res.data);
 }
