@@ -1,16 +1,17 @@
 // this is the card for the tutors
 
 import { getTutors } from "../../API/Tutors";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./CardTutor.css";
 import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { useAppSelector } from "../../Hooks/store";
 
-export function CardTutor() {
+export function CardTutor({onCardClick}) {
     const { setTutors } = useTutorsActions();
     const tutors = useAppSelector((state) => state.tutors);
 
+    
     useEffect(() => {
         if (tutors.length === 0 || tutors[0]._id !== "") return;
 
@@ -24,11 +25,15 @@ export function CardTutor() {
     };
     document.getElementById("where-to-render");
 
+    const handleCardClick = (tutor) => {
+        onCardClick(tutor);
+    };
+
     return (
         <>
             {tutors.map((tutor) => (
-                <div key={tutor._id} className="card head">
-                    <div className="row g-0">
+                <div key={tutor._id} className="card head" onClick={() => handleCardClick(tutor)} >
+                    <div className="row g-0"  >
                         <div className="col-md-3 imgUserdiv">
                             <img
                                 src={tutor.picture}
@@ -67,6 +72,7 @@ export function CardTutor() {
                             
                             
                                 <p>
+                                   
                                     {tutor.coursesToTeach.name} (
                                     {tutor.coursesToTeach.grade})
                                 </p>

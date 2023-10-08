@@ -44,7 +44,8 @@ export function Navbar() {
                         to="/home"
                         onClick={() => resetTutors()}
                     >
-                        Logo Aca
+                        
+                        <i class="fa-solid fa-book-open" id="logo"/>
                     </Link>
                     <button
                         className="navbar-toggler"

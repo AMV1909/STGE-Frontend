@@ -231,8 +231,8 @@ export function PerfilUser() {
                         </div>
                     ) : selectedContent === "realizadas" ? (
                         <div className="container imgHome">
+                            
                             <h1>REALIZADAS</h1>
-
                         </div>
                     ) : selectedContent === "asignatura" ? (
                         <div className="container imgHome">

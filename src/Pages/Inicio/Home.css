@@ -31,7 +31,7 @@
 }
 .imgcontainer{
 border: 1px solid #ccc;
-width: auto;
+width: 90%;
 height: auto;
 justify-content: center; 
 }
@@ -40,5 +40,8 @@ text-align: center;
 margin: auto;
 
 
+}
+.imgcontainer h5{
+text-align: center;
 }
 
