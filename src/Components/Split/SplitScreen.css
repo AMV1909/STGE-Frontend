@@ -11,6 +11,7 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-bottom: 4%;
   }
   
   /* Columna más pequeña */
@@ -20,13 +21,21 @@
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    margin-bottom: 4%;
+    overflow: hidden;
+    
   }
+ 
   
   
   /* Media query para dispositivos pequeños */
   @media (max-width: 768px) {
     .split-screen {
       flex-direction: column;
+    }
+    .split-screen > .small-column {
+      flex: 1;
+      overflow: auto;
     }
   }
   

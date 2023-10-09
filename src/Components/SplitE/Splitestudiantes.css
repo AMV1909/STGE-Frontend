@@ -7,7 +7,7 @@
 /* Columna izquierda */
 .splitestudiante > .left-column {
   flex: 1;
-  display: flex;
+ margin-left: 20px;
   justify-content: center; /* Centrar horizontalmente los elementos */
   align-items: center; /* Centrar verticalmente los elementos */
   padding: 20px;
@@ -17,7 +17,6 @@
 
 .splitestudiante > .left-columnCursos {
   flex: 1;
-
   justify-content: center; /* Centrar horizontalmente los elementos */
   align-items: center; /* Centrar verticalmente los elementos */
   padding: 20px;
@@ -30,10 +29,20 @@
   flex: 1;
   display: flex;
   justify-content: center; /* Centrar horizontalmente los elementos */
-  
+
   padding: 20px;
+  margin-bottom: 6%;
   box-sizing: border-box;
   overflow-y: auto;
+}
+
+.splitestudiante > .right-columnSelectCurso {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y:   auto;
 }
 
 .splitestudiante > .right-columnHome {
@@ -41,10 +50,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Centrar horizontalmente los elementos */
+  margin-top: 3%;
+  margin-bottom: 6%;
   
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+  
 }
 
 

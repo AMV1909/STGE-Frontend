@@ -43,6 +43,28 @@ p.dato{
     background-color:rgb(215, 215, 215);
     
 }
+.Cursos-Container{
+    justify-content: center;
+    width: 80%;
+    height: 100%; 
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.Cursos-Container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.btnCurso{
+    margin-left: 40%;
+}
+
+
+
+
+
+
 
 .HiddenAsignatura{
     display: none;

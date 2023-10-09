@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import { Navbar, Splitestudiantes, CardEstudiante, CardTutor, PTutorHome} from '../../Components'
 import './LEstudiantes.css'
 
@@ -6,8 +7,16 @@ import './LEstudiantes.css'
   
 
 export function LEstudiantes() {
+
+    const [tutorSeleccionado, setTutorSeleccionado] = useState(null);
+
+    const handleCardClick = (tutor) => {
+      setTutorSeleccionado(tutor);
+    };
+    
+  
     return (
-        <div>
+        <>
         <Navbar />
         <Splitestudiantes>
             <div className='left-column'>
@@ -16,14 +25,18 @@ export function LEstudiantes() {
 
                 <div className="row divList ">
 
-                   <CardTutor/>
+                   <CardTutor
+                    onCardClick={handleCardClick}
+                   />
 
                 </div>
             </div>
             <div className='right-column'>
-                <div className='imgcontainer'>
+                <div className='imgcontainer1'>
 
-                   <PTutorHome/>
+                   <PTutorHome
+                   tutor={tutorSeleccionado}
+                   />
 
                     <div className=' rowUsuario'>
                        
@@ -34,6 +47,6 @@ export function LEstudiantes() {
 
             </div>
         </Splitestudiantes>
-    </div>
+    </>
     )
 }

@@ -7,29 +7,22 @@ padding: 10px;
 }
 
 
-.imgcontainer{
+.imgcontainer1{
 border: 1px solid #ccc;
-width: auto;
-height: auto;
+width: 100%;
+overflow-y: auto;
 justify-content: center; 
+
 }
-.imgcontainer p{
+.imgcontainer1 p{
 text-align: center;
 margin: auto;
-
-
 }
+.imgcontainer1 h5{
+    text-align: center;
+    }
 
 
-#UserSeleccionado{
-background-color: #ccc;
-border-radius: 10px;
-padding: 10px;
-margin-top: 30px;
-margin-left: 35%;
-width: 30%;
-height: 30%;
 
-}
 
 

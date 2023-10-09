@@ -34,12 +34,7 @@
 }
 
 
-.divList {
-    width: 100%;
-    height: auto;
-    flex-direction: column;
 
-}
 
 .head {
     padding: 0%;
@@ -57,4 +52,10 @@
 
 .scoreTutor p {
     margin: 0;
+}
+.divList {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 50px;
 }

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navbar, SplitScreen, Curso } from "../../Components";
 import { useAppSelector } from "../../Hooks/store";
+import { toast } from "react-hot-toast";
 import "./PerfilUser.css";
 
 import FullCalendar from "@fullcalendar/react";
@@ -9,6 +10,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
+import { getCourse, putCourse } from "../../API/Tutors";
 
 export function PerfilUser() {
     const user = useAppSelector((state) => state.user);
@@ -27,6 +29,83 @@ export function PerfilUser() {
     const CambiarRealizadas = () => {
         setSelectedContent("realizadas");
     };
+
+
+
+    const [cursos, setCursos] = useState([]);
+
+    useEffect(() => {
+
+        if (user.role === "Tutor") {
+            getCourse(user._id).then((response) => {
+                setCursos(response);
+                console.log(response);
+            });
+
+        }
+    }, [user]);
+
+    const [updateCourses, setUpdateCourses] = useState([
+         
+    ]);
+
+
+    const handleSelectCourse = (course) => {
+        if (updateCourses.includes(course)) {
+            setUpdateCourses(
+                updateCourses.filter((updateCourse) => {
+                    return updateCourse.nrc !== course.nrc;
+                    
+                })
+            );
+        } else {
+            setUpdateCourses([...updateCourses, course]);
+        }
+    };
+
+  
+
+    
+    const handleContinue = async () => {
+       
+        let updatedArrayFormatted = updateCourses.map(obj => ({
+            ...obj, // Copy the existing properties
+            grade: parseFloat(obj.grade) // Convert the salary property to a double
+          }));
+        console.log(updatedArrayFormatted);
+        toast.loading("Registrando cursos...", {
+            id: "loading",
+            duration: 5000,
+        });
+
+         await putCourse(updatedArrayFormatted)
+            .then(() => {
+                toast.dismiss("loading");
+
+                toast.success("Cursos registrados con éxito", {
+                    duration: 5000,
+                });
+            })
+            .catch((err) => {
+                toast.dismiss("loading");
+                toast.error("Error al registrar los cursos", {
+                    duration: 5000,
+                });
+
+                if (!err.response) return toast.error(err.message);
+
+                if (err.response.status === 403)
+                    toast.error(
+                        "Algunos de los cursos que intenta registrar no cumplen con los requisitos"
+                    );
+            });
+    }
+
+    
+ 
+
+
+
 
     return (
         <div>
@@ -152,30 +231,43 @@ export function PerfilUser() {
                         </div>
                     ) : selectedContent === "realizadas" ? (
                         <div className="container imgHome">
-                            <h1>realizadas</h1>
+                            
+                            <h1>REALIZADAS</h1>
                         </div>
                     ) : selectedContent === "asignatura" ? (
                         <div className="container imgHome">
                             <div className="Cursos-Container">
                                 <h1>¿Que enseñaras?</h1>
 
-                                {user &&
-                                    user.coursesToTeach &&
-                                    user.pga >= 3.8 &&
-                                    user.coursesToTeach.map((course) => (
+                                {
+                                    user && cursos &&
+                                    cursos.map((course) => (
                                         <Curso
                                             key={course.nrc}
                                             course={course}
+                                            handleSelectCourse={handleSelectCourse}
                                         />
-                                    ))}
+                                    ))
 
-                                <button
-                                    className=" btnCurso"
-                                    style={{ marginLeft: "40%" }}
-                                >
-                                    Continuar
-                                </button>
+
+
+                                }
+
+                                {
+                                    user && cursos &&
+                                    <button
+                                        className=" btnCurso"
+                                        type="button"
+
+                                        onClick={handleContinue}
+
+                                    >
+                                        Continuar
+                                    </button>
+                                }
+
                             </div>
+
                         </div>
                     ) : null}
                 </div>
@@ -183,3 +275,7 @@ export function PerfilUser() {
         </div>
     );
 }
+
+
+
+

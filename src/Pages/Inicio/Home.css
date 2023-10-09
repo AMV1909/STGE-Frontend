@@ -29,3 +29,19 @@
 .home .left-column {
     align-items: start;
 }
+.imgcontainer{
+border: 1px solid #ccc;
+width: 90%;
+height: auto;
+justify-content: center; 
+}
+.imgcontainer p{
+text-align: center;
+margin: auto;
+
+
+}
+.imgcontainer h5{
+text-align: center;
+}
+

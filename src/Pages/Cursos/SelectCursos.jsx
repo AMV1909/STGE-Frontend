@@ -80,7 +80,7 @@ export function SelectCursos() {
                             </p>
                         </p>
 
-                        <div className="Cursos-Container">
+                        <div className="SelectCursos-Container">
                             {tempUser &&
                                 tempUser.courses &&
                                 tempUser.pga >= 3.8 &&
@@ -104,7 +104,7 @@ export function SelectCursos() {
 
                         <div className="Cursos-buttons">
                             <button
-                                className=" btnCurso"
+                                className=" btnCurso1"
                                 onClick={() => navigate("/sign-up")}
                             >
                                 Regresar
@@ -125,7 +125,7 @@ export function SelectCursos() {
                     </div>
                 </div>
 
-                <div className="right-column Textdiv">
+                <div className="right-columnSelectCurso Textdiv">
                     <div className="textside">
                         <h1 className="titulo1">¿Que enseñaras?</h1>
                         <p className="text">
