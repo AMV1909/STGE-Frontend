@@ -44,8 +44,8 @@ export function Navbar() {
                         to="/home"
                         onClick={() => resetTutors()}
                     >
-                        
-                        <i class="fa-solid fa-book-open" id="logo"/>
+
+                        <i class="fa-solid fa-book-open" id="logo" />
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -100,17 +100,41 @@ export function Navbar() {
 
                             <input
                                 className="form-control me-2 search"
-                                placeholder={`Buscar por ${
-                                    data.type_search === "name"
-                                        ? "tutor"
-                                        : "curso"
-                                }`}
+                                placeholder={`Buscar por ${data.type_search === "name"
+                                    ? "tutor"
+                                    : "curso"
+                                    }`}
                                 aria-label="Search"
                                 name="search"
                                 onChange={onChange}
                             />
                         </form>
 
+                        <div className="dropdown">
+                            <button
+                                className="btn  dropdown-toggle"
+                                type="button"
+                                id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <i class="fa-solid fa-bell iconbell"></i>
+                            </button>
+                            <ul
+                                className="dropdown-menu dropdown-menu-end"
+                                aria-labelledby="dropdownMenuButton1"
+                            >
+                                <h5 style={
+                                    {
+                                        color: "black",
+                                        padding: "10px",
+                                        textAlign: "center"
+                                    }
+                                }>Notificaciones</h5>
+                                <hr />
+
+                            </ul>
+                        </div>
                         <button
                             onClick={() => navigate("/perfil")}
                             type="button"
