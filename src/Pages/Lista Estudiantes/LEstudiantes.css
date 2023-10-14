@@ -1,28 +1,106 @@
-
-.headUser img{
-width: 100%;
-height: 100%;
-margin: auto;
-padding: 10px;
+.headUser img {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
 }
 
 
-.imgcontainer1{
-border: 1px solid #ccc;
-width: 100%;
-overflow-y: auto;
-justify-content: center; 
+.rowUsuario {
+
+    margin: 10px;
+   
+    height: 50%;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
 
 }
-.imgcontainer1 p{
-text-align: center;
-margin: auto;
+
+.imgcontainer1 {
+    border: 1px solid #ccc;
+    width: 90%;
+    height: auto;
+    justify-content: center;
+   
+
 }
-.imgcontainer1 h5{
+
+.imgcontainer1 p {
     text-align: center;
+    margin: auto;
+}
+
+.imgcontainer1 h5 {
+    text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .left-column {
+        align-items: center;
+    }
+
+    .imgcontainer1 {
+        border: 1px solid #ccc;
+        width: 90%;
+        height: 100%;
+        justify-content: center;
+       
+    }
+
+    .imgcontainer1 p {
+        text-align: center;
+        margin: auto;
+
+
+    }
+
+    .imgcontainer1 h5 {
+        text-align: center;
+    
+    }
+
+    .rowUsuario{
+        overflow-x: hidden;
+    }
+
+@media screen and (max-width: 768px) {
+
+
+    .imgcontainer1 {
+
+        border: 1px solid #ccc;
+        width: 99%;
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        height: auto;
+        justify-content: center;
+      
+
+
+    }
+
+    .imgcontainer1 p {
+        text-align: center;
+        margin: auto;
+
+
+    }
+
+    .imgcontainer1 h5 {
+        text-align: center;
+    }
+
+    .rowUsuario {
+        
+       
+        width: 90%;
+        height: 40%;
+        justify-content: center;
+        overflow-y: auto;
     }
 
 
-
-
-
+}
+}

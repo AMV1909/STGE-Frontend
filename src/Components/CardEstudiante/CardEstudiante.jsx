@@ -18,14 +18,11 @@ export function CardEstudiante() {
                         </div>
                     </div>
                 </div>
+
             </div>
 
            
 
-           
-
-
-        
 
 
         </>

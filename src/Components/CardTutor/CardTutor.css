@@ -59,3 +59,16 @@
     flex-direction: column;
     margin-bottom: 50px;
 }
+@media screen  and (max-width: 768px) {
+   
+   .cardT{
+         width: 90%;
+         margin-left: 5%;
+         align-items: center;
+   }
+   .cardT img{
+            width: 80%;
+            height: 50%;
+            margin-left: 10%;
+   }
+}

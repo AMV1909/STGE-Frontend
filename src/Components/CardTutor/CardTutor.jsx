@@ -7,7 +7,7 @@ import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { useAppSelector } from "../../Hooks/store";
 
-export function CardTutor({ onCardClick }) {
+export function CardTutor({onCardClick , onToggleClick}) {
     const { setTutors } = useTutorsActions();
     const tutors = useAppSelector((state) => state.tutors);
 
@@ -31,17 +31,16 @@ export function CardTutor({ onCardClick }) {
 
     const handleCardClick = (tutor) => {
         onCardClick(tutor);
+        onToggleClick();
     };
+
+     
 
     return (
         <>
             {tutors.map((tutor) => (
-                <div
-                    key={tutor._id}
-                    className="card head"
-                    onClick={() => handleCardClick(tutor)}
-                >
-                    <div className="row g-0">
+                <div key={tutor._id} className="card head cardT" onClick={() => handleCardClick(tutor)} >
+                    <div className="row g-0"  >
                         <div className="col-md-3 imgUserdiv">
                             <img
                                 src={tutor.picture}

@@ -104,7 +104,7 @@ body, html {
    
   
   /* Media Query para ocultar la imagen en dispositivos móviles */
-  @media (max-width: 767px) {
+  @media (max-width: 1300px) {
     .container {
       flex-direction: column-reverse;
     }
@@ -112,8 +112,9 @@ body, html {
       display: none;
 
     }
-    .card {
+    .cardLog{
       margin-top: 50%;
+      left:  5%;
     }
     
     
