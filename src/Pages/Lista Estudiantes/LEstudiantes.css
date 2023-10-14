@@ -13,6 +13,7 @@
     height: 50%;
     border-radius: 10px;
     overflow-y: auto;
+    overflow-x: hidden;
 
 }
 
@@ -73,7 +74,7 @@
         margin-top: 10px;
         margin-left: 5px;
         margin-right: 5px;
-        height: 80%;
+        height: auto;
         justify-content: center;
       
 
@@ -94,7 +95,7 @@
     .rowUsuario {
         
        
-        width: 95%;
+        width: 90%;
         height: 40%;
         justify-content: center;
         overflow-y: auto;

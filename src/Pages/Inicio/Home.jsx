@@ -58,7 +58,7 @@ export function Home() {
 
             <PTutorHome tutor={tutorSeleccionado} />
 
-            <div className=' rowUsuario'>
+            <div className=' rowUsuario1'>
 
               <button
                 type="button"
