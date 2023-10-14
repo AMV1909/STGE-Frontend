@@ -14,6 +14,8 @@ import {
     PerfilUser,
 } from "./Pages";
 
+import "./App.css";
+
 export function App() {
     const [loading, setLoading] = useState(true);
 

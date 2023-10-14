@@ -1,7 +1,7 @@
 // this is the card for the tutors
-
+import { toast } from "react-hot-toast";
 import { getTutors } from "../../API/Tutors";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./CardTutor.css";
 import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
@@ -11,13 +11,17 @@ export function CardTutor({onCardClick , onToggleClick}) {
     const { setTutors } = useTutorsActions();
     const tutors = useAppSelector((state) => state.tutors);
 
-    
     useEffect(() => {
         if (tutors.length === 0 || tutors[0]._id !== "") return;
 
-        getTutors().then((response) => {
-            setTutors(response);
-        });
+        getTutors()
+            .then((response) => {
+                setTutors(response);
+            })
+            .catch((err) => {
+                toast.error("Error al obtener tutores", { duration: 5000 });
+                toast.error(err.message, { duration: 5000 });
+            });
     }, [setTutors, tutors]);
 
     const ratingChanged = (newRating) => {
@@ -64,7 +68,7 @@ export function CardTutor({onCardClick , onToggleClick}) {
                                             isHalf={true}
                                             activeColor="#ffd700"
                                             value={tutor.score}
-                                            disabled={  
+                                            disabled={
                                                 tutor.score === 0 ? true : false
                                             }
                                         />
@@ -72,10 +76,8 @@ export function CardTutor({onCardClick , onToggleClick}) {
                                         <p>({tutor.score})</p>
                                     </div>
                                 </div>
-                            
-                            
+
                                 <p>
-                                   
                                     {tutor.coursesToTeach.name} (
                                     {tutor.coursesToTeach.grade})
                                 </p>

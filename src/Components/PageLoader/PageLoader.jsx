@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { useUserActions } from "../../Hooks/useUserActions";
-import { restoreSession } from "../../API/User";
+import { restoreSession } from "../../API/RestoreSession";
 
 import "./PageLoader.css";
 

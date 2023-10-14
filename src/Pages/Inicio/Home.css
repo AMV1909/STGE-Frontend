@@ -45,8 +45,9 @@
 .imgcontainer{
 border: 1px solid #ccc;
 width: 90%;
-height: auto;
-justify-content: center; 
+height: 100%;
+justify-content: center;
+overflow-y: auto;
 }
 .imgcontainer p{
 text-align: center;
@@ -113,3 +114,15 @@ text-align: center;
     
 
 
+.calendar {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar .fc {
+    height: 100%;
+}
