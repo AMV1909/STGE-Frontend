@@ -57,10 +57,30 @@
 }
 
 
+
+
 /* Media query para dispositivos pequeños */
 @media (max-width: 768px) {
   .splitestudiante {
     flex-direction: column;
+  }
+
+  .splitestudiante > .right-columnSelectCurso{
+    display: none;
+  }
+
+  .splitestudiante > .right-columnHome {
+    display: none;
+     
+  }
+
+   .splitestudiante > .columna-izquierda-oculta {
+    display: none; /* Oculta la columna izquierda en dispositivos móviles */
+  }
+  
+  .splitestudiante > .columna-derecha-visible {
+    position: absolute; /* Hace que la columna derecha se superponga */
+    z-index: 1; /* Asegura que la columna derecha esté por encima de la izquierda */
   }
 }
 

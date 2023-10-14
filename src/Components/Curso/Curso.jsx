@@ -5,7 +5,7 @@ export function Curso({ course, handleSelectCourse }) {
       
         <div className="card cardstyle">
             
-            <div className="row g-0">
+            <div className="row g-0 rowCur">
                 <div className="col-md-1 checkCol">
                     <input
                         style={

@@ -1,16 +1,5 @@
 
 
-
-
-
-.rowUsuario{
-flex-direction: column;
-margin: 10px;
-padding: 10px;
-border-radius: 10px;
-width: auto 
-}
-
 .imgcontainer p {
     
     margin: auto;
@@ -23,5 +12,29 @@ width: auto
     }
 
 .cardE{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+@media  screen and (max-width: 768px) {
+    
+    
+        .cardUser p{
+            font-size: small;
+            text-align: left;
+            display: flex;
+            
+            }
+            
+            .cardE{
+                margin-bottom: 20px;
+                width: 70%;
+                margin-left: 15%;
+
+            }
+            .cardE img{
+                width:55%;
+                height: 90%;
+                margin-left: 20%;
+                margin-top: 5%;
+            }
 }

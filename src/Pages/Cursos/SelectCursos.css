@@ -64,28 +64,9 @@
 
 
 
-@media screen and (max-width: 600px) {
-     
-    .textside {
-        margin-top: 10%;
-    }
-    .titulo1 {
-        font-size: 50px;
-    }
-    .text {
-        font-size: 20px;
-    }
-    .Cursos {
-        font-size: 40px;
-    }
-    .tituloCursos {
-        font-size: 30px;
-    }
-    
 
-}
 
-.btnCurso{
+.btnCurso {
     background-color: #c54d19;
     color: white;
     border: 0px;
@@ -98,12 +79,13 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.btnCurso:hover{
+
+.btnCurso:hover {
     background-color: #e26935;
-    
+
 }
 
-.btnCurso1{
+.btnCurso1 {
     background-color: #c54d19;
     color: white;
     border: 0px;
@@ -116,12 +98,13 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.btnCurso1:hover{
+
+.btnCurso1:hover {
     background-color: #e26935;
-    
+
 }
 
-.btnCurso:disabled{
+.btnCurso:disabled {
     background-color: #a66244;
     color: white;
     border: 0px;
@@ -132,4 +115,77 @@
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+
+/* Cambia de estilo por resolucion de la pantalla del dispositivo */
+@media screen and (max-width: 1300px) {
+
+    .textside {
+        margin-top: 100%;
+    }
+
+    .titulo1 {
+        font-size: 50px;
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .Cursos {
+        font-size: 40px;
+    }
+
+    .cardstyle {
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    .imgCurso {
+        width: 20%;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .Checkbox {
+
+        margin-top: 60px;
+    }
+
+    .tituloCursos {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .imgCurso {
+        display: none;
+
+    }
+
+    .cardCurso {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 0%;
+        padding-right: 10%;
+    }
+   
+
+  
+    .cardstyle{
+        width: 106%;
+        margin-left: -8%;
+        overflow-x: hidden;
+    }
+
+    .rowCur{
+        flex-wrap: nowrap;
+    }
+    .Checkbox {
+
+        margin-top: 50px;
+    }
 }

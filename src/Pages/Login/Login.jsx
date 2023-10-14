@@ -89,7 +89,7 @@ export function Login() {
                 </div>
             </div>
             <div className="login-container">
-                <div className="card card1">
+                <div className="card card1 cardLog">
                     <div className="card-header">
                         <h3 className="logintext">Login</h3>
 

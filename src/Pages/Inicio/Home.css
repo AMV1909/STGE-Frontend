@@ -21,6 +21,19 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.btnAtras{
+  
+    display: none;
+    border: 0px;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 25%;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .btnNTutor:hover{
     background-color: #e26935;
     
@@ -44,4 +57,59 @@ margin: auto;
 .imgcontainer h5{
 text-align: center;
 }
+
+@media screen and (max-width: 1300px) {
+    .home .left-column {
+        align-items: center;
+    }
+    .imgcontainer{
+        width: 90%;
+        height: 90%;
+       
+        justify-content: center; 
+        }
+        .imgcontainer p{
+        text-align: center;
+        margin: auto;
+        
+        
+        }
+        .imgcontainer h5{
+        text-align: center;
+        }
+}
+
+@media  screen and (max-width: 768px) {
+  
+    .btnAtras{
+        display: block;
+    }
+
+    .imgcontainer{
+        width: 90%;
+        height: 100%;
+        margin-left: 5%;
+        margin-top: 5%;
+     
+        }
+        .imgcontainer p{
+        text-align: center;
+        margin: auto;
+        
+        
+        }
+        .imgcontainer h5{
+        text-align: center;
+        }
+
+}
+
+
+
+
+
+    
+
+    
+
 
