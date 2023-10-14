@@ -9,7 +9,13 @@ export const getTutors = async () => {
                 "x-access-token": localStorage.getItem("token"),
             },
         })
-        .then((res) => res.data);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.tutors;
+        });
 };
 
 export const searchTutors = async ({ type_search, search }) => {
@@ -23,38 +29,55 @@ export const searchTutors = async ({ type_search, search }) => {
                 search,
             },
         })
-        .then((res) => res.data);
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.tutors;
+        });
 };
 
 export const getCourse = async () => {
-    let sessionToken = localStorage.getItem("token")
+    let sessionToken = localStorage.getItem("token");
     console.log(sessionToken);
     console.log(API_URL);
     return await axios
         .get(`${API_URL}/courses-to-teach`, {
             headers: {
-                "x-access-token":sessionToken ,
+                "x-access-token": sessionToken,
             },
         })
-        .then((res) => res.data);
-}
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
 
-  
-export const putCourse = async (updateCourses ) => {
+            return res.data.coursesToTeach;
+        });
+};
+
+export const putCourse = async (updateCourses) => {
     return await axios
-    
-        .put(`${API_URL}/courses-to-teach`, { coursesToTeach: updateCourses },  {
-            headers: {
-              
-                "x-access-token": localStorage.getItem("token"),
-            },
-             
-            body: {
-                coursesToTeach : updateCourses
-                
-            },
-           
-            
-        })
-        .then((res) => res.data);
-}
+
+        .put(
+            `${API_URL}/courses-to-teach`,
+            { coursesToTeach: updateCourses },
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                },
+
+                body: {
+                    coursesToTeach: updateCourses,
+                },
+            }
+        )
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.coursesToTeach;
+        });
+};

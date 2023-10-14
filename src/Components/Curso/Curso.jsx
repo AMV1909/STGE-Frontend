@@ -1,6 +1,6 @@
 import "./Curso.css";
 
-export function Curso({ course, handleSelectCourse }) {
+export function Curso({ course, handleSelectCourse, selected = false }) {
     return (
       
         <div className="card cardstyle">
@@ -20,6 +20,7 @@ export function Curso({ course, handleSelectCourse }) {
                         onClick={() =>
                             course.grade >= 3.8 && handleSelectCourse(course)
                         }
+                        defaultChecked={selected}
                     />
                 </div>
                 <div className="col-md-3 imgCurso">

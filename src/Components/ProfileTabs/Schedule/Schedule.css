@@ -1,0 +1,38 @@
+.stge__profileTabs-schedule {
+    height: 100%;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 1rem;
+}
+
+.stge__profileTabs-schedule_info {
+    width: 85%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+
+    padding: 1rem 0;
+}
+
+.stge__profileTabs-schedule_info p {
+    flex: 1;
+    text-align: justify;
+}
+
+.stge__profileTabs-schedule_info button {
+    padding: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
