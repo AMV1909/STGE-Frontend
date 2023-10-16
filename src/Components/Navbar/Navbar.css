@@ -86,7 +86,18 @@
     margin-left: 20px;
     text-decoration: none;
 }
-.DropdownProfile a:hover{
-    color: #686767;
+.DropdownProfile button:hover{
+    color: #818080;
     text-decoration: none;
 }
+.dropdown-Profile btn{
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    border-color: #c54d19;
+    border-radius: 30px;
+    
+}
+
+

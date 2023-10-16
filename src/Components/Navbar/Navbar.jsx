@@ -35,6 +35,7 @@ export function Navbar() {
             });
     };
 
+   
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
@@ -152,20 +153,20 @@ export function Navbar() {
                                 aria-labelledby="dropdownMenuButton1"
                             >
                                 <li>
-                                    <Link
-                                        className="dropdown-Profile"
-                                        to="/perfil"
+                                    <button
+                                        className="dropdown-Profile btn"
+                                        onClick={() => navigate("/perfil")}
                                     >
                                         Mi perfil
-                                    </Link>
+                                    </button>
                                 </li>
                                 <li>
-                                    <Link
-                                        className="dropdown-Profile"
-                                        to="/"
+                                    <button
+                                        className="dropdown-Profile btn"
+                                     
                                     >
                                         Cerrar sesión
-                                    </Link>
+                                    </button>
                                 </li>
                             </ul>
 
