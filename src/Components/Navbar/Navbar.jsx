@@ -135,13 +135,44 @@ export function Navbar() {
 
                             </ul>
                         </div>
-                        <button
-                            onClick={() => navigate("/perfil")}
-                            type="button"
-                            className="btn btn-outline-light btn-user"
-                        >
-                            <i className="fa-regular fa-user"></i>
-                        </button>
+
+
+                        <div className="dropdown DropdownProfile">
+                            <button
+                                className="btn  "
+                                type="button"
+                                id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <i class="fa-solid fa-user iconbell"></i>
+                            </button>
+                            <ul
+                                className="dropdown-menu dropdown-menu-end"
+                                aria-labelledby="dropdownMenuButton1"
+                            >
+                                <li>
+                                    <Link
+                                        className="dropdown-Profile"
+                                        to="/perfil"
+                                    >
+                                        Mi perfil
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="dropdown-Profile"
+                                        to="/"
+                                    >
+                                        Cerrar sesión
+                                    </Link>
+                                </li>
+                            </ul>
+
+                            </div>
+
+                        
+
                     </div>
                 </div>
             </nav>
