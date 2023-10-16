@@ -35,6 +35,7 @@ export function Navbar() {
             });
     };
 
+   
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
@@ -135,13 +136,44 @@ export function Navbar() {
 
                             </ul>
                         </div>
-                        <button
-                            onClick={() => navigate("/perfil")}
-                            type="button"
-                            className="btn btn-outline-light btn-user"
-                        >
-                            <i className="fa-regular fa-user"></i>
-                        </button>
+
+
+                        <div className="dropdown DropdownProfile">
+                            <button
+                                className="btn  "
+                                type="button"
+                                id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                <i class="fa-solid fa-user iconbell"></i>
+                            </button>
+                            <ul
+                                className="dropdown-menu dropdown-menu-end"
+                                aria-labelledby="dropdownMenuButton1"
+                            >
+                                <li>
+                                    <button
+                                        className="dropdown-Profile btn"
+                                        onClick={() => navigate("/perfil")}
+                                    >
+                                        Mi perfil
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        className="dropdown-Profile btn"
+                                     
+                                    >
+                                        Cerrar sesión
+                                    </button>
+                                </li>
+                            </ul>
+
+                            </div>
+
+                        
+
                     </div>
                 </div>
             </nav>
