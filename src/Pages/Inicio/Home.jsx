@@ -8,6 +8,10 @@ import {
 import "./Home.css";
 import { Calendar } from "../../Components/Calendar/Calendar";
 import { useAppSelector } from "../../Hooks/store";
+import { requestEvent } from "../../API/Events";
+import toast from "react-hot-toast";
+import { useUserActions } from "../../Hooks/useUserActions";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
     const [mostrarColumnaDerecha, setMostrarColumnaDerecha] = useState(false);
@@ -25,8 +29,10 @@ export function Home() {
     const [tutorSeleccionado, setTutorSeleccionado] = useState(null);
     const [isSelecting, setIsSelecting] = useState(false);
     const [selectedDates, setSelectedDates] = useState([]);
+    const { logoutUser } = useUserActions();
     const user = useAppSelector((state) => state.user);
     const calendarRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsSelecting(false);
@@ -48,6 +54,35 @@ export function Home() {
 
     const handleCardClick = (tutor) => {
         setTutorSeleccionado(tutor);
+    };
+
+    const handleContinue = async () => {
+        await requestEvent(selectedDates)
+            .then(() => {
+                toast.success("Tutoría agendada con éxito", { duration: 5000 });
+            })
+            .catch((err) => {
+                toast.error("Error al agendar tutoría", { duration: 5000 });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 413) {
+                    return toast.error(
+                        "Ya tienes una tutoría agendada con este tutor, por favor espera a que se complete para agendar otra",
+                        { duration: 5000 }
+                    );
+                }
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate("/");
+                    return toast.error("La sesión ha expirado");
+                }
+            });
+
+        setIsSelecting(false);
+        setSelectedDates([]);
     };
 
     return (
@@ -112,6 +147,12 @@ export function Home() {
                                     user={user}
                                 />
                             </div>
+                        )}
+
+                        {isSelecting && selectedDates.length > 0 && (
+                            <button id="continue" onClick={handleContinue}>
+                                Agendar Tutoría
+                            </button>
                         )}
                     </div>
                 </div>
