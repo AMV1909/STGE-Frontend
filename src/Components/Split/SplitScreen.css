@@ -1,48 +1,61 @@
 .split-screen {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  /* Columna más grande */
-  .split-screen > .large-column {
-    flex: 2;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    margin-bottom: 4%;
-  }
-  
-  /* Columna más pequeña */
-  .split-screen > .small-column {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    margin-bottom: 4%;
-    overflow: hidden;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Columna más grande */
+.split-screen>.large-column {
+  flex: 2;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  margin-bottom: 4%;
+  max-height: 100vh;
+}
+
+/* Columna más pequeña */
+.split-screen>.small-column {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin-bottom: 4%;
+  overflow: hidden;
+
+}
+
+
+
+/* Media query para dispositivos pequeños */
+@media (max-width: 768px) {
+  .split-screen {
+    flex-direction: column;
+    overflow: auto;
+    
+    /* Apila las columnas una encima de la otra en dispositivos pequeños */
     
   }
  
+  .split-screen>.large-column {
+    display: none;
+  }
+
+  .split-screen>.columna-small-oculta {
+    display: none;
+    
+  }
+
+  .split-screen>.columna-large-visible {
+    position: absolute;
+    z-index: 1;
   
-  
-  /* Media query para dispositivos pequeños */
-  @media (max-width: 768px) {
-    .split-screen {
-      flex-direction: column;
-    }
-    .split-screen > .small-column {
-      flex: 1;
-      overflow: auto;
-    }
+    
   }
   
-  /* Media query para dispositivos pequeños */
-  @media (max-width: 768px) {
-    .split-screen {
-      flex-direction: column;
-    }
+  .Cursos-Container{
+    width: 100%;
   }
-  
+}
