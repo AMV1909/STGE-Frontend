@@ -1,10 +1,15 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { BiSolidTrash } from "react-icons/bi";
+import { toast } from "react-hot-toast";
 import FullCalendar from "@fullcalendar/react";
-import googleCalendarPlugin from "@fullcalendar/google-calendar";
 import interactionPlugin from "@fullcalendar/interaction";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
+
+import { useUserActions } from "../../Hooks/useUserActions";
+import { getAvailableSchedule } from "../../API/Calendar";
 
 import "./Calendar.css";
 
@@ -14,9 +19,92 @@ export function Calendar({
     calendarRef,
     isSelecting,
     googleCalendarId,
-    typeCalendar,
+    typeCalendar = "Home",
+    tutor,
+    user,
 }) {
-    const handleSelect = ({ start, end }) => {
+    const [events, setEvents] = useState([]);
+    const [availableEvents, setAvailableEvents] = useState([]);
+    const navigate = useNavigate();
+    const { logoutUser } = useUserActions();
+
+    useEffect(() => {
+        if (isSelecting || !googleCalendarId) return;
+
+        getAvailableSchedule(googleCalendarId)
+            .then((events) => {
+                setEvents(
+                    events.map((event) => {
+                        return {
+                            attendees: event.attendees,
+                            description: event.description,
+                            end: event.end.dateTime,
+                            start: event.start.dateTime,
+                            title: event.summary,
+                        };
+                    })
+                );
+            })
+            .catch((err) => {
+                toast.error("Error al obtener horarios disponibles", {
+                    duration: 5000,
+                });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate("/");
+                    return toast.error("La sesión ha expirado");
+                }
+            });
+    }, [isSelecting]);
+
+    useEffect(() => {
+        if (typeCalendar === "Profile") return;
+        if (events.length === 0) return;
+
+        if (new Date() < new Date(events[0].start)) {
+            setAvailableEvents([
+                {
+                    attendees: [],
+                    description: "Horario no disponible para tutorías",
+                    end: new Date(events[0].start),
+                    start: new Date(),
+                    title: "No disponible",
+                },
+            ]);
+        }
+
+        setAvailableEvents((availableEvents) =>
+            [
+                ...availableEvents,
+                events.map((event, index) => {
+                    if (event.title === "Disponible") {
+                        return {
+                            attendees: event.attendees,
+                            description: "Horario no disponible para tutorías",
+                            end: event.start,
+                            start:
+                                index === 0
+                                    ? new Date()
+                                    : events[index - 1].end,
+                            title: "No disponible",
+                        };
+                    } else {
+                        return event;
+                    }
+                }),
+            ].flat()
+        );
+
+        setAvailableEvents((availableEvents) =>
+            availableEvents.filter((event) => event.start < event.end)
+        );
+    }, [events, typeCalendar]);
+
+    const handleSelectProfile = ({ start, end }) => {
         const isFollowedByDate = selectedDates.some(
             (date) =>
                 end.getTime() === date.start.getTime() ||
@@ -88,6 +176,42 @@ export function Calendar({
         ]);
     };
 
+    const handleSelectHome = ({ start, end }) => {
+        if (!tutor || !user) return;
+
+        if (events.length === 0) {
+            return toast.error(
+                "El tutor no tiene horarios disponibles para tutorías"
+            );
+        }
+
+        // Comprobar si la fecha seleccionada inicia antes de la fecha actual
+        if (start.getTime() < new Date().getTime()) {
+            return toast.error(
+                "No puedes agendar una tutoría en una fecha que ya pasó",
+                { duration: 5000 }
+            );
+        }
+
+        setSelectedDates([
+            {
+                attendees: [
+                    {
+                        email: tutor.email,
+                    },
+                    {
+                        email: user.email,
+                    },
+                ],
+                description: `Tutoría de ${tutor.coursesToTeach.name} del tutor ${tutor.name} para el estudiante ${user.name}`,
+                end,
+                start,
+                title: `Tutoría de ${tutor.coursesToTeach.name}`,
+                course: tutor.coursesToTeach.name,
+            },
+        ]);
+    };
+
     const handleDeleteDate = (date) => {
         setSelectedDates(
             selectedDates.filter((selectedDate) => {
@@ -101,15 +225,20 @@ export function Calendar({
             <FullCalendar
                 ref={calendarRef}
                 plugins={[
-                    googleCalendarPlugin,
                     interactionPlugin,
                     dayGridPlugin,
                     timeGridPlugin,
                     listPlugin,
                 ]}
                 initialView="dayGridMonth"
-                events={isSelecting ? selectedDates : { googleCalendarId }}
-                googleCalendarApiKey={import.meta.env.VITE_GOOGLE_API_KEY}
+                events={
+                    isSelecting
+                        ? typeCalendar === "Profile"
+                            ? selectedDates
+                            : [...selectedDates, ...availableEvents]
+                        : events
+                }
+                dayPopoverFormat={{ month: "long", day: "numeric" }}
                 buttonText={{
                     today: "Hoy",
                     month: "Mes",
@@ -139,16 +268,24 @@ export function Calendar({
 
                     info.jsEvent.preventDefault();
 
-                    if (!isSelecting) {
+                    if (
+                        !isSelecting &&
+                        info.view.calendar.view.type === "dayGridMonth"
+                    ) {
                         info.view.calendar.gotoDate(info.event.start);
                         info.view.calendar.changeView("timeGridDay");
                     }
                 }}
                 selectable={isSelecting}
-                select={handleSelect}
-                selectOverlap={typeCalendar !== "Profile"}
+                select={
+                    typeCalendar === "Profile"
+                        ? handleSelectProfile
+                        : handleSelectHome
+                }
+                selectOverlap={false}
                 locale="es"
             />
+
             <div className="stge__calendar-selectedDates">
                 {selectedDates.length > 0 && (
                     <>

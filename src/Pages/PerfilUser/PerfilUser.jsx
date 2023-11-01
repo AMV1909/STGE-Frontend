@@ -61,10 +61,18 @@ export function PerfilUser() {
                             {" "}
                             <b> Carrera: {user.career}</b>{" "}
                         </p>
-                        <p className="dato">
-                            {" "}
-                            <b> Tiempo en reunion: {user.meetingTime}</b>{" "}
-                        </p>
+                        {user.role === "Tutor" && user.meetingTime && (
+                            <p className="dato">
+                                {" "}
+                                <b>
+                                    {" "}
+                                    Tiempo en reunion:{" "}
+                                    {new Date(user.meetingTime * 60000)
+                                        .toISOString()
+                                        .substr(11, 8)}
+                                </b>{" "}
+                            </p>
+                        )}
                     </div>
 
                     <div className="row rowbuttons ">
@@ -75,6 +83,16 @@ export function PerfilUser() {
                                 onClick={CambiarHorario}
                             >
                                 Horarios
+                            </button>
+                        )}
+
+                        {(user.role === "Tutor" || user.role === "Student") && (
+                            <button
+                                type="button"
+                                className="btn btn-light"
+                                onClick={() => setSelectedContent("requested")}
+                            >
+                                Reuniones solicitads
                             </button>
                         )}
 

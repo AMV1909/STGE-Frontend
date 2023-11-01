@@ -7,7 +7,7 @@ import {
 
 /* boostrap*/
 import "./SignUp.css";
-import { ToastRegistro } from "../../Components/Toast Registro/ToastRegistro";
+import { ToastRegistro } from "../../Components/Toast/Toast Registro/ToastRegistro";
 
 export function SignUp() {
     const [data, setData] = useState({
