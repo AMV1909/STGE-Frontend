@@ -4,9 +4,11 @@ import { useState } from "react";
 import { searchTutors } from "../../API/Tutors";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { toast } from "react-hot-toast";
+import { useUserActions } from "../../Hooks/useUserActions";
 
 export function Navbar() {
     const navigate = useNavigate();
+    const { logoutUser } = useUserActions();
     const { setSearchingTutors, resetTutors } = useTutorsActions();
     const [data, setData] = useState({
         type_search: "course",
@@ -163,7 +165,7 @@ export function Navbar() {
                                 <li>
                                     <button
                                         className="dropdown-Profile btn"
-                                     
+                                        onClick={() => logoutUser()}
                                     >
                                         Cerrar sesión
                                     </button>

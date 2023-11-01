@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
-import { getTempUserData, googleRegisterStudent } from "../../API/Session";
-import { useTempUserActions } from "../../Hooks/useTempUserActions";
+import { getTempUserData, googleRegisterStudent } from "../../../API/Session";
+import { useTempUserActions } from "../../../Hooks/useTempUserActions";
 
 import "./ToastRegistro.css";
 
