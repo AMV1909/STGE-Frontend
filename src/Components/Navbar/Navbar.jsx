@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchTutors } from "../../API/Tutors";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { toast } from "react-hot-toast";
@@ -15,6 +15,7 @@ export function Navbar() {
         search: "",
     });
 
+    const [isMobile, setIsMobile] = useState(false);
     const onChange = (e) => {
         setData({
             ...data,
@@ -38,6 +39,18 @@ export function Navbar() {
     };
 
    
+    useEffect(() => {
+        const handleResize = () => {
+          setIsMobile(window.innerWidth <= 770);
+        };
+    
+        handleResize();
+        window.addEventListener("resize", handleResize);
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
@@ -112,7 +125,7 @@ export function Navbar() {
                                 onChange={onChange}
                             />
                         </form>
-
+                      <div className="content">
                         <div className="dropdown">
                             <button
                                 className="btn  dropdown-toggle"
@@ -124,7 +137,7 @@ export function Navbar() {
                                 <i class="fa-solid fa-bell iconbell"></i>
                             </button>
                             <ul
-                                className="dropdown-menu dropdown-menu-end"
+                                className={`dropdown-menu  ${!isMobile ? 'dropdown-menu-end' : ''}`}
                                 aria-labelledby="dropdownMenuButton1"
                             >
                                 <h5 style={
@@ -173,6 +186,8 @@ export function Navbar() {
                             </ul>
 
                             </div>
+
+                        </div>
 
                         
 

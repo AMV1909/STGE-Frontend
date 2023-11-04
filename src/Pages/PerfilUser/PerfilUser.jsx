@@ -44,6 +44,13 @@ export function PerfilUser() {
         setSelectedContent("realizadas");
     };
 
+    const CambiarSolicitadas = () => {
+        if (window.innerWidth <= 768) {
+            setMostrarColumnaDerecha(!mostrarColumnaDerecha);
+        }
+        setSelectedContent("requested")
+    }
+
     return (
         <div>
             <Navbar />
@@ -90,7 +97,7 @@ export function PerfilUser() {
                             <button
                                 type="button"
                                 className="btn btn-light"
-                                onClick={() => setSelectedContent("requested")}
+                                onClick={CambiarSolicitadas}
                             >
                                 Reuniones solicitads
                             </button>

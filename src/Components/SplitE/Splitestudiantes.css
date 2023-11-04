@@ -63,6 +63,7 @@
 @media (max-width: 768px) {
   .splitestudiante {
     flex-direction: column;
+    overflow: auto;
   }
 
   .splitestudiante > .right-columnSelectCurso{
