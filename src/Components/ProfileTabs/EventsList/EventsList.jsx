@@ -129,7 +129,7 @@ export function EventsList({ type }) {
                                     )}
                                     {(type === "Scheduled" ||
                                         type === "Requested") && (
-                                        <td>
+                                        <td className="lastTD">
                                             {user.role === "Student" &&
                                                 type === "Requested" && (
                                                     <button
@@ -219,6 +219,8 @@ export function EventsList({ type }) {
                                                 "Reunión en curso"}
 
                                             {user.role === "Student" &&
+                                                type === "Scheduled" &&
+
                                                 !event.confirmedCompleted &&
                                                 "Esperando a que el tutor marque la reunión como completada"}
 
@@ -226,6 +228,8 @@ export function EventsList({ type }) {
                                                 event.confirmedCompleted ===
                                                     1 &&
                                                 "Esperando a que el estudiante marque la reunión como completada"}
+
+                                                
                                         </td>
                                     )}
                                 </tr>

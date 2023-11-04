@@ -101,3 +101,23 @@
 }
 
 
+
+/* Estilos para la versión "dropdown-menu-end" */
+.content{
+    display: flex;
+    
+}
+
+
+@media screen and (max-width: 768px){
+
+    .navbar-collapse{
+        display: flexbox;
+    }
+   
+    .content{
+        justify-content: space-between;
+    }
+    
+}
+

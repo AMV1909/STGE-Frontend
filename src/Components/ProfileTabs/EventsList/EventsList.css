@@ -44,3 +44,65 @@
 .stge__eventsList .button-cancel:hover {
     background-color: #b51a00;
 }
+
+@media screen and (max-width: 680px) {
+  
+    .stge__eventsList{
+        padding: 20px;
+        
+
+    }
+    .stge__eventsList tr{
+        border: 1px solid black;
+
+    }
+    .stge__eventsList td{
+        border: none;
+    }
+    .stge__eventsList th{
+        display: none;
+    }
+    .stge__eventsList td{
+        display: block;
+      
+
+    }
+    .stge__eventsList td:nth-child(1):before {
+        content: "Tutor: " ;
+        font-weight: bold;
+        margin: 136px;
+    }
+    .stge__eventsList  td:nth-child(2):before {
+        content: "Estudiante: " ;
+        margin: 120px;
+        font-weight: bold;
+    }
+    .stge__eventsList td:nth-child(3):before {
+        content: "Curso: " ;
+        margin: 120px;
+        font-weight: bold;
+    }
+    .stge__eventsList td:nth-child(4):before {
+        content: "Fecha Inicio: " ;
+        margin: 120px;
+        font-weight: bold;
+    }
+    .stge__eventsList td:nth-child(5):before {
+        content: "Fecha Fin: " ;
+        margin: 120px;
+        font-weight: bold;
+    }
+    .stge__eventsList td:nth-child(6):before {
+        content: "Estado: " ;
+        margin: 120px;
+        font-weight: bold;
+    }
+    .stge__eventsList td:nth-child(7):before {
+        content: "Unirse a Reunion: " ;
+        margin: 100px;
+        font-weight: bold;
+    }
+
+    
+    
+}
