@@ -1,7 +1,7 @@
 // this is the card for the tutors
 import { toast } from "react-hot-toast";
 import { getTutors } from "../../API/Tutors";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./CardTutor.css";
 import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
