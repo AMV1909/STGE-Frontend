@@ -15,6 +15,13 @@ import { useNavigate } from "react-router-dom";
 
 export function Home() {
     const [mostrarColumnaDerecha, setMostrarColumnaDerecha] = useState(false);
+    const [tutorSeleccionado, setTutorSeleccionado] = useState(null);
+    const [isSelecting, setIsSelecting] = useState(false);
+    const [selectedDates, setSelectedDates] = useState([]);
+    const { logoutUser } = useUserActions();
+    const user = useAppSelector((state) => state.user);
+    const calendarRef = useRef(null);
+    const navigate = useNavigate();
 
     const toggleColumnaDerecha = () => {
         if (window.innerWidth <= 768) {
@@ -26,13 +33,24 @@ export function Home() {
         setMostrarColumnaDerecha(false);
     };
 
-    const [tutorSeleccionado, setTutorSeleccionado] = useState(null);
-    const [isSelecting, setIsSelecting] = useState(false);
-    const [selectedDates, setSelectedDates] = useState([]);
-    const { logoutUser } = useUserActions();
-    const user = useAppSelector((state) => state.user);
-    const calendarRef = useRef(null);
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setMostrarColumnaDerecha(false);
+            }
+          
+
+        }
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    
+    
+      }, []);
 
     useEffect(() => {
         setIsSelecting(false);
@@ -83,6 +101,9 @@ export function Home() {
 
         setIsSelecting(false);
         setSelectedDates([]);
+
+
+
     };
 
     return (
@@ -90,9 +111,8 @@ export function Home() {
             <Navbar />
             <Splitestudiantes>
                 <div
-                    className={`left-column ${
-                        mostrarColumnaDerecha ? "columna-izquierda-oculta" : ""
-                    }`}
+                    className={`left-column ${mostrarColumnaDerecha ? "columna-izquierda-oculta" : ""
+                        }`}
                 >
                     <div className="row divList ">
                         <CardTutor
@@ -102,9 +122,8 @@ export function Home() {
                     </div>
                 </div>
                 <div
-                    className={`right-columnHome${
-                        mostrarColumnaDerecha ? "columna-derecha-visible" : ""
-                    }`}
+                    className={`right-columnHome${mostrarColumnaDerecha ? "columna-derecha-visible" : ""
+                        }`}
                 >
                     <div className="imgcontainer">
                         <PTutorHome tutor={tutorSeleccionado} />
