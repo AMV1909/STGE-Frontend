@@ -148,6 +148,7 @@ export function EventsList({ type }) {
                                             {user.role === "Tutor" &&
                                                 type === "Requested" && (
                                                     <button
+                                                        className="btn btn-primary"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
@@ -199,7 +200,8 @@ export function EventsList({ type }) {
                                                             1)) &&
                                                 event.end <
                                                     new Date().toISOString() && (
-                                                    <button
+                                                    <button 
+                                                         className="btn btn-primary"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,

@@ -45,7 +45,7 @@
     background-color: #b51a00;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 687px) {
   
     .stge__eventsList{
         padding: 20px;
@@ -70,37 +70,44 @@
     .stge__eventsList td:nth-child(1):before {
         content: "Tutor: " ;
         font-weight: bold;
-        margin: 136px;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList  td:nth-child(2):before {
         content: "Estudiante: " ;
-        margin: 120px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList td:nth-child(3):before {
         content: "Curso: " ;
-        margin: 120px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList td:nth-child(4):before {
         content: "Fecha Inicio: " ;
-        margin: 120px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList td:nth-child(5):before {
         content: "Fecha Fin: " ;
-        margin: 120px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList td:nth-child(6):before {
         content: "Estado: " ;
-        margin: 120px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
     .stge__eventsList td:nth-child(7):before {
         content: "Unirse a Reunion: " ;
-        margin: 100px;
         font-weight: bold;
+        justify-content: center;
+        display: flex;
     }
 
     
