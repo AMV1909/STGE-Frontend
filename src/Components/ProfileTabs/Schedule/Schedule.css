@@ -36,3 +36,22 @@
 
     cursor: pointer;
 }
+
+@media screen and (max-width: 1205px) {
+    .stge__profileTabs-schedule_info  {
+        flex: 1 1 100%;
+        flex-direction: column-reverse;
+    }
+
+    .stge__profileTabs-schedule_info p {
+         margin-bottom: -10%;
+     
+         
+    }
+   
+    .stge__profileTabs-schedule{
+        height: 100%;
+    }
+
+    
+}

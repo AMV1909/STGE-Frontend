@@ -81,7 +81,7 @@ export function Schedule() {
 
             {isSelecting ? (
                 <div className="stge__profileTabs-schedule_info">
-                    <button onClick={handleConfirmSelection}>
+                    <button className="scheduleButton" onClick={handleConfirmSelection}>
                         Confirmar Selección
                     </button>
 
@@ -94,7 +94,7 @@ export function Schedule() {
                         una fecha, puedes dar click en el botón de la papelera.
                     </p>
 
-                    <button onClick={handleCancelSelection}>
+                    <button className="scheduleButton" onClick={handleCancelSelection}>
                         Cancelar Selección
                     </button>
                 </div>
