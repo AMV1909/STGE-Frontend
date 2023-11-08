@@ -92,6 +92,13 @@ export function Home() {
                     );
                 }
 
+                if (err.response.status === 415) {
+                    return toast.error(
+                        "El horario seleccionado se cruza con una tutoría que ya tienes agendada o que has solicitado, por favor selecciona otro horario",
+                        { duration: 5000 }
+                    );
+                }
+
                 if (err.response.status === 500) {
                     logoutUser();
                     navigate("/");
