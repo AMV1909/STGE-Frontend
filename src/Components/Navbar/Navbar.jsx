@@ -38,25 +38,26 @@ export function Navbar() {
             });
     };
 
-   
+
     useEffect(() => {
         const handleResize = () => {
-          setIsMobile(window.innerWidth <= 980);
+            setIsMobile(window.innerWidth <= 980);
         };
-    
+
         handleResize();
         window.addEventListener("resize", handleResize);
-    
+
         return () => {
-          window.removeEventListener("resize", handleResize);
+            window.removeEventListener("resize", handleResize);
         };
 
 
 
-      }, []);
+    }, []);
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
+
                 <div className="container-fluid navcolor">
                     <Link
                         className="navbar-brand"
@@ -64,7 +65,7 @@ export function Navbar() {
                         onClick={() => resetTutors()}
                     >
 
-                        <i class="fa-solid fa-book-open" id="logo" />
+                        <img id="logo" src="https://i.postimg.cc/Y0XrzgXK/Captura-de-pantalla-2023-11-08-175823.png" alt="" />
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -128,71 +129,71 @@ export function Navbar() {
                                 onChange={onChange}
                             />
                         </form>
-                      <div className="content">
-                        <div className="dropdown">
-                            <button
-                                className="btn  dropdown-toggle"
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                <i class="fa-solid fa-bell iconbell"></i>
-                            </button>
-                            <ul
-                                className={`dropdown-menu  ${!isMobile ? 'dropdown-menu-end' : ''}`}
-                                aria-labelledby="dropdownMenuButton1"
-                            >
-                                <h5 style={
-                                    {
-                                        color: "black",
-                                        padding: "10px",
-                                        textAlign: "center"
-                                    }
-                                }>Notificaciones</h5>
-                                <hr />
+                        <div className="content">
+                            <div className="dropdown">
+                                <button
+                                    className="btn  dropdown-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    <i class="fa-solid fa-bell iconbell"></i>
+                                </button>
+                                <ul
+                                    className={`dropdown-menu  ${!isMobile ? 'dropdown-menu-end' : ''}`}
+                                    aria-labelledby="dropdownMenuButton1"
+                                >
+                                    <h5 style={
+                                        {
+                                            color: "black",
+                                            padding: "10px",
+                                            textAlign: "center"
+                                        }
+                                    }>Notificaciones</h5>
+                                    <hr />
 
-                            </ul>
-                        </div>
+                                </ul>
+                            </div>
 
 
-                        <div className="dropdown DropdownProfile">
-                            <button
-                                className="btn  "
-                                type="button"
-                                id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                <i class="fa-solid fa-user iconbell"></i>
-                            </button>
-                            <ul
-                                className="dropdown-menu dropdown-menu-end"
-                                aria-labelledby="dropdownMenuButton1"
-                            >
-                                <li>
-                                    <button
-                                        className="dropdown-Profile btn"
-                                        onClick={() => navigate("/perfil")}
-                                    >
-                                        Mi perfil
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        className="dropdown-Profile btn"
-                                        onClick={() => logoutUser()}
-                                    >
-                                        Cerrar sesión
-                                    </button>
-                                </li>
-                            </ul>
+                            <div className="dropdown DropdownProfile">
+                                <button
+                                    className="btn  "
+                                    type="button"
+                                    id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    <i class="fa-solid fa-user iconbell"></i>
+                                </button>
+                                <ul
+                                    className="dropdown-menu dropdown-menu-end"
+                                    aria-labelledby="dropdownMenuButton1"
+                                >
+                                    <li>
+                                        <button
+                                            className="dropdown-Profile btn"
+                                            onClick={() => navigate("/perfil")}
+                                        >
+                                            Mi perfil
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button
+                                            className="dropdown-Profile btn"
+                                            onClick={() => logoutUser()}
+                                        >
+                                            Cerrar sesión
+                                        </button>
+                                    </li>
+                                </ul>
 
                             </div>
 
                         </div>
 
-                        
+
 
                     </div>
                 </div>
