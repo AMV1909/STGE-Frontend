@@ -118,7 +118,7 @@ export function PerfilUser() {
                                 className="btn btn-light"
                                 onClick={CambiarSolicitadas}
                             >
-                                Reuniones solicitads
+                                Reuniones solicitadas
                             </button>
                         )}
 
