@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useGoogleLogin } from "@react-oauth/google";
-
+import {Splitestudiantes} from '../../Components'
 import { useUserActions } from "../../Hooks/useUserActions";
 import { googleLogin } from "../../API/Session";
 
@@ -73,14 +73,11 @@ export function Login() {
     });
 
     return (
-        <div className="container">
-            <div className="image-container ">
+        <Splitestudiantes>
+            <div className="left-columnLogin ">
                 {/* Coloca aquí la ruta de la imagen que quieras mostrar */}
-                <img
-                    src="https://us.123rf.com/450wm/claudiodivizia/claudiodivizia1510/claudiodivizia151002181/46394179-vintage-buscando-papel-de-color-naranja-%C3%BAtil-como-fondo.jpg?ver=6"
-                    alt="Imagen"
-                />
-                <div className="overlay">
+                
+                <div className="inicioLog">
                     <h1 className="titulo">UNAB</h1>
                     <p>
                         Plan padrino <br />
@@ -88,7 +85,7 @@ export function Login() {
                     </p>
                 </div>
             </div>
-            <div className="login-container">
+            <div className="login-container right-columnLogin">
                 <div className="card card1 cardLog">
                     <div className="card-header">
                         <h3 className="logintext">Login</h3>
@@ -135,6 +132,7 @@ export function Login() {
                     </div>
                 </div>
             </div>
-        </div>
+
+            </Splitestudiantes>
     );
 }

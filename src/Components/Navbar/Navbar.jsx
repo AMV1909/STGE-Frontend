@@ -41,7 +41,7 @@ export function Navbar() {
    
     useEffect(() => {
         const handleResize = () => {
-          setIsMobile(window.innerWidth <= 770);
+          setIsMobile(window.innerWidth <= 980);
         };
     
         handleResize();
