@@ -57,12 +57,63 @@
 }
 
 
+.splitestudiante > .left-columnLogin{
+  flex: 1;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #c54d19;
+}
 
+.splitestudiante > .left-columnLogin > .inicioLog{
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  top: 30%;
+  left: 20%;
+  padding: 10px;
+  text-align: center;
+}
+ 
+.splitestudiante > .right-columnLogin{
+  
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  
+}
+
+.splitestudiante > .left-columnSignUp{
+ justify-content: center;
+ align-items: center;
+}
+
+.splitestudiante > .right-columnSignUp{
+  flex: 1;
+  justify-content: center; /* Centrar horizontalmente los elementos */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #c54d19;
+  
+}
+
+.splitestudiante > .left-columnCursos > .overlay-Register{
+  position: absolute;
+  color: white;
+  font-weight: bold;
+  top: 30%;
+  left: 20%;
+  padding: 10px;
+  text-align: center;
+}
 
 /* Media query para dispositivos pequeños */
 @media (max-width: 768px) {
   .splitestudiante {
-    flex-direction: column;
+    /*flex-direction: column;*/
     overflow: auto;
   }
 
@@ -83,5 +134,26 @@
     position: absolute; /* Hace que la columna derecha se superponga */
     z-index: 1; /* Asegura que la columna derecha esté por encima de la izquierda */
   }
+
+ 
 }
 
+@media (max-width: 980px) {
+ 
+
+  .splitestudiante > .left-columnLogin{
+    display: none;
+  }
+  .splitestudiante > .right-columnLogin{
+     margin: auto;
+
+
+  }
+
+  .splitestudiante > .left-columnSignUp{
+     margin: auto;
+  }
+  .splitestudiante > .right-columnSignUp{
+    display: none;
+}  
+}

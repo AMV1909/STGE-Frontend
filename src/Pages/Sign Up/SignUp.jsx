@@ -8,6 +8,7 @@ import {
 /* boostrap*/
 import "./SignUp.css";
 import { ToastRegistro } from "../../Components/Toast/Toast Registro/ToastRegistro";
+import {Splitestudiantes } from '../../Components'
 
 export function SignUp() {
     const [data, setData] = useState({
@@ -47,8 +48,8 @@ export function SignUp() {
     });
 
     return (
-        <div className="container">
-            <div className="login-container">
+        <Splitestudiantes>
+            <div className="login-container left-columnSignUp">
                 <div className="card cardLog card-Register">
                     <div className="card-header">
                         <h3 className="logintext">Register</h3>
@@ -101,12 +102,9 @@ export function SignUp() {
                 </div>
             </div>
 
-            <div className="image-container ">
-                {/* Coloca aquí la ruta de la imagen que quieras mostrar */}
-                <img
-                    src="https://us.123rf.com/450wm/claudiodivizia/claudiodivizia1510/claudiodivizia151002181/46394179-vintage-buscando-papel-de-color-naranja-%C3%BAtil-como-fondo.jpg?ver=6"
-                    alt="Imagen"
-                />
+            <div className="right-columnSignUp ">
+             
+                
                 <div className="overlay-Register">
                     <h1 className="titulo">UNAB</h1>
                     <p>
@@ -115,6 +113,6 @@ export function SignUp() {
                     </p>
                 </div>
             </div>
-        </div>
+        </Splitestudiantes>
     );
 }
