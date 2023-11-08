@@ -3,14 +3,17 @@ import { restoreSessionGoogle } from "./RestoreSession";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-export const getAvailableSchedule = async (tutorId) => {
+export const getAvailableSchedule = async (calendarId, tutorId) => {
     await restoreSessionGoogle();
 
     return await axios
-        .get(`${API_URL}/calendar/available/${tutorId}`, {
+        .get(`${API_URL}/calendar/available/${calendarId}`, {
             headers: {
                 "x-access-token": localStorage.getItem("token"),
                 "x-google-access-token": localStorage.getItem("google-token"),
+            },
+            params: {
+                tutorId,
             },
         })
         .then((res) => {

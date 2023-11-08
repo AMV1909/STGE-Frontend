@@ -31,7 +31,7 @@ export function Calendar({
     useEffect(() => {
         if (isSelecting || !googleCalendarId) return;
 
-        getAvailableSchedule(googleCalendarId)
+        getAvailableSchedule(googleCalendarId, tutor?._id)
             .then((events) => {
                 setEvents(
                     events.map((event) => {
