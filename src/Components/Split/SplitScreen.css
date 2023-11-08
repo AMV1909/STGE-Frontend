@@ -1,7 +1,7 @@
 .split-screen {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Columna más grande */
@@ -21,9 +21,8 @@
   border: 1px solid #ccc;
   padding: 20px;
   box-sizing: border-box;
-  overflow-y: auto;
   margin-bottom: 4%;
-  overflow: hidden;
+  overflow-y: auto;
 
 }
 
