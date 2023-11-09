@@ -111,7 +111,9 @@ export function Modify() {
                         />
                     ))}
 
+                    
                 {user && coursesToTeach && (
+                   
                     <button
                         className=" btnCurso"
                         type="button"
@@ -134,7 +136,9 @@ export function Modify() {
                     >
                         Continuar
                     </button>
+                 
                 )}
+                
             </div>
         </div>
     );
