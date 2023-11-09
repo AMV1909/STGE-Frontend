@@ -138,7 +138,7 @@ export function Navbar() {
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                 >
-                                    <i class="fa-solid fa-bell iconbell"></i>
+                                    <i className="fa-solid fa-bell iconbell"></i>
                                 </button>
                                 <ul
                                     className={`dropdown-menu  ${!isMobile ? 'dropdown-menu-end' : ''}`}
@@ -165,7 +165,7 @@ export function Navbar() {
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
                                 >
-                                    <i class="fa-solid fa-user iconbell"></i>
+                                    <i className="fa-solid fa-user iconbell"></i>
                                 </button>
                                 <ul
                                     className="dropdown-menu dropdown-menu-end"

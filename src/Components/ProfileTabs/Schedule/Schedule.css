@@ -55,3 +55,16 @@
 
     
 }
+
+
+
+@media screen and (max-width: 780px) {
+    
+
+    
+     .fc-media-screen{
+        margin-bottom: 20%;
+     }
+    
+   
+}
