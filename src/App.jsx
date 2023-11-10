@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 
 import { ProtectedRoute } from "./Auth/ProtectedRoute";
 import { PageLoader } from "./Components";
-import "./Assets/logito.png"
 import {
     Login,
     SignUp,
