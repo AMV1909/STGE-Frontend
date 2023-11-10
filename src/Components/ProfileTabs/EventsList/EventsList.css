@@ -20,12 +20,15 @@
 .stge__eventsList td {
     border: 1px solid black;
     padding: 0.5rem;
+    
 }
 
 .stge__eventsList p {
     text-align: center;
     font-size: 1.5rem;
 }
+
+
 
 .stge__eventsList button {
     width: 100%;
@@ -35,25 +38,23 @@
     margin-bottom: 0.5rem;
 }
 
-.stge__eventsList .button-cancel {
-    background-color: #ff1a1a;
-    color: #fff;
-    border: none;
-}
 
-.stge__eventsList .button-cancel:hover {
-    background-color: #b51a00;
-}
 
 @media screen and (max-width: 687px) {
   
     .stge__eventsList{
         padding: 20px;
+        margin-bottom: 20%;
         
 
     }
+
+    .stge__eventsList tbody{
+        gap: 10px;
+     }
     .stge__eventsList tr{
         border: 1px solid black;
+    
 
     }
     .stge__eventsList td{
