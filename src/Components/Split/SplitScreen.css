@@ -57,4 +57,8 @@
   .Cursos-Container{
     width: 100%;
   }
+  .Cursos-Container button{
+    margin-left: 35%;
+    
+  }
 }

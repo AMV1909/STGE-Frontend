@@ -57,7 +57,7 @@
     width: 100%;
     height: auto;
     flex-direction: column;
-    margin-bottom: 50px;
+   
 }
 @media screen  and (max-width: 768px) {
    
@@ -71,4 +71,14 @@
             height: 50%;
             margin-left: 10%;
    }
+
+   .scoreTutor{
+       display: inline;
+   }
+   .divList {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 20%;
+}
 }
