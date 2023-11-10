@@ -230,6 +230,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 }
             });
     };
+    let btnClassName = "btn";
+    btnClassName += (type === "Dejar la reunion") ? " btn-primary" : " btn-primary";
 
     return (
         <div className="stge__toastEvent">
@@ -295,7 +297,7 @@ export function ToastEvent({ t, event, type, setEvents }) {
 
             <div className="stge__toastEvent-buttons">
                 {type === "Accept" && (
-                    <button onClick={handleAccept}>Aceptar</button>
+                    <button className="btn btn-primary" onClick={handleAccept}>Aceptar</button>
                 )}
 
                 {type === "Complete" && (
@@ -304,7 +306,7 @@ export function ToastEvent({ t, event, type, setEvents }) {
 
                 {type === "CancelRequest" && (
                     <button
-                        className="red-button"
+                        className="btn btn-danger"
                         onClick={handleCancelRequest}
                     >
                         Cancelar
@@ -313,7 +315,7 @@ export function ToastEvent({ t, event, type, setEvents }) {
 
                 {type === "CancelSchedule" && (
                     <button
-                        className="red-button"
+                        className=" btn btn-primary"
                         onClick={handleCancelSchedule}
                     >
                         Cancelar
@@ -321,17 +323,19 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 )}
 
                 {type === "Reject" && (
-                    <button className="red-button" onClick={handleReject}>
+                    <button className="btn btn-primary" onClick={handleReject}>
                         Rechazar
                     </button>
                 )}
 
-                <button onClick={() => toast.dismiss(t.id)}>
+                <button className="btn btn-danger" onClick={() => toast.dismiss(t.id)}>
                     {type === "Accept" ||
                     type === "Reject" ||
                     type === "Complete"
                         ? "Cancelar"
-                        : "Dejar la reunión"}
+                        :   "Dejar la reunión"
+                        
+                        }
                 </button>
             </div>
         </div>

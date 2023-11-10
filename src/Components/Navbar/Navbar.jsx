@@ -6,6 +6,8 @@ import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { toast } from "react-hot-toast";
 import { useUserActions } from "../../Hooks/useUserActions";
 
+
+
 export function Navbar() {
     const navigate = useNavigate();
     const { logoutUser } = useUserActions();
@@ -65,7 +67,9 @@ export function Navbar() {
                         onClick={() => resetTutors()}
                     >
 
-                        <img id="logo" src="https://i.postimg.cc/Y0XrzgXK/Captura-de-pantalla-2023-11-08-175823.png" alt="" />
+                        <img id="logo" src=" /src/Assets/logito.png
+                         
+                        " alt="" />
                     </Link>
                     <button
                         className="navbar-toggler"

@@ -133,7 +133,7 @@ export function EventsList({ type }) {
                                             {user.role === "Student" &&
                                                 type === "Requested" && (
                                                     <button
-                                                        className="button-cancel"
+                                                        className="btn btn-danger"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
@@ -163,7 +163,7 @@ export function EventsList({ type }) {
                                             {user.role === "Tutor" &&
                                                 type === "Requested" && (
                                                     <button
-                                                        className="button-cancel"
+                                                        className="btn btn-danger"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
@@ -180,7 +180,7 @@ export function EventsList({ type }) {
                                                 event.start >
                                                     new Date().toISOString() && (
                                                     <button
-                                                        className="button-cancel"
+                                                        className="btn btn-danger"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
