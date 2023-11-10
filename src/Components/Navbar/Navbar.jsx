@@ -67,9 +67,7 @@ export function Navbar() {
                         onClick={() => resetTutors()}
                     >
 
-                        <img id="logo" src=" /src/Assets/logito.png
-                         
-                        " alt="" />
+                        <img id="logo" src=" https://i.postimg.cc/ncZBSyS5/logito.png" alt="" />
                     </Link>
                     <button
                         className="navbar-toggler"
