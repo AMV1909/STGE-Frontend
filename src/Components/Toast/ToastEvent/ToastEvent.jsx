@@ -315,7 +315,7 @@ export function ToastEvent({ t, event, type, setEvents }) {
 
                 {type === "CancelSchedule" && (
                     <button
-                        className=" btn btn-primary"
+                        className=" btn btn-danger"
                         onClick={handleCancelSchedule}
                     >
                         Cancelar
@@ -328,15 +328,22 @@ export function ToastEvent({ t, event, type, setEvents }) {
                     </button>
                 )}
 
-                <button className="btn btn-danger" onClick={() => toast.dismiss(t.id)}>
+                
                     {type === "Accept" ||
                     type === "Reject" ||
                     type === "Complete"
-                        ? "Cancelar"
-                        :   "Dejar la reunión"
-                        
+                        ? (
+                            <button className="btn btn-danger" onClick={() => toast.dismiss(t.id)}>
+                                Cancelar
+                                </button>
+                        ) :
+                        (
+                            <button className="btn btn-primary" onClick={() => toast.dismiss(t.id)}>
+                                Dejar la reunion
+                            </button>
+                        )
                         }
-                </button>
+            
             </div>
         </div>
     );
