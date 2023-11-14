@@ -2,6 +2,8 @@
 import { useEffect, useState } from 'react';
 import { Navbar, Splitestudiantes, CardEstudiante, CardTutor, PTutorHome } from '../../Components'
 import './LEstudiantes.css'
+import { useAppSelector } from '../../Hooks/store';
+import { getTutorWorker } from '../../API/Tutors';
 
 
 
@@ -46,6 +48,19 @@ export function LEstudiantes() {
 
   }, []);
 
+  useEffect(() => {
+    if (!tutorSeleccionado) return;
+
+    getTutorWorker(tutorSeleccionado._id)
+      .then((response) => {
+        setTutorSeleccionado(response);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [tutorSeleccionado]);
+
+   
   return (
     <>
       <Navbar />
@@ -64,7 +79,7 @@ export function LEstudiantes() {
           </div>
         </div>
         <div className={`right-columnHome${mostrarColumnaDerecha ? 'columna-derecha-visible' : ''}`}>
-          <div className='imgcontainer1'>
+          <div className='imgcontainer'>
 
             <PTutorHome
               tutor={tutorSeleccionado}
@@ -73,7 +88,7 @@ export function LEstudiantes() {
             < div className=' rowUsuario'>
 
 
-              <CardEstudiante />
+              
 
             </div>
           </div>
