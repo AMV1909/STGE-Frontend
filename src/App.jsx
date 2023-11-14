@@ -11,6 +11,7 @@ import {
     LEstudiantes,
     SelectCursos,
     NotFound,
+    Administrar,
     PerfilUser,
 } from "./Pages";
 
@@ -61,6 +62,19 @@ export function App() {
                                 </ProtectedRoute>
                             }
                         />
+
+                        <Route>
+                            <Route
+                                path="/administrar"
+                                element={
+                                    <ProtectedRoute>
+                                        <Administrar />
+                                    </ProtectedRoute>
+                                }
+                            />
+                        </Route>
+ 
+                        
 
                         <Route
                             path="/select-cursos"

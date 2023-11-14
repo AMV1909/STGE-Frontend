@@ -101,7 +101,7 @@ export function PerfilUser() {
                         )}
                     </div>
 
-                    <div className="row rowbuttons ">
+                    <div className="row row1 rowbuttons ">
                         {user.role === "Tutor" && (
                             <button
                                 type="button"
