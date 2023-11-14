@@ -81,3 +81,19 @@ export const putCourse = async (updateCourses) => {
             return res.data.coursesToTeach;
         });
 };
+
+ export const getTutorWorker = async () => {
+        return await axios
+            .get(`${API_URL}/tutors/worker`, {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                },
+            })
+            .then((res) => {
+                if (res.status === 229) {
+                    localStorage.setItem("token", res.data.token);
+                }
+    
+                return res.data.tutors;
+            });
+    }

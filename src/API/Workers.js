@@ -18,6 +18,7 @@ export const getWorkers = async () => {
         });
 }
 
+
 export const setWorker = async (worker) => {
     return await axios
         .post(`${API_URL}/workers`, worker, {
@@ -49,4 +50,7 @@ export const deleteWorker = async (workerId) => {
             return res.data.worker;
         });
 }
+
+
+
 

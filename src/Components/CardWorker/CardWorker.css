@@ -84,33 +84,29 @@
     color: #1c8f1c;
     border: 1px solid #1c8f1c;
 }
+.AñadirT{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
 
-.ToastCancelar{
-    background-color: rgba(54, 92, 244, 0.818);
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
-.EliminarWorker{
-    background-color: rgb(221, 27, 27);
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    transition: 0.3s;
+.btn-AñadirT{
+    background-color: #1c3f8f;
+    color: #ece4e4;
     border: none;
-    outline: none;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    border : 1px solid #1c3f8f;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.btn-AñadirT:hover{
+    background-color: #ffffff;
+    color: #1c3f8f;
+    border: 1px solid #1c3f8f;
 }

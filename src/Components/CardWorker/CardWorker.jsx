@@ -4,6 +4,8 @@ import { getWorkers, deleteWorker } from '../../API/Workers'
 import { toast } from 'react-hot-toast'
 import { useWorkersActions } from '../../Hooks/useWorkerActions'
 import { useAppSelector } from '../../Hooks/store'
+import { ToastDeleteWorker } from '../Toast/ToastDeleteWorker/ToastDeleteWorker'
+import { ToastAgregarWorker } from '../Toast/ToastAgregarWorker/ToastAgregarWorker'
 import React, { useEffect } from 'react'
 
 import './CardWorker.css'
@@ -26,20 +28,39 @@ export function CardWorker ()  {
             });
     }, [setWorkers, workers]);
 
-    const DeleteWorker = (id) => {
-        deleteWorker(id)
-            .then((response) => {
-                toast.success("Trabajador eliminado", { duration: 5000 });
-                setWorkers(response);
-            })
-            .catch((err) => {
-                toast.error("Error al eliminar trabajador", { duration: 5000 });
-                toast.error(err.message, { duration: 5000 });
-            });
-    };
+     
+    const onClick = (name, id) => {
+        toast((t) => 
+        <ToastDeleteWorker
+        t={t}
+        name={name}
+        id={id}
+        />, {
+            duration: 5000,
+        });
+    }
+
+    const addWorker = () => { 
+        toast((t) => 
+        <ToastAgregarWorker
+        t={t}
+        />, {
+            duration: 100000,
+        });
+    }
+
+
     return (
 
         <>
+          <div className='AñadirT'>
+            <button
+             className='btn-AñadirT '
+                onClick={addWorker}
+            >
+                Añadir trabajador
+            </button>
+            </div>
             {
                 workers && workers.map((worker) => (
 
@@ -70,7 +91,7 @@ export function CardWorker ()  {
                                 <div className='col crud'>
                                     <button
                                         className='btn-eliminar '
-                                        onClick={() => DeleteWorker(worker._id)}
+                                        onClick={() => onClick(worker.name, worker._id)}
 
                                     >Eliminar</button>
                                     <button
