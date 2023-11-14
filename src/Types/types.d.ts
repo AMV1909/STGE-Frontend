@@ -14,6 +14,14 @@ export type User = {
     tutorCalendarId?: string;
 };
 
+export type Worker = {
+    _id: string;
+    role: "Worker";
+    name: string;
+    email: string;
+    picture: string;
+};
+
 export type Tutor = {
     _id: string;
     role: "Tutor";

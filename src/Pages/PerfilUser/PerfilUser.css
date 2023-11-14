@@ -36,11 +36,11 @@ p.dato{
     width: 80%;
     margin: auto;
 }
-.row button{
+.row1 button{
     margin-top: 20px;
     text-align: center;
     border-radius: 20px;
-    background-color:rgb(215, 215, 215);
+    background-color:rgb(198, 193, 193);
     
 }
 .Cursos-Container{

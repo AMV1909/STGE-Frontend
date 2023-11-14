@@ -7,3 +7,4 @@ export { CardEstudiante } from "./CardEstudiante/CardEstudiante";
 export { CardTutor } from "./CardTutor/CardTutor";
 export { PTutorHome } from "./PerfilTutorHome/PTutorHome";
 export { PageLoader } from "./PageLoader/PageLoader";
+export {CardWorker} from "./CardWorker/CardWorker";
