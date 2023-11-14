@@ -8,7 +8,7 @@ import React, { useEffect } from 'react'
 
 import './CardWorker.css'
 
-export const CardWorker = () => {
+export function CardWorker ()  {
     const worker = useAppSelector((state) => state.workers);
     const { setWorkers } = useWorkersActions();
     const workers = useAppSelector((state) => state.workers);
