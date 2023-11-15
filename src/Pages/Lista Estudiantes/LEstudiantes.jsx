@@ -1,18 +1,22 @@
 
 import { useEffect, useState } from 'react';
 import { Navbar, Splitestudiantes, CardEstudiante, CardTutor, PTutorHome } from '../../Components'
-import './LEstudiantes.css'
+import { useWorkersActions } from '../../Hooks/useWorkerActions';
 import { useAppSelector } from '../../Hooks/store';
+import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { getTutorWorker } from '../../API/Tutors';
+
+import './LEstudiantes.css'
+import toast from 'react-hot-toast';
+
 
 
 
 
 export function LEstudiantes() {
 
-
-
   const [mostrarColumnaDerecha, setMostrarColumnaDerecha] = useState(false);
+  
 
   const toggleColumnaDerecha = () => {
     if (window.innerWidth <= 768) {
@@ -24,6 +28,7 @@ export function LEstudiantes() {
     setMostrarColumnaDerecha(false);
   };
 
+
   const [tutorSeleccionado, setTutorSeleccionado] = useState(null);
 
   const handleCardClick = (tutor) => {
@@ -32,35 +37,43 @@ export function LEstudiantes() {
 
   useEffect(() => {
     const handleResize = () => {
-        if (window.innerWidth > 768) {
-            setMostrarColumnaDerecha(false);
-        }
-      
+      if (window.innerWidth > 768) {
+        setMostrarColumnaDerecha(false);
+      }
+
 
     }
     handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
-        window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", handleResize);
     };
 
 
   }, []);
 
-  useEffect(() => {
-    if (!tutorSeleccionado) return;
 
-    getTutorWorker(tutorSeleccionado._id)
+  
+ 
+  const { setTutors } = useTutorsActions();
+  const tutors = useAppSelector((state) => state.tutors);
+
+  useEffect(() => {
+    if (tutors.length === 0 || tutors[0]._id !== "") return;
+
+    getTutorWorker()
       .then((response) => {
-        setTutorSeleccionado(response);
+        setTutors(response);
+        console.log(response);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error("Error al obtener tutores", { duration: 5000 });
+        toast.error(err.message, { duration: 5000 });
       });
-  }, [tutorSeleccionado]);
+  }, [setTutors, tutors]);
 
-   
+
   return (
     <>
       <Navbar />
@@ -70,11 +83,29 @@ export function LEstudiantes() {
 
 
           <div className="row divList ">
+                   
+                  {
+                    
+                    tutors.map((tutor) => (
+                     
+                        <CardTutor
+                          tutor={tutor}
+                          onCardClick={handleCardClick}
+                          onToggleClick={toggleColumnaDerecha}
 
-            <CardTutor
-              onCardClick={handleCardClick}
-              onToggleClick={toggleColumnaDerecha}
-            />
+                        />
+                    
+                    ))
+                  }
+                   
+
+
+            <div className="col-sm-4">
+
+             
+            </div>
+
+
 
           </div>
         </div>
@@ -84,11 +115,12 @@ export function LEstudiantes() {
             <PTutorHome
               tutor={tutorSeleccionado}
             />
+
             <button type="button" className=" btn btnAtras btn-link" onClick={resetColumnaDerecha}>Atras</button>
             < div className=' rowUsuario'>
 
+               
 
-              
 
             </div>
           </div>

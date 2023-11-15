@@ -2,33 +2,17 @@
 
 import { getWorkers, deleteWorker } from '../../API/Workers'
 import { toast } from 'react-hot-toast'
-import { useWorkersActions } from '../../Hooks/useWorkerActions'
 import { useAppSelector } from '../../Hooks/store'
 import { ToastDeleteWorker } from '../Toast/ToastDeleteWorker/ToastDeleteWorker'
 import { ToastAgregarWorker } from '../Toast/ToastAgregarWorker/ToastAgregarWorker'
 import React, { useEffect } from 'react'
+import { ToastUpdateWorker } from '../Toast/ToastUpdateWorker/ToastUpdateWorker'
 
 import './CardWorker.css'
 
-export function CardWorker ()  {
-    const worker = useAppSelector((state) => state.workers);
-    const { setWorkers } = useWorkersActions();
-    const workers = useAppSelector((state) => state.workers);
+export function CardWorker(worker) {
 
-    useEffect(() => {
-        if (workers.length === 0 || workers[0]._id !== "") return;
 
-        getWorkers()
-            .then((response) => {
-                setWorkers(response);
-            })
-            .catch((err) => {
-                toast.error("Error al obtener trabajadores", { duration: 5000 });
-                toast.error(err.message, { duration: 5000 });
-            });
-    }, [setWorkers, workers]);
-
-     
     const onClick = (name, id) => {
         toast((t) => 
         <ToastDeleteWorker
@@ -39,31 +23,23 @@ export function CardWorker ()  {
             duration: 5000,
         });
     }
+    
 
-    const addWorker = () => { 
+    const updateWorker = (worker) => {
         toast((t) => 
-        <ToastAgregarWorker
+        <ToastUpdateWorker
         t={t}
+        worker={worker}
         />, {
             duration: 100000,
         });
+       
     }
 
 
     return (
 
         <>
-          <div className='AñadirT'>
-            <button
-             className='btn-AñadirT '
-                onClick={addWorker}
-            >
-                Añadir trabajador
-            </button>
-            </div>
-            {
-                workers && workers.map((worker) => (
-
                     <div className='cardW'>
 
                         <div
@@ -96,14 +72,16 @@ export function CardWorker ()  {
                                     >Eliminar</button>
                                     <button
                                         className='btn-actualizar '
+                                        onClick={() => updateWorker(worker)}
+                                    
                                     >Acutalizar</button>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                ))
-            }
+                
+            
 
 
 

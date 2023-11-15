@@ -12,22 +12,24 @@ const initialState: Worker[] = [{
 
 ];
 
+
 export const workersSlice = createSlice({
     name: 'workers',
     initialState,
     reducers: {
-        setWorkersInfo: (state, action: PayloadAction<Worker[]>) => {
-            localStorage.setItem('workers', JSON.stringify(state));
-
-            return [...action.payload];
+        setWorkersInfo: (_, action: PayloadAction<Worker[]>) => {
+            localStorage.setItem('workers', JSON.stringify(action.payload));
+            return action.payload;
         },
-        
-
         resetWorkersInfo: () => {
-            return JSON.parse(localStorage.getItem('workers')!) as Worker[];
+            const storedWorkers = JSON.parse(localStorage.getItem('workers')!) as Worker[];
+            return storedWorkers || initialState;
         },
     },
 });
+
+ 
+
 
 export default workersSlice.reducer;
 export const { setWorkersInfo, resetWorkersInfo } = workersSlice.actions;

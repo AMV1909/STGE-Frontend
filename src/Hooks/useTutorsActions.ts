@@ -6,6 +6,10 @@ import {
     setSearchingTutorsInfo,
 } from "../Store/Tutors/slice";
 
+
+
+
+
 export const useTutorsActions = () => {
     const dispatch = useAppDispatch();
 
@@ -21,5 +25,11 @@ export const useTutorsActions = () => {
         dispatch(resetTutorsInfo());
     };
 
+
+
+
+
+
+
     return { setTutors, resetTutors, setSearchingTutors };
-};
+}

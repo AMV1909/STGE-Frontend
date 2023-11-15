@@ -13,8 +13,9 @@ export const getTutors = async () => {
             if (res.status === 229) {
                 localStorage.setItem("token", res.data.token);
             }
-
+            
             return res.data.tutors;
+            
         });
 };
 
@@ -82,7 +83,9 @@ export const putCourse = async (updateCourses) => {
         });
 };
 
- export const getTutorWorker = async () => {
+ 
+
+    export const getTutorWorker = async () => {
         return await axios
             .get(`${API_URL}/tutors/worker`, {
                 headers: {
@@ -92,8 +95,11 @@ export const putCourse = async (updateCourses) => {
             .then((res) => {
                 if (res.status === 229) {
                     localStorage.setItem("token", res.data.token);
+                    
                 }
-    
+              
                 return res.data.tutors;
+                
             });
-    }
+    };
+    

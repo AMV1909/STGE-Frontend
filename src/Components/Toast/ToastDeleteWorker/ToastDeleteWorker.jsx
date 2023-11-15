@@ -2,10 +2,12 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import "./ToastDeleteWorker.css";
-import { deleteWorker } from '../../../API/Workers';
+import { deleteWorker,getWorkers } from '../../../API/Workers';
+import { useWorkersActions } from '../../../Hooks/useWorkerActions';
 
 
 export function ToastDeleteWorker({ t, name, id }) {
+    const { setWorkers } = useWorkersActions();
 
     const handleDelete = () => {
         toast.success("Trabajador eliminado correctamente", { duration: 5000 });
@@ -14,6 +16,12 @@ export function ToastDeleteWorker({ t, name, id }) {
             .then((response) => {
                 toast.success("Trabajador eliminado correctamente", { duration: 5000 });
                 setWorkers(response);
+                getWorkers()
+                    .then((response) => {
+                        setWorkers(response);
+                    })
+                    toast.dismiss(t.id)
+                    
             })
             .catch((err) => {
                 toast.error("Error al eliminar trabajador", { duration: 5000 });
