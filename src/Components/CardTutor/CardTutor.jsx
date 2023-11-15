@@ -1,16 +1,12 @@
 // this is the card for the tutors
 import { toast } from "react-hot-toast";
-import { getTutors } from "../../API/Tutors";
-import { useEffect } from "react";
 import "./CardTutor.css";
-import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { useAppSelector } from "../../Hooks/store";
 import ReactStars from "react-rating-stars-component";
 
 
 export function CardTutor({ tutor, onCardClick, onToggleClick}) {
-
- 
+  const user = useAppSelector((state) => state.user);
 
 
 
@@ -34,14 +30,10 @@ export function CardTutor({ tutor, onCardClick, onToggleClick}) {
       );
     }
 
-  const handleCardClick = (tutor) => {
-   
-    
     onCardClick(tutor);
     onToggleClick();
     console.log(tutor);
-
-  };
+  }
 
 
   return (
