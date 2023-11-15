@@ -14,6 +14,7 @@ import { useUserActions } from "../../../Hooks/useUserActions";
 import { useAppSelector } from "../../../Hooks/store";
 
 import "./ToastEvent.css";
+import { socket } from "../../../Socket";
 
 export function ToastEvent({ t, event, type, setEvents }) {
     const user = useAppSelector((state) => state.user);
@@ -65,6 +66,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 toast.dismiss("loading");
                 toast.success("Evento aceptado");
 
+                socket.emit("accept-event", event._id);
+
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
                 );
@@ -97,6 +100,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
             .then(() => {
                 toast.dismiss("loading");
                 toast.success("Evento rechazado");
+
+                socket.emit("reject-event", event._id);
 
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
@@ -131,6 +136,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 toast.dismiss("loading");
                 toast.success("Evento cancelado");
 
+                socket.emit("cancel-requested-event", event._id);
+
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
                 );
@@ -163,6 +170,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
             .then(() => {
                 toast.dismiss("loading");
                 toast.success("Evento cancelado");
+
+                socket.emit("cancel-scheduled-event", event._id);
 
                 setEvents((events) =>
                     events.filter((e) => e._id !== event._id)
@@ -200,6 +209,12 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 toast.dismiss("loading");
                 toast.success("Evento completado");
 
+                if (event.confirmedCompleted === 1) {
+                    socket.emit("complete-event-student", event._id);
+                } else {
+                    socket.emit("complete-event-tutor", event._id);
+                }
+
                 if (!event.confirmedCompleted) {
                     setEvents((events) =>
                         events.map((e) =>
@@ -231,7 +246,8 @@ export function ToastEvent({ t, event, type, setEvents }) {
             });
     };
     let btnClassName = "btn";
-    btnClassName += (type === "Dejar la reunion") ? " btn-primary" : " btn-primary";
+    btnClassName +=
+        type === "Dejar la reunion" ? " btn-primary" : " btn-primary";
 
     return (
         <div className="stge__toastEvent">
@@ -297,7 +313,9 @@ export function ToastEvent({ t, event, type, setEvents }) {
 
             <div className="stge__toastEvent-buttons">
                 {type === "Accept" && (
-                    <button className="btn btn-primary" onClick={handleAccept}>Aceptar</button>
+                    <button className="btn btn-primary" onClick={handleAccept}>
+                        Aceptar
+                    </button>
                 )}
 
                 {type === "Complete" && (
@@ -328,22 +346,23 @@ export function ToastEvent({ t, event, type, setEvents }) {
                     </button>
                 )}
 
-                
-                    {type === "Accept" ||
-                    type === "Reject" ||
-                    type === "Complete"
-                        ? (
-                            <button className="btn btn-danger" onClick={() => toast.dismiss(t.id)}>
-                                Cancelar
-                                </button>
-                        ) :
-                        (
-                            <button className="btn btn-primary" onClick={() => toast.dismiss(t.id)}>
-                                Dejar la reunion
-                            </button>
-                        )
-                        }
-            
+                {type === "Accept" ||
+                type === "Reject" ||
+                type === "Complete" ? (
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => toast.dismiss(t.id)}
+                    >
+                        Cancelar
+                    </button>
+                ) : (
+                    <button
+                        className="btn btn-primary"
+                        onClick={() => toast.dismiss(t.id)}
+                    >
+                        Dejar la reunion
+                    </button>
+                )}
             </div>
         </div>
     );

@@ -12,6 +12,7 @@ import { requestEvent } from "../../API/Events";
 import toast from "react-hot-toast";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { useNavigate } from "react-router-dom";
+import { socket } from "../../Socket";
 
 export function Home() {
     const [mostrarColumnaDerecha, setMostrarColumnaDerecha] = useState(false);
@@ -33,24 +34,19 @@ export function Home() {
         setMostrarColumnaDerecha(false);
     };
 
-
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setMostrarColumnaDerecha(false);
             }
-          
-
-        }
+        };
         handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    
-    
-      }, []);
+    }, []);
 
     useEffect(() => {
         setIsSelecting(false);
@@ -77,6 +73,13 @@ export function Home() {
     const handleContinue = async () => {
         await requestEvent(selectedDates)
             .then(() => {
+                socket.emit(
+                    "event-requested",
+                    user._id,
+                    tutorSeleccionado._id,
+                    selectedDates[0].course
+                );
+
                 toast.success("Tutoría agendada con éxito", { duration: 5000 });
             })
             .catch((err) => {
@@ -108,9 +111,6 @@ export function Home() {
 
         setIsSelecting(false);
         setSelectedDates([]);
-
-
-
     };
 
     return (
@@ -118,8 +118,9 @@ export function Home() {
             <Navbar />
             <Splitestudiantes>
                 <div
-                    className={`left-column ${mostrarColumnaDerecha ? "columna-izquierda-oculta" : ""
-                        }`}
+                    className={`left-column ${
+                        mostrarColumnaDerecha ? "columna-izquierda-oculta" : ""
+                    }`}
                 >
                     <div className="row divList ">
                         <CardTutor
@@ -129,8 +130,9 @@ export function Home() {
                     </div>
                 </div>
                 <div
-                    className={`right-columnHome${mostrarColumnaDerecha ? "columna-derecha-visible" : ""
-                        }`}
+                    className={`right-columnHome${
+                        mostrarColumnaDerecha ? "columna-derecha-visible" : ""
+                    }`}
                 >
                     <div className="imgcontainer">
                         <PTutorHome tutor={tutorSeleccionado} />

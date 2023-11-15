@@ -5,19 +5,43 @@ import { searchTutors } from "../../API/Tutors";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { toast } from "react-hot-toast";
 import { useUserActions } from "../../Hooks/useUserActions";
-
-
+import { getNotifications } from "../../API/Notifications";
 
 export function Navbar() {
     const navigate = useNavigate();
     const { logoutUser } = useUserActions();
     const { setSearchingTutors, resetTutors } = useTutorsActions();
+    const [notifications, setNotifications] = useState([]);
+    const [showNotifications, setShowNotifications] = useState(false);
     const [data, setData] = useState({
         type_search: "course",
         search: "",
     });
 
     const [isMobile, setIsMobile] = useState(false);
+
+    const fetchNotifications = async () => {
+        await getNotifications()
+            .then((notifications) => {
+                console.log(notifications);
+                setNotifications(notifications);
+            })
+            .catch((err) => {
+                toast.error("Error al obtener notificaciones", {
+                    duration: 5000,
+                });
+
+                if (!err.response)
+                    return toast.error(err.message, { duration: 5000 });
+
+                if (err.response.status === 500) {
+                    logoutUser();
+                    navigate("/");
+                    return toast.error("La sesión ha expirado");
+                }
+            });
+    };
+
     const onChange = (e) => {
         setData({
             ...data,
@@ -40,6 +64,11 @@ export function Navbar() {
             });
     };
 
+    useEffect(() => {
+        if (showNotifications) {
+            fetchNotifications();
+        }
+    }, [showNotifications]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -52,22 +81,21 @@ export function Navbar() {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-
-
-
     }, []);
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
-
                 <div className="container-fluid navcolor">
                     <Link
                         className="navbar-brand"
                         to="/home"
                         onClick={() => resetTutors()}
                     >
-
-                        <img id="logo" src=" https://i.postimg.cc/ncZBSyS5/logito.png" alt="" />
+                        <img
+                            id="logo"
+                            src=" https://i.postimg.cc/ncZBSyS5/logito.png"
+                            alt=""
+                        />
                     </Link>
                     <button
                         className="navbar-toggler"
@@ -95,10 +123,10 @@ export function Navbar() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link 
-                                className="nav-link"
-                                aria-current="page"
-                                 to="/administrar"
+                                <Link
+                                    className="nav-link"
+                                    aria-current="page"
+                                    to="/administrar"
                                 >
                                     Administradores
                                 </Link>
@@ -126,10 +154,11 @@ export function Navbar() {
 
                             <input
                                 className="form-control me-2 search"
-                                placeholder={`Buscar por ${data.type_search === "name"
-                                    ? "tutor"
-                                    : "curso"
-                                    }`}
+                                placeholder={`Buscar por ${
+                                    data.type_search === "name"
+                                        ? "tutor"
+                                        : "curso"
+                                }`}
                                 aria-label="Search"
                                 name="search"
                                 onChange={onChange}
@@ -138,6 +167,9 @@ export function Navbar() {
                         <div className="content">
                             <div className="dropdown">
                                 <button
+                                    onClick={() =>
+                                        setShowNotifications(!showNotifications)
+                                    }
                                     className="btn  dropdown-toggle"
                                     type="button"
                                     id="dropdownMenuButton1"
@@ -147,21 +179,31 @@ export function Navbar() {
                                     <i className="fa-solid fa-bell iconbell"></i>
                                 </button>
                                 <ul
-                                    className={`dropdown-menu  ${!isMobile ? 'dropdown-menu-end' : ''}`}
+                                    className={`dropdown-menu  ${
+                                        !isMobile ? "dropdown-menu-end" : ""
+                                    }`}
                                     aria-labelledby="dropdownMenuButton1"
                                 >
-                                    <h5 style={
-                                        {
+                                    <h5
+                                        style={{
                                             color: "black",
                                             padding: "10px",
-                                            textAlign: "center"
-                                        }
-                                    }>Notificaciones</h5>
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        Notificaciones
+                                    </h5>
                                     <hr />
 
+                                    {notifications.map(
+                                        (notification, index) => (
+                                            <p className="notification-text" key={index}>
+                                                {notification.content}
+                                            </p>
+                                        )
+                                    )}
                                 </ul>
                             </div>
-
 
                             <div className="dropdown DropdownProfile">
                                 <button
@@ -194,13 +236,8 @@ export function Navbar() {
                                         </button>
                                     </li>
                                 </ul>
-
                             </div>
-
                         </div>
-
-
-
                     </div>
                 </div>
             </nav>

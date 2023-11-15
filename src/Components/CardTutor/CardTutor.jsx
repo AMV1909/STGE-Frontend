@@ -1,7 +1,7 @@
 // this is the card for the tutors
 import { toast } from "react-hot-toast";
 import { getTutors } from "../../API/Tutors";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./CardTutor.css";
 import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
@@ -32,6 +32,12 @@ export function CardTutor({ onCardClick, onToggleClick }) {
 
   const handleCardClick = (tutor) => {
     if (user.role !== "Student") {
+      if (
+        window.location.pathname === "/lista-estudiantes" &&
+        user.role !== "Worker" &&
+        user.role !== "Admin"
+      )
+      
       return toast.error(
         "Solo los estudiantes pueden seleccionar tutores para agendar reuniones",
         { duration: 5000 }
