@@ -7,9 +7,44 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 60%;
+    width: 70%;
+    
+  
+  
 }
 
-body{
+.divMap{
+    
+    height: auto;
+    height: 78vh;
     overflow: auto;
+    
+   
 }
+
+/*scroolbar*/
+.divMap::-webkit-scrollbar {
+    width: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    color: #000;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  
+    .divMap img{
+        width: 150px;
+        height: 100px;
+        margin-top: 10px;
+        margin-left: 15px;
+        margin-right: 10%;
+        border-radius: 10px;
+        position: relative;
+        
+       
+    }
+    
+}
+

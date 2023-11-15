@@ -3,32 +3,23 @@ import { toast } from "react-hot-toast";
 import { getTutors } from "../../API/Tutors";
 import { useEffect, useState } from "react";
 import "./CardTutor.css";
-import ReactStars from "react-rating-stars-component";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { useAppSelector } from "../../Hooks/store";
+import ReactStars from "react-rating-stars-component";
 
-export function CardTutor({ onCardClick, onToggleClick }) {
-  const { setTutors } = useTutorsActions();
+export function CardTutor({ onCardClick, onToggleClick,  tutor}) {
+  
   const user = useAppSelector((state) => state.user);
-  const tutors = useAppSelector((state) => state.tutors);
+ 
 
-  useEffect(() => {
-    if (tutors.length === 0 || tutors[0]._id !== "") return;
 
-    getTutors()
-      .then((response) => {
-        setTutors(response);
-      })
-      .catch((err) => {
-        toast.error("Error al obtener tutores", { duration: 5000 });
-        toast.error(err.message, { duration: 5000 });
-      });
-  }, [setTutors, tutors]);
-
-  const ratingChanged = (newRating) => {
+  const ratingchanged = (newRating) => {
     console.log(newRating);
   };
+
   document.getElementById("where-to-render");
+
+
 
   const handleCardClick = (tutor) => {
     if (user.role !== "Student") {
@@ -44,7 +35,7 @@ export function CardTutor({ onCardClick, onToggleClick }) {
 
   return (
     <>
-      {tutors && tutors.map((tutor) => (
+      
         <div
           key={tutor._id}
           className="card head cardT"
@@ -53,7 +44,7 @@ export function CardTutor({ onCardClick, onToggleClick }) {
           <div className="row g-0">
             <div className="col-md-3 imgUserdiv">
               <img
-                src={tutor.picture}
+                src = {tutor.picture}
                 className="img-fluid rounded-start imgUser "
                 alt="..."
               />
@@ -73,7 +64,7 @@ export function CardTutor({ onCardClick, onToggleClick }) {
                   <div className="scoreTutor">
                     <ReactStars
                       count={5}
-                      onChange={ratingChanged}
+                      onChange={ratingchanged}
                       size={24}
                       isHalf={true}
                       activeColor="#ffd700"
@@ -92,7 +83,7 @@ export function CardTutor({ onCardClick, onToggleClick }) {
             </div>
           </div>
         </div>
-      ))}
+    
     </>
   );
 }

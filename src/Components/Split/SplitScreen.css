@@ -49,6 +49,7 @@
 
   .split-screen>.columna-large-visible {
     position: absolute;
+
     z-index: 1;
   
     
