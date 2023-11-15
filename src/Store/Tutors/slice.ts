@@ -15,8 +15,21 @@ const initialState: Tutor[] = [
         countReviews: 0,
         meetingTime: 0,
         tutorCalendarId: "",
-    },
+        events: {
+            _id: "",
+            type: "",
+            summary: "",
+            description: "",
+            course: "",
+            student: { id: "", name: "", email: "", picture: "" },
+            tutor: { id: "", name: "", email: "", picture: "" },
+            start: "",
+            end: "",
+        },
+    },  
 ];
+
+
 
 export const tutorsSlice = createSlice({
     name: "tutors",

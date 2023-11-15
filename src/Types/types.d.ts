@@ -27,7 +27,6 @@ export type Tutor = {
     role: "Tutor";
     name: string;
     email: string;
-    // password: string;
     picture: string;
     career: string;
     pga: number;
@@ -36,6 +35,8 @@ export type Tutor = {
     countReviews: number;
     meetingTime: number;
     tutorCalendarId: string;
+    events: Events;
+  
 };
 
 export type Course = {
@@ -44,6 +45,37 @@ export type Course = {
     state: "Aprobado" | "Reprobado" | "Matriculado";
     grade: number;
 };
+
+
+
+export type Events  = {
+    _id: string;
+    type: string;
+    summary: string;
+    description: string;
+    course: string;
+    student: student;
+    tutor: tutor;
+    start: string;
+    end: string;
+
+
+};
+
+export type student = {
+    id: string;
+    name: string;
+    email: string;
+    picture: string;
+}
+
+export type tutor = {
+    id : string;
+    name: string;
+    email: string;
+    picture: string;
+}
+
 
 export type TempUser = {
     id: string;
