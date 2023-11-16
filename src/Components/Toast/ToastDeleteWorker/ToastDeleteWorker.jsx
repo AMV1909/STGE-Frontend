@@ -15,7 +15,6 @@ export function ToastDeleteWorker({ t, name, id }) {
         deleteWorker(id)
             .then((response) => {
                 toast.success("Trabajador eliminado correctamente", { duration: 5000 });
-                setWorkers(response);
                 getWorkers()
                     .then((response) => {
                         setWorkers(response);

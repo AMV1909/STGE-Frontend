@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-.stge__eventsList table {
+table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -16,8 +16,8 @@
     text-align: center;
 }
 
-.stge__eventsList th,
-.stge__eventsList td {
+th,
+td {
     border: 1px solid black;
     padding: 0.5rem;
     
@@ -49,62 +49,62 @@
 
     }
 
-    .stge__eventsList tbody{
+    tbody{
         gap: 10px;
      }
-    .stge__eventsList tr{
+    tr{
         border: 1px solid black;
     
 
     }
-    .stge__eventsList td{
+    td{
         border: none;
     }
-    .stge__eventsList th{
+    th{
         display: none;
     }
-    .stge__eventsList td{
+    td{
         display: block;
       
 
     }
-    .stge__eventsList td:nth-child(1):before {
+    td:nth-child(1):before {
         content: "Tutor: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList  td:nth-child(2):before {
+    td:nth-child(2):before {
         content: "Estudiante: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList td:nth-child(3):before {
+    td:nth-child(3):before {
         content: "Curso: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList td:nth-child(4):before {
+    td:nth-child(4):before {
         content: "Fecha Inicio: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList td:nth-child(5):before {
+    td:nth-child(5):before {
         content: "Fecha Fin: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList td:nth-child(6):before {
+    td:nth-child(6):before {
         content: "Estado: " ;
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
-    .stge__eventsList td:nth-child(7):before {
+    td:nth-child(7):before {
         content: "Unirse a Reunion: " ;
         font-weight: bold;
         justify-content: center;

@@ -17,22 +17,29 @@ export function CardTutor({ tutor, onCardClick, onToggleClick}) {
   document.getElementById("where-to-render");
 
   const handleCardClick = (tutor) => {
-    if (user.role !== "Student") {
-      if (
-        window.location.pathname === "/lista-estudiantes" &&
-        user.role !== "Worker" &&
-        user.role !== "Admin"
-      )
-      
-      return toast.error(
-        "Solo los estudiantes pueden seleccionar tutores para agendar reuniones",
-        { duration: 5000 }
-      );
-    }
-
-    onCardClick(tutor);
+    if (user.role === "Student") {
+      onCardClick(tutor);
     onToggleClick();
     console.log(tutor);
+  } else {
+      if (
+          window.location.pathname === "/lista-estudiantes" &&
+          (user.role === "Worker" || user.role === "Admin")
+      ) {
+          onCardClick(tutor);
+          onToggleClick();
+          console.log(tutor);
+          return
+      }
+      
+  }
+
+  toast.error(
+      "Solo los estudiantes pueden seleccionar tutores para agendar tutorías",
+      { duration: 5000 }
+  );
+
+    
   }
 
 

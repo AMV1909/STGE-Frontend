@@ -29,9 +29,16 @@ export function ProtectedRoute({ children }) {
             break;
         }
 
-        // case PathRoutes.TutorsList:
+        case "/lista-estudiantes": {
+            if (user.role !== "Worker" && user.role !== "Admin")
+                return <Navigate to="/home" />;
+            break;
+        }
 
-        // case PathRoutes.Admin:
+        case "/administrar": {
+            if (user.role !== "Admin") return <Navigate to="/home" />;
+            break;
+        }
 
         case "/perfil": {
             if (user._id === "" || user._id === undefined)

@@ -10,7 +10,7 @@ export function ToastUpdateWorker(worker, t) {
     const { setWorkers } = useWorkersActions();
     const workers = useAppSelector((state) => state.workers);
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+    const [email, setEmail] = useState(null);
     const [picture, setPicture] = useState("");
 
     useEffect(() => {
@@ -34,11 +34,9 @@ export function ToastUpdateWorker(worker, t) {
             email,
             picture
         )
-            .then((response) => {
-                window.location.reload();
+            .then(async () => {
                 toast.success("Trabajador actualizado correctamente", { duration: 5000 });
-                setWorkers(response);
-                getWorkers()
+                await getWorkers()
                     .then((response) => {
                         setWorkers(response);
                     })

@@ -6,9 +6,11 @@ import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { toast } from "react-hot-toast";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { getNotifications } from "../../API/Notifications";
+import { useAppSelector } from "../../Hooks/store";
 
 export function Navbar() {
     const navigate = useNavigate();
+    const user = useAppSelector((state) => state.user);
     const { logoutUser } = useUserActions();
     const { setSearchingTutors, resetTutors } = useTutorsActions();
     const [notifications, setNotifications] = useState([]);
@@ -112,26 +114,32 @@ export function Navbar() {
                         className="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link
-                                    className="nav-link "
-                                    aria-current="page"
-                                    to="/lista-estudiantes"
-                                >
-                                    Listado de estudiantes
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="nav-link"
-                                    aria-current="page"
-                                    to="/administrar"
-                                >
-                                    Administradores
-                                </Link>
-                            </li>
-                        </ul>
+                        {(user.role === "Worker" || user.role === "Admin") && (
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {(user.role === "Worker" || user.role === "Admin") && (
+                                    <li className="nav-item">
+                                        <Link
+                                            className="nav-link "
+                                            aria-current="page"
+                                            to="/lista-estudiantes"
+                                        >
+                                            Listado de estudiantes
+                                        </Link>
+                                    </li>
+                                )}
+                                {user.role === "Admin" && (
+                                    <li className="nav-item">
+                                        <Link
+                                            className="nav-link"
+                                            aria-current="page"
+                                            to="/administrar"
+                                        >
+                                            Administradores
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                        )}
 
                         <form
                             className="d-flex"
@@ -197,7 +205,10 @@ export function Navbar() {
 
                                     {notifications.map(
                                         (notification, index) => (
-                                            <p className="notification-text" key={index}>
+                                            <p
+                                                className="notification-text"
+                                                key={index}
+                                            >
                                                 {notification.content}
                                             </p>
                                         )

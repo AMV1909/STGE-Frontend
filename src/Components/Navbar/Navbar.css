@@ -106,6 +106,12 @@
     
 }
 
+#navbarSupportedContent {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
 
 
 /* Estilos para la versión "dropdown-menu-end" */

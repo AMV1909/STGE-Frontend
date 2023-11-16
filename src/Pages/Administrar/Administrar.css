@@ -1,3 +1,19 @@
+.AñadirT {
+    justify-content: space-between;
+}
+
+.AñadirT input {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 50% !important;
+    outline: none;
+    border: 1px solid black;
+}
+
+.AñadirT button {
+    padding: 0.5rem;
+    width: auto !important;
+}
 
 .divWorker{
     margin-top: 10px;

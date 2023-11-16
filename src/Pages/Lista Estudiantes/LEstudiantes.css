@@ -28,6 +28,53 @@
 
 }
 
+.stge__buscador {
+    width: 100%;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+
+    margin-bottom: 2rem;
+}
+
+.stge__buscador input,
+.stge__buscador button {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.stge__buscador input {
+    width: 50% !important;
+    border: 1px solid black;
+}
+
+.stge__buscador .off {
+    background-color: white;
+    border: 1px solid #1c4cb4;
+    color: #1c4cb4;
+}
+
+.stge__buscador .off:hover {
+    background-color: #1c4cb4;
+    color: white;
+}
+
+.stge__buscador button {
+    border: 1px solid #1c4cb4;
+}
+
+.table-list-tutors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-list-tutors table {
+    width: 95%;
+}
+
 .imgcontainer1 p {
     text-align: center;
     margin: auto;

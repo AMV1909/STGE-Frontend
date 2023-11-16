@@ -46,6 +46,8 @@ export const tutorsSlice = createSlice({
         },
 
         resetTutorsInfo: () => {
+            if (!localStorage.getItem("tutors")) return initialState;
+
             return JSON.parse(localStorage.getItem("tutors")!) as Tutor[];
         },
     },
