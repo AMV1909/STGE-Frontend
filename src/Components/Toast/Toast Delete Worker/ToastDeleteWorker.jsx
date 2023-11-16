@@ -15,6 +15,7 @@ export function ToastDeleteWorker({ worker }) {
         .then((response) => {
             toast.success("Trabajador eliminado", { duration: 5000 });
             setWorkers(response);
+            
         })
         .catch((err) => {
             toast.error("Error al eliminar trabajador", { duration: 5000 });

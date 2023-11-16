@@ -106,29 +106,12 @@
     
 }
 
-#navbarSupportedContent {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
 
 
 /* Estilos para la versión "dropdown-menu-end" */
 .content{
     display: flex;
     
-}
-
-.dropdown-menu {
-    max-height: 512px;
-    overflow-y: auto;
-}
-
-.notification-text {
-    padding: 10px;
-    margin: 0 !important;
-    border-bottom: 1px solid #ccc;
 }
 
 
@@ -143,4 +126,3 @@
     }
     
 }
-
