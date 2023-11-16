@@ -84,6 +84,9 @@ export function Navbar() {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
+   
+    
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
@@ -111,8 +114,8 @@ export function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                        className="collapse navbar-collapse"
-                        id="navbarSupportedContent"
+                        className="collapse navbar-collapse" 
+                        id= "navbarSupportedContent"
                     >
                         {(user.role === "Worker" || user.role === "Admin") && (
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
