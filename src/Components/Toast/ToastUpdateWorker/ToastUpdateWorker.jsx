@@ -39,6 +39,7 @@ export function ToastUpdateWorker(worker, t) {
                 await getWorkers()
                     .then((response) => {
                         setWorkers(response);
+                        window.location.reload();
                     })
                 toast.dismiss(t.id)
 

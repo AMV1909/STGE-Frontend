@@ -52,6 +52,7 @@ const enviarFormulario = (e) => {
             await getWorkers()  
             .then((response) => {
               setWorkers(response);
+                window.location.reload();
             
             })
         })
