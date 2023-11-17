@@ -21,6 +21,7 @@ export function CardTutor({ tutor, onCardClick, onToggleClick}) {
       onCardClick(tutor);
     onToggleClick();
     console.log(tutor);
+    return
   } else {
       if (
           window.location.pathname === "/lista-estudiantes" &&
