@@ -1,8 +1,6 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Navbar, Splitestudiantes, CardTutor, PTutorHome } from '../../Components'
-import { useAppSelector } from '../../Hooks/store';
-import { useTutorsActions } from "../../Hooks/useTutorsActions";
 import { getTutorWorker } from '../../API/Tutors';
 
 import './LEstudiantes.css'
@@ -61,8 +59,7 @@ export function LEstudiantes() {
 
   
  
-  const { setTutors } = useTutorsActions();
-  const tutors = useAppSelector((state) => state.tutors);
+  const [tutors, setTutors] = useState([]);
   const originalTutors = useRef(tutors);
 
   useEffect(() => {
