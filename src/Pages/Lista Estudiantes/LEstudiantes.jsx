@@ -66,6 +66,7 @@ export function LEstudiantes() {
     getTutorWorker()
       .then((response) => {
         setTutors(response);
+        originalTutors.current = response;
         console.log(response);
         console.log("Tutores obtenidos")
       })
