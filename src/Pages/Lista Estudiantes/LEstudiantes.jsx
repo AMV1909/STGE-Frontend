@@ -63,8 +63,6 @@ export function LEstudiantes() {
   const originalTutors = useRef(tutors);
 
   useEffect(() => {
-    if (tutors.length === 0 || tutors[0]._id !== "") return;
-
     getTutorWorker()
       .then((response) => {
         setTutors(response);
