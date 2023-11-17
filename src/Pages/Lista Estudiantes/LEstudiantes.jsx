@@ -79,7 +79,7 @@ export function LEstudiantes() {
           return toast.error("La sesión ha expirado");
       }
       });
-  }, [setTutors, tutors]);
+  }, []);
 
   const onChange = (e) => {
     setSearch(e.target.value);
