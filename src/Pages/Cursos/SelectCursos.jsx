@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
@@ -14,6 +14,10 @@ export function SelectCursos() {
     const tempUser = useAppSelector((state) => state.tempUser);
     const { deleteData } = useTempUserActions();
     const [selectedCourses, setSelectedCourses] = useState([]);
+
+    useEffect(() => {
+        document.title = "Seleccionar cursos - Plan Padrino";
+    }, []);
 
     const handleSelectCourse = (course) => {
         if (selectedCourses.includes(course)) {
@@ -127,7 +131,7 @@ export function SelectCursos() {
 
                 <div className="right-columnSelectCurso Textdiv">
                     <div className="textside">
-                        <h1 className="titulo1">¿Que enseñaras?</h1>
+                        <h1 className="titulo1">¿Que enseñarás?</h1>
                         <p className="text">
                             <br />
                             Seleccionar los cursor que quieres enseñar

@@ -40,6 +40,8 @@ export function Home() {
     };
 
     useEffect(() => {
+        document.title = "Home - Plan Padrino";
+
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setMostrarColumnaDerecha(false);
@@ -159,25 +161,27 @@ export function Home() {
                     <div className="imgcontainer">
                         <PTutorHome tutor={tutorSeleccionado} />
 
-                        <div className=" rowUsuario1">
-                            <button
-                                type="button"
-                                className=" btnNTutor"
-                                onClick={() => changeToSelect()}
-                            >
-                                {isSelecting
-                                    ? "Cancelar Selección"
-                                    : "Nueva Tutoría"}
-                            </button>
-                            <br />
-                            <button
-                                type="button"
-                                className=" btn btnAtras btn-link"
-                                onClick={resetColumnaDerecha}
-                            >
-                                Atras
-                            </button>
-                        </div>
+                        {tutorSeleccionado && (
+                            <div className="rowUsuario1">
+                                <button
+                                    type="button"
+                                    className=" btnNTutor"
+                                    onClick={() => changeToSelect()}
+                                >
+                                    {isSelecting
+                                        ? "Cancelar Selección"
+                                        : "Nueva Tutoría"}
+                                </button>
+                                <br />
+                                <button
+                                    type="button"
+                                    className=" btn btnAtras btn-link"
+                                    onClick={resetColumnaDerecha}
+                                >
+                                    Atras
+                                </button>
+                            </div>
+                        )}
 
                         {isSelecting && <p>Seleccione la fecha</p>}
 

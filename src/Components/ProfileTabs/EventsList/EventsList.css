@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-table {
+.stge__eventsList table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -16,8 +16,8 @@ table {
     text-align: center;
 }
 
-th,
-td {
+.stge__eventsList th,
+.stge__eventsList td {
     border: 1px solid black;
     padding: 0.5rem;
 }
@@ -41,69 +41,69 @@ td {
         margin-bottom: 20%;
     }
 
-    tbody {
+    .stge__eventsList tbody {
         gap: 10px;
     }
 
-    tr {
+    .stge__eventsList tr {
         border: 1px solid black;
     }
 
-    td {
+    .stge__eventsList td {
         border: none;
     }
 
-    th {
+    .stge__eventsList th {
         display: none;
     }
 
-    td {
+    .stge__eventsList td {
         display: block;
     }
 
-    td:nth-child(1):before {
+    .stge__eventsList td:nth-child(1):before {
         content: "Tutor: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(2):before {
+    .stge__eventsList td:nth-child(2):before {
         content: "Estudiante: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(3):before {
+    .stge__eventsList td:nth-child(3):before {
         content: "Curso: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(4):before {
+    .stge__eventsList td:nth-child(4):before {
         content: "Fecha Inicio: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(5):before {
+    .stge__eventsList td:nth-child(5):before {
         content: "Fecha Fin: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(6):before {
+    .stge__eventsList td:nth-child(6):before {
         content: "Estado: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    td:nth-child(7):before {
+    .stge__eventsList td:nth-child(7):before {
         content: "Unirse a Reunion: ";
         font-weight: bold;
         justify-content: center;

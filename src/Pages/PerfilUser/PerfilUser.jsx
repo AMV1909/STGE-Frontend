@@ -49,6 +49,8 @@ export function PerfilUser() {
     };
 
     useEffect(() => {
+        document.title = "Perfil - Plan Padrino";
+
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setMostrarColumnaDerecha(false);

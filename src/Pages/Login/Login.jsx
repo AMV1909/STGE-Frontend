@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -16,6 +16,10 @@ export function Login() {
         email: "",
         password: "",
     });
+
+    useEffect(() => {
+        document.title = "Login - Plan Padrino";
+    }, []);
 
     const onChange = (e) => {
         setData({
@@ -106,19 +110,24 @@ export function Login() {
                                     type="email"
                                     placeholder="Correo electrónico"
                                     onChange={onChange}
+                                    autoComplete="off"
                                     required
+                                    disabled
                                 />
                                 <input
                                     name="password"
                                     type="password"
                                     placeholder="Contraseña"
                                     onChange={onChange}
+                                    autoComplete="off"
                                     required
+                                    disabled
                                 />
 
                                 <button
                                     type="submit"
                                     onClick={() => navigate("home")}
+                                    disabled
                                 >
                                     Iniciar sesión
                                 </button>

@@ -1,20 +1,27 @@
 import { toast } from "react-hot-toast";
 import { ToastDeleteWorker } from "../Toast/ToastDeleteWorker/ToastDeleteWorker";
-import { ToastUpdateWorker } from "../Toast/ToastUpdateWorker/ToastUpdateWorker";
-
 import "./CardWorker.css";
 
-export function CardWorker(worker) {
-    const onClick = (name, id) => {
-        toast((t) => <ToastDeleteWorker t={t} name={name} id={id} />, {
-            duration: 5000,
-        });
+export function CardWorker({
+    worker,
+    fetch,
+    setShowModal,
+    setTypeModal,
+    setWorkerSelected,
+}) {
+    const handleEdit = () => {
+        setTypeModal("Update");
+        setWorkerSelected(worker);
+        setShowModal(true);
     };
 
-    const updateWorker = (worker) => {
-        toast((t) => <ToastUpdateWorker t={t} worker={worker} />, {
-            duration: 100000,
-        });
+    const handleDelete = async () => {
+        toast(
+            (t) => <ToastDeleteWorker t={t} worker={worker} fetch={fetch} />,
+            {
+                duration: 5000,
+            }
+        );
     };
 
     return (
@@ -41,14 +48,14 @@ export function CardWorker(worker) {
 
                         <div className="col crud">
                             <button
-                                className="btn-eliminar "
-                                onClick={() => onClick(worker.name, worker._id)}
+                                className="btn-eliminar"
+                                onClick={handleDelete}
                             >
                                 Eliminar
                             </button>
                             <button
-                                className="btn-actualizar "
-                                onClick={() => updateWorker(worker)}
+                                className="btn-actualizar"
+                                onClick={handleEdit}
                             >
                                 Acutalizar
                             </button>

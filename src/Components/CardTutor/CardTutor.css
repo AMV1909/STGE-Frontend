@@ -1,3 +1,8 @@
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
 .cardUserT p {
     font-size: small;
     text-align: left;
@@ -47,17 +52,20 @@
 .scoreTutor p {
     margin: 0;
 }
+
 .divList {
     width: 100%;
     height: auto;
     flex-direction: column;
 }
+
 @media screen and (max-width: 768px) {
     .cardT {
         width: 90%;
         margin-left: 5%;
         align-items: center;
     }
+
     .cardT img {
         width: 80%;
         height: 50%;

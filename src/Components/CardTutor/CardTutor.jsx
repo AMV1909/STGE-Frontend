@@ -57,10 +57,12 @@ export function CardTutor({ tutor, onCardClick, onToggleClick }) {
                             <div className="cardUserT__info">
                                 <div className="cardUserT__personal">
                                     <p className="card-nombre">
-                                        <b>Nombre: {tutor.name} </b>
+                                        <strong>Nombre: </strong>
+                                        {tutor.name}
                                     </p>
                                     <p className="card-text programa">
-                                        <b>Programa: {tutor.career} </b>
+                                        <strong>Programa: </strong>
+                                        {tutor.career}
                                     </p>
                                 </div>
 

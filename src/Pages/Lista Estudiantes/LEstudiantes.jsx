@@ -54,6 +54,8 @@ export function LEstudiantes() {
     const originalTutors = useRef(tutors);
 
     useEffect(() => {
+        document.title = "Tutores - Plan Padrino";
+
         getTutorWorker()
             .then((response) => {
                 setTutors(response);
@@ -147,80 +149,94 @@ export function LEstudiantes() {
                         </button>
                         <div
                             style={{ overflow: "hidden" }}
-                            className=" rowUsuario"
+                            className="rowUsuario"
                         >
                             <PTutorHome tutor={tutorSeleccionado} />
-                        </div>
 
-                        <div className="table-list-tutors">
-                            {tutorSeleccionado &&
-                            tutorSeleccionado.events &&
-                            tutorSeleccionado.events.length > 0 ? (
-                                <table>
-                                    <thead>
-                                        <th>Estudiante</th>
-                                        <th>Curso</th>
-                                        <th>Fecha de inicio</th>
-                                        <th>Fecha de finalización</th>
-                                        <th>Estado</th>
-                                    </thead>
+                            <div className="table-list-tutors stge__eventsList">
+                                {tutorSeleccionado &&
+                                tutorSeleccionado.events &&
+                                tutorSeleccionado.events.length > 0 ? (
+                                    <table>
+                                        <thead>
+                                            <th>Estudiante</th>
+                                            <th>Curso</th>
+                                            <th>Fecha de inicio</th>
+                                            <th>Fecha de finalización</th>
+                                            <th>Estado</th>
+                                        </thead>
 
-                                    <tbody>
-                                        {tutorSeleccionado.events.map(
-                                            (event) => {
-                                                let start = new Date(
-                                                    event.start
-                                                ).toLocaleDateString("es-CO", {
-                                                    weekday: "long",
-                                                    year: "numeric",
-                                                    month: "long",
-                                                    day: "numeric",
-                                                    hour: "numeric",
-                                                    minute: "numeric",
-                                                });
+                                        <tbody>
+                                            {tutorSeleccionado.events.map(
+                                                (event) => {
+                                                    let start = new Date(
+                                                        event.start
+                                                    ).toLocaleDateString(
+                                                        "es-CO",
+                                                        {
+                                                            weekday: "long",
+                                                            year: "numeric",
+                                                            month: "long",
+                                                            day: "numeric",
+                                                            hour: "numeric",
+                                                            minute: "numeric",
+                                                        }
+                                                    );
 
-                                                let end = new Date(
-                                                    event.end
-                                                ).toLocaleDateString("es-CO", {
-                                                    weekday: "long",
-                                                    year: "numeric",
-                                                    month: "long",
-                                                    day: "numeric",
-                                                    hour: "numeric",
-                                                    minute: "numeric",
-                                                });
+                                                    let end = new Date(
+                                                        event.end
+                                                    ).toLocaleDateString(
+                                                        "es-CO",
+                                                        {
+                                                            weekday: "long",
+                                                            year: "numeric",
+                                                            month: "long",
+                                                            day: "numeric",
+                                                            hour: "numeric",
+                                                            minute: "numeric",
+                                                        }
+                                                    );
 
-                                                start =
-                                                    start
-                                                        .charAt(0)
-                                                        .toUpperCase() +
-                                                    start.slice(1);
-                                                end =
-                                                    end
-                                                        .charAt(0)
-                                                        .toUpperCase() +
-                                                    end.slice(1);
+                                                    start =
+                                                        start
+                                                            .charAt(0)
+                                                            .toUpperCase() +
+                                                        start.slice(1);
+                                                    end =
+                                                        end
+                                                            .charAt(0)
+                                                            .toUpperCase() +
+                                                        end.slice(1);
 
-                                                return (
-                                                    <tr key={event._id}>
-                                                        <td>
-                                                            {event.student.name}
-                                                        </td>
-                                                        <td>{event.course}</td>
-                                                        <td>{start}</td>
-                                                        <td>{end}</td>
-                                                        <td>{event.type}</td>
-                                                    </tr>
-                                                );
-                                            }
-                                        )}
-                                    </tbody>
-                                </table>
-                            ) : (
-                                <h3 style={{ textAlign: "center" }}>
-                                    El tutor no tiene eventos registrados
-                                </h3>
-                            )}
+                                                    return (
+                                                        <tr key={event._id}>
+                                                            <td>
+                                                                {
+                                                                    event
+                                                                        .student
+                                                                        .name
+                                                                }
+                                                            </td>
+                                                            <td>
+                                                                {event.course}
+                                                            </td>
+                                                            <td>{start}</td>
+                                                            <td>{end}</td>
+                                                            <td>
+                                                                {event.type}
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                }
+                                            )}
+                                        </tbody>
+                                    </table>
+                                ) : (
+                                    <h3 style={{ textAlign: "center" }}>
+                                        El tutor no tiene eventos registrados
+                                    </h3>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

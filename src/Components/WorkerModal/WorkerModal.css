@@ -1,0 +1,142 @@
+.stge__workerModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.stge__workerModal-content {
+    width: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.stge__workerModal-content header {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 2rem;
+
+    background-color: #ff792e;
+    border-radius: 1rem 1rem 0 0;
+    color: white;
+}
+
+.stge__workerModal-content header button {
+    padding: 0;
+
+    background-color: transparent;
+    border-radius: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.stge__workerModal-content header button:hover {
+    background-color: white;
+    color: black;
+}
+
+.stge__workerModal-content header svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.stge__workerModal-content form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1rem;
+
+    padding: 2rem;
+}
+
+.stge__workerModal-content form img {
+    width: 128px;
+    height: 128px;
+
+    border: 2px solid black;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.stge__workerModal input:not([type="checkbox"]) {
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    font-size: medium;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.176);
+}
+
+.stge__workerModal input:disabled {
+    cursor: not-allowed;
+}
+
+.stge__workerModal button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: medium;
+
+    color: white;
+    background-color: #2a66e7;
+
+    cursor: pointer;
+}
+
+.stge__workerModal button:hover {
+    background-color: #1c4cb4;
+}
+
+.stge__workerModal button:disabled {
+    cursor: not-allowed;
+    background-color: rgba(42, 102, 231, 0.5);
+}
+
+@media screen and (max-width: 1440px) {
+    .stge__workerModal-content {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .stge__workerModal-content {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .stge__workerModal-content {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .stge__workerModal-content {
+        width: 90%;
+    }
+}

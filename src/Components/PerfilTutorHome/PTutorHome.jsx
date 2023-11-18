@@ -13,15 +13,31 @@ export function PTutorHome({ tutor }) {
         <>
             <img src={tutor.picture} alt="User" id="UserSeleccionadoHome" />
             <h5>{tutor.name}</h5>
+            {window.location.pathname === "/lista-estudiantes" && (
+                <p>
+                    <b>ID:&nbsp;{tutor._id}</b>
+                </p>
+            )}
+
             <p>
-                <b>ID:&nbsp;{tutor._id}</b>
+                <strong>Carrera: </strong> {tutor.career}
             </p>
-            <p>
-                <b>Carrera:&nbsp;{tutor.career}</b>
-            </p>
-            <p>
-                <b>Tiempo en reunion: &nbsp; {tutor.meetingTime}</b>
-            </p>
+
+            {window.location.pathname === "/home" && (
+                <p>
+                    <strong>Curso: </strong>
+                    {tutor.coursesToTeach.name} ({tutor.coursesToTeach.grade})
+                </p>
+            )}
+
+            {window.location.pathname === "/lista-estudiantes" && (
+                <p>
+                    <strong>Tiempo en reunion: </strong>{" "}
+                    {new Date(tutor.meetingTime * 60000)
+                        .toISOString()
+                        .substr(11, 8)}
+                </p>
+            )}
         </>
     );
 }

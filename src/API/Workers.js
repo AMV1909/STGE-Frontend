@@ -18,36 +18,22 @@ export const getWorkers = async () => {
         });
 };
 
-export const setWorker = async (name, email, picture) => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("picture", picture);
-
+export const createWorker = async ({ name, email, picture }) => {
     return await axios
-        .post(`${API_URL}/workers`, formData, {
-            headers: {
-                "x-access-token": localStorage.getItem("token"),
-                "Content-Type": "multipart/form-data",
+        .post(
+            `${API_URL}/workers`,
+            {
+                name,
+                email,
+                picture,
             },
-        })
-        .then((res) => {
-            if (res.status === 229) {
-                localStorage.setItem("token", res.data.token);
-                console.log(res.data.worker);
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                    "Content-Type": "multipart/form-data",
+                },
             }
-
-            return res.data.worker;
-        });
-};
-
-export const deleteWorker = async (workerId) => {
-    return await axios
-        .delete(`${API_URL}/workers/${workerId}`, {
-            headers: {
-                "x-access-token": localStorage.getItem("token"),
-            },
-        })
+        )
         .then((res) => {
             if (res.status === 229) {
                 localStorage.setItem("token", res.data.token);
@@ -57,17 +43,36 @@ export const deleteWorker = async (workerId) => {
         });
 };
 
-export const updateWorker = async (workerId, name, email, picture) => {
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("picture", picture);
-
+export const updateWorker = async ({ id, name, email, picture }) => {
     return await axios
-        .put(`${API_URL}/workers/${workerId}`, formData, {
+        .put(
+            `${API_URL}/workers/${id}`,
+            {
+                name,
+                email,
+                picture,
+            },
+            {
+                headers: {
+                    "x-access-token": localStorage.getItem("token"),
+                    "Content-Type": "multipart/form-data",
+                },
+            }
+        )
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
+
+            return res.data.worker;
+        });
+};
+
+export const deleteWorker = async (id) => {
+    return await axios
+        .delete(`${API_URL}/workers/${id}`, {
             headers: {
                 "x-access-token": localStorage.getItem("token"),
-                "Content-Type": "multipart/form-data",
             },
         })
         .then((res) => {

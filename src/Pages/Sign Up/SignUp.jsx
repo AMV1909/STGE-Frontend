@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -13,6 +13,10 @@ export function SignUp() {
         email: "",
         password: "",
     });
+
+    useEffect(() => {
+        document.title = "Registro - Plan Padrino";
+    }, []);
 
     const onChange = (e) => {
         setData({
@@ -70,6 +74,8 @@ export function SignUp() {
                                     placeholder="Correo electrónico"
                                     onChange={onChange}
                                     required
+                                    autoComplete="off"
+                                    disabled
                                 />
                                 <input
                                     name="password"
@@ -77,6 +83,8 @@ export function SignUp() {
                                     placeholder="Contraseña"
                                     onChange={onChange}
                                     required
+                                    autoComplete="off"
+                                    disabled
                                 />
 
                                 <button
@@ -86,6 +94,7 @@ export function SignUp() {
                                             duration: 1000000,
                                         })
                                     }
+                                    disabled
                                 >
                                     Registrarme
                                 </button>
