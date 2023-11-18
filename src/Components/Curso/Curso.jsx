@@ -2,9 +2,7 @@ import "./Curso.css";
 
 export function Curso({ course, handleSelectCourse, selected = false }) {
     return (
-      
         <div className="card cardstyle">
-            
             <div className="row g-0 rowCur">
                 <div className="col-md-1 checkCol">
                     <input
@@ -39,7 +37,7 @@ export function Curso({ course, handleSelectCourse, selected = false }) {
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                            <b>Nota final : </b>
+                                <b>Nota final : </b>
                                 <b
                                     style={
                                         course.grade >= 3.8
@@ -47,21 +45,19 @@ export function Curso({ course, handleSelectCourse, selected = false }) {
                                             : { color: "#C0392B" }
                                     }
                                 >
-                                {course.grade}
+                                    {course.grade}
                                 </b>
                             </small>
                         </p>
                         <p className="card-text">
                             <small className="text-body-secondary">
-                                <b>
-                                    Aprobado :
-                                </b>
+                                <b>Aprobado :</b>
                                 <b
-                                style={
-                                    course.grade >= 3.8
-                                        ? { color: "#1E8449" }
-                                        : { color: "#C0392B" }
-                                }
+                                    style={
+                                        course.grade >= 3.8
+                                            ? { color: "#1E8449" }
+                                            : { color: "#C0392B" }
+                                    }
                                 >
                                     {" "}
                                     {course.grade >= 3.8 ? "Sí" : "No"}

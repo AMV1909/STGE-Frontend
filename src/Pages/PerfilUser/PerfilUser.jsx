@@ -12,11 +12,8 @@ export function PerfilUser() {
 
     const [mostrarColumnaDerecha, setMostrarColumnaDerecha] = useState(false);
 
-    
-
-    
     const resetColumnaDerecha = () => {
-      setMostrarColumnaDerecha(false);
+        setMostrarColumnaDerecha(false);
     };
 
     const CambiarHorario = () => {
@@ -48,33 +45,32 @@ export function PerfilUser() {
         if (window.innerWidth <= 768) {
             setMostrarColumnaDerecha(!mostrarColumnaDerecha);
         }
-        setSelectedContent("requested")
-    }
+        setSelectedContent("requested");
+    };
 
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 768) {
                 setMostrarColumnaDerecha(false);
             }
-          
-
-        }
+        };
         handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    
-    
-      }, []);
-      
+    }, []);
 
     return (
         <div>
             <Navbar />
             <SplitScreen>
-                <div className={`small-column ${mostrarColumnaDerecha ? 'columna-small-oculta' : ''}`}>
+                <div
+                    className={`small-column ${
+                        mostrarColumnaDerecha ? "columna-small-oculta" : ""
+                    }`}
+                >
                     <img src={user.picture} alt={user.name} id="imgUsuario" />
                     <div className=" datos">
                         <h5>{user.name}</h5>
@@ -154,11 +150,15 @@ export function PerfilUser() {
                         )}
                     </div>
                 </div>
-                <div className={`large-column${mostrarColumnaDerecha ? 'columna-large-visible' : ''}`}>
-                    <button 
-                    type="button" 
-                    className=" btn btnAtras btn-link" 
-                    onClick={resetColumnaDerecha}
+                <div
+                    className={`large-column${
+                        mostrarColumnaDerecha ? "columna-large-visible" : ""
+                    }`}
+                >
+                    <button
+                        type="button"
+                        className=" btn btnAtras btn-link"
+                        onClick={resetColumnaDerecha}
                     >
                         Atras
                     </button>

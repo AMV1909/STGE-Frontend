@@ -1,4 +1,4 @@
-.formAddWorker{
+.formAddWorker {
     width: auto;
     height: 100%;
     display: flex;
@@ -7,16 +7,18 @@
     align-items: center;
     margin: 10px;
 }
-.formAddWorker input{
-    width: 80%;
 
+.formAddWorker input {
+    width: 80%;
 }
-.formAddWorker label{
+
+.formAddWorker label {
     font-size: 20px;
     font-weight: bold;
     margin: 5px;
 }
-.formAddWorker input[type="text"]{
+
+.formAddWorker input[type="text"] {
     border: none;
     border-radius: 10px;
     border: 1px solid #000000;
@@ -25,14 +27,14 @@
     margin: 5px;
     font-size: 20px;
 }
-.formAddWorker input[type="file"]{
-   
+
+.formAddWorker input[type="file"] {
     margin: 5px;
     font-size: 20px;
     width: 193px;
 }
 
-.ToastCancelar{
+.ToastCancelar {
     background-color: rgba(54, 92, 244, 0.818);
     color: white;
     font-weight: bold;
@@ -44,10 +46,10 @@
     transition: 0.3s;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.EliminarWorker{
+.EliminarWorker {
     background-color: rgb(221, 27, 27);
     color: white;
     font-weight: bold;
@@ -59,10 +61,10 @@
     transition: 0.3s;
     border: none;
     outline: none;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.btnAgregarWorker{
+.btnAgregarWorker {
     display: flex;
 }
 

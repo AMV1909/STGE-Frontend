@@ -36,7 +36,6 @@ export type Tutor = {
     meetingTime: number;
     tutorCalendarId: string;
     events: Events;
-  
 };
 
 export type Course = {
@@ -46,9 +45,7 @@ export type Course = {
     grade: number;
 };
 
-
-
-export type Events  = {
+export type Events = {
     _id: string;
     type: string;
     summary: string;
@@ -58,8 +55,6 @@ export type Events  = {
     tutor: tutor;
     start: string;
     end: string;
-
-
 };
 
 export type student = {
@@ -67,15 +62,14 @@ export type student = {
     name: string;
     email: string;
     picture: string;
-}
+};
 
 export type tutor = {
-    id : string;
+    id: string;
     name: string;
     email: string;
     picture: string;
-}
-
+};
 
 export type TempUser = {
     id: string;

@@ -20,15 +20,12 @@ th,
 td {
     border: 1px solid black;
     padding: 0.5rem;
-    
 }
 
 .stge__eventsList p {
     text-align: center;
     font-size: 1.5rem;
 }
-
-
 
 .stge__eventsList button {
     width: 100%;
@@ -38,79 +35,78 @@ td {
     margin-bottom: 0.5rem;
 }
 
-
-
 @media screen and (max-width: 687px) {
-  
-    .stge__eventsList{
+    .stge__eventsList {
         padding: 20px;
         margin-bottom: 20%;
-        
-
     }
 
-    tbody{
+    tbody {
         gap: 10px;
-     }
-    tr{
-        border: 1px solid black;
-    
-
     }
-    td{
+
+    tr {
+        border: 1px solid black;
+    }
+
+    td {
         border: none;
     }
-    th{
+
+    th {
         display: none;
     }
-    td{
+
+    td {
         display: block;
-      
-
     }
+
     td:nth-child(1):before {
-        content: "Tutor: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(2):before {
-        content: "Estudiante: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(3):before {
-        content: "Curso: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(4):before {
-        content: "Fecha Inicio: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(5):before {
-        content: "Fecha Fin: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(6):before {
-        content: "Estado: " ;
-        font-weight: bold;
-        justify-content: center;
-        display: flex;
-    }
-    td:nth-child(7):before {
-        content: "Unirse a Reunion: " ;
+        content: "Tutor: ";
         font-weight: bold;
         justify-content: center;
         display: flex;
     }
 
-    
-    
+    td:nth-child(2):before {
+        content: "Estudiante: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    td:nth-child(3):before {
+        content: "Curso: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    td:nth-child(4):before {
+        content: "Fecha Inicio: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    td:nth-child(5):before {
+        content: "Fecha Fin: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    td:nth-child(6):before {
+        content: "Estado: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+
+    td:nth-child(7):before {
+        content: "Unirse a Reunion: ";
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
 }

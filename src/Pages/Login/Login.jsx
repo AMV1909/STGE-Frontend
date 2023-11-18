@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useGoogleLogin } from "@react-oauth/google";
-import {Splitestudiantes} from '../../Components'
+import { Splitestudiantes } from "../../Components";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { googleLogin } from "../../API/Session";
 
@@ -76,7 +76,7 @@ export function Login() {
         <Splitestudiantes>
             <div className="left-columnLogin ">
                 {/* Coloca aquí la ruta de la imagen que quieras mostrar */}
-                
+
                 <div className="inicioLog">
                     <h1 className="titulo">UNAB</h1>
                     <p>
@@ -132,7 +132,6 @@ export function Login() {
                     </div>
                 </div>
             </div>
-
-            </Splitestudiantes>
+        </Splitestudiantes>
     );
 }

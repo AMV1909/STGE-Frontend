@@ -30,17 +30,11 @@
 
 .imgUserdiv {
     margin: auto;
-    ;
 }
-
-
-
 
 .head {
     padding: 0%;
     margin-bottom: 10px;
-
-
 }
 
 .scoreTutor {
@@ -57,28 +51,26 @@
     width: 100%;
     height: auto;
     flex-direction: column;
-   
 }
-@media screen  and (max-width: 768px) {
-   
-   .cardT{
-         width: 90%;
-         margin-left: 5%;
-         align-items: center;
-   }
-   .cardT img{
-            width: 80%;
-            height: 50%;
-            margin-left: 10%;
-   }
+@media screen and (max-width: 768px) {
+    .cardT {
+        width: 90%;
+        margin-left: 5%;
+        align-items: center;
+    }
+    .cardT img {
+        width: 80%;
+        height: 50%;
+        margin-left: 10%;
+    }
 
-   .scoreTutor{
-       display: inline;
-   }
-   .divList {
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    margin-bottom: 20%;
-}
+    .scoreTutor {
+        display: inline;
+    }
+    .divList {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        margin-bottom: 20%;
+    }
 }

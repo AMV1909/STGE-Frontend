@@ -15,7 +15,7 @@
     width: auto !important;
 }
 
-.divWorker{
+.divWorker {
     margin-top: 10px;
     margin-bottom: 20px;
     margin-left: auto;
@@ -24,18 +24,12 @@
     align-items: center;
     justify-content: center;
     width: 70%;
-    
-  
-  
 }
 
-.divMap{
-    
+.divMap {
     height: auto;
     height: 78vh;
     overflow: auto;
-    
-   
 }
 
 /*scroolbar*/
@@ -46,11 +40,8 @@
     color: #000;
 }
 
-
-
 @media screen and (max-width: 768px) {
-  
-    .divMap img{
+    .divMap img {
         width: 150px;
         height: 100px;
         margin-top: 10px;
@@ -58,9 +49,5 @@
         margin-right: 10%;
         border-radius: 10px;
         position: relative;
-        
-       
     }
-    
 }
-

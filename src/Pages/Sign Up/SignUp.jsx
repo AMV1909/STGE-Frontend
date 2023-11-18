@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import {
-    useGoogleLogin,
-} from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 
 /* boostrap*/
 import "./SignUp.css";
 import { ToastRegistro } from "../../Components/Toast/Toast Registro/ToastRegistro";
-import {Splitestudiantes } from '../../Components'
+import { Splitestudiantes } from "../../Components";
 
 export function SignUp() {
     const [data, setData] = useState({
@@ -103,8 +101,6 @@ export function SignUp() {
             </div>
 
             <div className="right-columnSignUp ">
-             
-                
                 <div className="overlay-Register">
                     <h1 className="titulo">UNAB</h1>
                     <p>

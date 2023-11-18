@@ -1,9 +1,7 @@
 import { useAppDispatch } from "./store";
 import { Worker } from "../Types/types";
 
-
 import { setWorkersInfo, resetWorkersInfo } from "../Store/Workers/slice";
-
 
 export const useWorkersActions = () => {
     const dispatch = useAppDispatch();
@@ -16,7 +14,5 @@ export const useWorkersActions = () => {
         dispatch(resetWorkersInfo());
     };
 
-   
-
-    return { setWorkers, resetWorkers};
+    return { setWorkers, resetWorkers };
 };

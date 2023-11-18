@@ -9,7 +9,6 @@ import {
     updateCoursesToTeach,
 } from "../../../API/CoursesToTeach";
 
-
 export function Modify() {
     const user = useAppSelector((state) => state.user);
     const { updateCourses, callPreviousCourses } = useUserActions();
@@ -111,9 +110,7 @@ export function Modify() {
                         />
                     ))}
 
-                    
                 {user && coursesToTeach && (
-                   
                     <button
                         className=" btnCurso"
                         type="button"
@@ -136,9 +133,7 @@ export function Modify() {
                     >
                         Continuar
                     </button>
-                 
                 )}
-                
             </div>
         </div>
     );

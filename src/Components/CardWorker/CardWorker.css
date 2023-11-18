@@ -1,10 +1,9 @@
-
-.cardW{
+.cardW {
     width: auto;
     height: auto;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
     flex-direction: column;
     justify-content: center;
@@ -14,46 +13,43 @@
     margin-bottom: auto;
 }
 
-.imgWorkerdiv{
-     
+.imgWorkerdiv {
     width: 20%;
     margin: auto;
     height: 100%;
     border-radius: 10px;
-   
 }
 
-.imgWorkerdiv img{
+.imgWorkerdiv img {
     width: 70%;
     height: 100%;
     margin-top: 10px;
     margin-left: 15px;
     margin-right: 10%;
     border-radius: 10px;
-   
 }
-.crud{
+
+.crud {
     display: flex;
     flex-direction: column-reverse;
     justify-content: end;
     align-items: center;
-    width:auto;
+    width: auto;
     margin-top: auto;
     margin-bottom: auto;
 }
-.Workerpart{
-  
+
+.Workerpart {
     padding: auto;
     padding-top: 10px;
 }
 
-.btn-eliminar{
-     
+.btn-eliminar {
     background-color: #a92020;
     color: #ece4e4;
     border: none;
     border-radius: 5px;
-    border : 1px solid #ac1c1c;
+    border: 1px solid #ac1c1c;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
@@ -61,18 +57,19 @@
     width: 100%;
     margin-bottom: 10px;
 }
-.btn-eliminar:hover{
+
+.btn-eliminar:hover {
     background-color: #ffffff;
     color: #ff0000;
     border: 1px solid #ff0000;
 }
 
-.btn-actualizar{
+.btn-actualizar {
     background-color: #1c8f1c;
     color: #ece4e4;
     border: none;
     border-radius: 5px;
-    border : 1px solid #1c8f1c;
+    border: 1px solid #1c8f1c;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
@@ -80,25 +77,26 @@
     width: 100%;
     margin-bottom: 10px;
 }
-.btn-actualizar:hover{
+
+.btn-actualizar:hover {
     background-color: #ffffff;
     color: #1c8f1c;
     border: 1px solid #1c8f1c;
 }
-.AñadirT{
+
+.AñadirT {
     justify-content: center;
     align-items: center;
     margin: auto;
     display: flex;
-
 }
 
-.btn-AñadirT{
+.btn-AñadirT {
     background-color: #1c3f8f;
     color: #ece4e4;
     border: none;
     border-radius: 5px;
-    border : 1px solid #1c3f8f;
+    border: 1px solid #1c3f8f;
     padding: 5px;
     margin: 5px;
     cursor: pointer;
@@ -106,19 +104,18 @@
     width: 100%;
     margin-bottom: 10px;
 }
-.btn-AñadirT:hover{
+.btn-AñadirT:hover {
     background-color: #ffffff;
     color: #1c3f8f;
     border: 1px solid #1c3f8f;
 }
 
 @media screen and (max-width: 768px) {
-    .cardW{
-       
+    .cardW {
         height: auto;
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease-in-out;
         flex-direction: column;
         justify-content: center;
@@ -126,22 +123,13 @@
         padding: 10px;
         margin: 10px;
         margin-bottom: auto;
-       
-     
-       
-
-     
-     
     }
-    .imgWorkerdiv{
-        
+
+    .imgWorkerdiv {
         width: 100%;
         margin-left: 25px;
         margin-right: auto;
         height: 100%;
         border-radius: 10px;
     }
-    
-    
 }
-  

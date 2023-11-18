@@ -1,159 +1,148 @@
 .splitestudiante {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* Columna izquierda */
 .splitestudiante > .left-column {
-  flex: 1;
- margin-left: 20px;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+    flex: 1;
+    margin-left: 20px;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .splitestudiante > .left-columnCursos {
-  flex: 1;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
+    flex: 1;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 /* Columna derecha */
 .splitestudiante > .right-column {
-  flex: 1;
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente los elementos */
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente los elementos */
 
-  padding: 20px;
-  margin-bottom: 6%;
-  box-sizing: border-box;
-  overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 6%;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .splitestudiante > .right-columnSelectCurso {
-  flex: 1;
-  display: flex;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y:   auto;
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 .splitestudiante > .right-columnHome {
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  margin-top: 3%;
-  margin-bottom: 6%;
-  
-  
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    margin-top: 3%;
+    margin-bottom: 6%;
 }
 
-
-.splitestudiante > .left-columnLogin{
-  flex: 1;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  background-color: #c54d19;
+.splitestudiante > .left-columnLogin {
+    flex: 1;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #c54d19;
 }
 
-.splitestudiante > .left-columnLogin > .inicioLog{
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  top: 30%;
-  left: 20%;
-  padding: 10px;
-  text-align: center;
-}
- 
-.splitestudiante > .right-columnLogin{
-  
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  
+.splitestudiante > .left-columnLogin > .inicioLog {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    top: 30%;
+    left: 20%;
+    padding: 10px;
+    text-align: center;
 }
 
-.splitestudiante > .left-columnSignUp{
- justify-content: center;
- align-items: center;
+.splitestudiante > .right-columnLogin {
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
 }
 
-.splitestudiante > .right-columnSignUp{
-  flex: 1;
-  justify-content: center; /* Centrar horizontalmente los elementos */
-  align-items: center; /* Centrar verticalmente los elementos */
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  background-color: #c54d19;
-  
+.splitestudiante > .left-columnSignUp {
+    justify-content: center;
+    align-items: center;
 }
 
-.splitestudiante > .left-columnCursos > .overlay-Register{
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  top: 30%;
-  left: 20%;
-  padding: 10px;
-  text-align: center;
+.splitestudiante > .right-columnSignUp {
+    flex: 1;
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #c54d19;
+}
+
+.splitestudiante > .left-columnCursos > .overlay-Register {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    top: 30%;
+    left: 20%;
+    padding: 10px;
+    text-align: center;
 }
 
 /* Media query para dispositivos pequeños */
 @media (max-width: 768px) {
-  .splitestudiante {
-    /*flex-direction: column;*/
-    overflow: auto;
-  }
+    .splitestudiante {
+        /*flex-direction: column;*/
+        overflow: auto;
+    }
 
-  .splitestudiante > .right-columnSelectCurso{
-    display: none;
-  }
+    .splitestudiante > .right-columnSelectCurso {
+        display: none;
+    }
 
-  .splitestudiante > .right-columnHome {
-    display: none;
-     
-  }
+    .splitestudiante > .right-columnHome {
+        display: none;
+    }
 
-   .splitestudiante > .columna-izquierda-oculta {
-    display: none; /* Oculta la columna izquierda en dispositivos móviles */
-  }
-  
-  .splitestudiante > .columna-derecha-visible {
-    position: absolute; /* Hace que la columna derecha se superponga */
-    z-index: 1; /* Asegura que la columna derecha esté por encima de la izquierda */
-  }
+    .splitestudiante > .columna-izquierda-oculta {
+        display: none; /* Oculta la columna izquierda en dispositivos móviles */
+    }
 
- 
+    .splitestudiante > .columna-derecha-visible {
+        position: absolute; /* Hace que la columna derecha se superponga */
+        z-index: 1; /* Asegura que la columna derecha esté por encima de la izquierda */
+    }
 }
 
 @media (max-width: 980px) {
- 
+    .splitestudiante > .left-columnLogin {
+        display: none;
+    }
 
-  .splitestudiante > .left-columnLogin{
-    display: none;
-  }
-  .splitestudiante > .right-columnLogin{
-     margin: auto;
+    .splitestudiante > .right-columnLogin {
+        margin: auto;
+    }
 
-
-  }
-
-  .splitestudiante > .left-columnSignUp{
-     margin: auto;
-  }
-  .splitestudiante > .right-columnSignUp{
-    display: none;
-}  
+    .splitestudiante > .left-columnSignUp {
+        margin: auto;
+    }
+    
+    .splitestudiante > .right-columnSignUp {
+        display: none;
+    }
 }

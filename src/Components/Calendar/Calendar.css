@@ -47,17 +47,15 @@
 
     .fc-header-toolbar {
         flex-direction: column;
-        
     }
 
-    .fc-view-harness{
+    .fc-view-harness {
         width: auto;
-        height: 100%
+        height: 100%;
     }
-
-
 }
- @media screen and (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
     .fc {
         width: 100%;
         height: 100%;
@@ -66,21 +64,14 @@
     .fc-header-toolbar {
         flex-direction: column;
     }
-   
-   
-   
-    .fc-media-screen{
+
+    .fc-media-screen {
         width: 100%;
         height: 100%;
         border: none;
     }
-    .fc th{
+    .fc th {
         width: 100%;
         height: 100%;
     }
-
-    
-
-  
-    
- }
+}

@@ -26,10 +26,8 @@ const initialState: Tutor[] = [
             start: "",
             end: "",
         },
-    },  
+    },
 ];
-
-
 
 export const tutorsSlice = createSlice({
     name: "tutors",

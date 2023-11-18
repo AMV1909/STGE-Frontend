@@ -12,9 +12,9 @@ import {
 } from "../../../API/Events";
 import { useUserActions } from "../../../Hooks/useUserActions";
 import { useAppSelector } from "../../../Hooks/store";
+import { socket } from "../../../Socket";
 
 import "./ToastEvent.css";
-import { socket } from "../../../Socket";
 
 export function ToastEvent({ t, event, type, setEvents }) {
     const user = useAppSelector((state) => state.user);
@@ -245,9 +245,6 @@ export function ToastEvent({ t, event, type, setEvents }) {
                 }
             });
     };
-    let btnClassName = "btn";
-    btnClassName +=
-        type === "Dejar la reunion" ? " btn-primary" : " btn-primary";
 
     return (
         <div className="stge__toastEvent">

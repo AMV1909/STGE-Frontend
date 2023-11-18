@@ -38,33 +38,22 @@
 }
 
 @media screen and (max-width: 1205px) {
-    .stge__profileTabs-schedule_info  {
+    .stge__profileTabs-schedule_info {
         flex: 1 1 100%;
         flex-direction: column-reverse;
     }
 
     .stge__profileTabs-schedule_info p {
-         margin-bottom: -10%;
-     
-         
+        margin-bottom: -10%;
     }
-   
-    .stge__profileTabs-schedule{
+
+    .stge__profileTabs-schedule {
         height: 100%;
     }
-
-    
 }
 
-
-
 @media screen and (max-width: 780px) {
-    
-
-    
-     .fc-media-screen{
+    .fc-media-screen {
         margin-bottom: 20%;
-     }
-    
-   
+    }
 }

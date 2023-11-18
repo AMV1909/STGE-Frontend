@@ -9,8 +9,6 @@ export const store = configureStore({
         tempUser: tempUserReducer,
         tutors: tutorsReducer,
         workers: workerReducer,
-    
-     
     },
 });
 

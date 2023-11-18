@@ -13,9 +13,8 @@ export const getTutors = async () => {
             if (res.status === 229) {
                 localStorage.setItem("token", res.data.token);
             }
-            
+
             return res.data.tutors;
-            
         });
 };
 
@@ -83,23 +82,18 @@ export const putCourse = async (updateCourses) => {
         });
 };
 
- 
+export const getTutorWorker = async () => {
+    return await axios
+        .get(`${API_URL}/tutors/worker`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        })
+        .then((res) => {
+            if (res.status === 229) {
+                localStorage.setItem("token", res.data.token);
+            }
 
-    export const getTutorWorker = async () => {
-        return await axios
-            .get(`${API_URL}/tutors/worker`, {
-                headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                },
-            })
-            .then((res) => {
-                if (res.status === 229) {
-                    localStorage.setItem("token", res.data.token);
-                    
-                }
-              
-                return res.data.tutors;
-                
-            });
-    };
-    
+            return res.data.tutors;
+        });
+};

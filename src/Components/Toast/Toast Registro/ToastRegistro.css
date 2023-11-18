@@ -1,12 +1,14 @@
-.divform{
+.divform {
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-.estudianteLabel{
+
+.estudianteLabel {
     margin-left: 130px;
 }
-.btnToast{
+
+.btnToast {
     background-color: #3d62e7;
     border: none;
     border-radius: 10px;
@@ -18,8 +20,8 @@
     font-size: 16px;
     margin-left: 30%;
 }
-.divSeleccion{
 
+.divSeleccion {
     display: flex;
     justify-content: center;
     align-items: center;

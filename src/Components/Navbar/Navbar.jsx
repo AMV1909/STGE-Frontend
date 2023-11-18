@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import "./Navbar.css";
 import { useEffect, useState } from "react";
 import { searchTutors } from "../../API/Tutors";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
@@ -7,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { useUserActions } from "../../Hooks/useUserActions";
 import { getNotifications } from "../../API/Notifications";
 import { useAppSelector } from "../../Hooks/store";
+import "./Navbar.css";
 
 export function Navbar() {
     const navigate = useNavigate();
@@ -85,8 +85,6 @@ export function Navbar() {
         };
     }, []);
 
-   
-    
     return (
         <div>
             <nav className="navbar navbar-expand-lg ">
@@ -114,12 +112,13 @@ export function Navbar() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div
-                        className="collapse navbar-collapse" 
-                        id= "navbarSupportedContent"
+                        className="collapse navbar-collapse"
+                        id="navbarSupportedContent"
                     >
                         {(user.role === "Worker" || user.role === "Admin") && (
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {(user.role === "Worker" || user.role === "Admin") && (
+                                {(user.role === "Worker" ||
+                                    user.role === "Admin") && (
                                     <li className="nav-item">
                                         <Link
                                             className="nav-link "

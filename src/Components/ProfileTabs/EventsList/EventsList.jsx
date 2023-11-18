@@ -200,8 +200,8 @@ export function EventsList({ type }) {
                                                             1)) &&
                                                 event.end <
                                                     new Date().toISOString() && (
-                                                    <button 
-                                                         className="btn btn-primary"
+                                                    <button
+                                                        className="btn btn-primary"
                                                         onClick={() =>
                                                             onClick(
                                                                 event,
@@ -222,7 +222,6 @@ export function EventsList({ type }) {
 
                                             {user.role === "Student" &&
                                                 type === "Scheduled" &&
-
                                                 !event.confirmedCompleted &&
                                                 "Esperando a que el tutor marque la reunión como completada"}
 
@@ -230,8 +229,6 @@ export function EventsList({ type }) {
                                                 event.confirmedCompleted ===
                                                     1 &&
                                                 "Esperando a que el estudiante marque la reunión como completada"}
-
-                                                
                                         </td>
                                     )}
                                 </tr>

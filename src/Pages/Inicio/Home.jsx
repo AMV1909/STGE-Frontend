@@ -14,7 +14,7 @@ import { useUserActions } from "../../Hooks/useUserActions";
 import { useNavigate } from "react-router-dom";
 
 import { socket } from "../../Socket";
-import {getTutors} from "../../API/Tutors";
+import { getTutors } from "../../API/Tutors";
 import { useTutorsActions } from "../../Hooks/useTutorsActions";
 
 export function Home() {
@@ -57,19 +57,18 @@ export function Home() {
         setIsSelecting(false);
     }, [tutorSeleccionado]);
 
- 
     useEffect(() => {
         if (tutors.length === 0 || tutors[0]._id !== "") return;
-    
+
         getTutors()
-          .then((response) => {
-            setTutors(response);
-          })
-          .catch((err) => {
-            toast.error("Error al obtener tutores", { duration: 5000 });
-            toast.error(err.message, { duration: 5000 });
-          });
-      }, [setTutors, tutors]);
+            .then((response) => {
+                setTutors(response);
+            })
+            .catch((err) => {
+                toast.error("Error al obtener tutores", { duration: 5000 });
+                toast.error(err.message, { duration: 5000 });
+            });
+    }, [setTutors, tutors]);
 
     const changeToSelect = () => {
         if (calendarRef.current) {
@@ -130,7 +129,7 @@ export function Home() {
 
         setIsSelecting(false);
         setSelectedDates([]);
-    }
+    };
 
     return (
         <div className="home">
@@ -142,20 +141,14 @@ export function Home() {
                     }`}
                 >
                     <div className="row divList ">
-                        {
-                            tutors.map((tutor) => (
-                                <CardTutor
-                                    key={tutor._id}
-                                    tutor={tutor}
-                                    onCardClick={handleCardClick}
-                                    onToggleClick={toggleColumnaDerecha}
-                                
-
-                                />
-                            ) 
-                            )  
-                            } 
-                        
+                        {tutors.map((tutor) => (
+                            <CardTutor
+                                key={tutor._id}
+                                tutor={tutor}
+                                onCardClick={handleCardClick}
+                                onToggleClick={toggleColumnaDerecha}
+                            />
+                        ))}
                     </div>
                 </div>
                 <div
