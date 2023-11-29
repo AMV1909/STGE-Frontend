@@ -21,7 +21,7 @@ export default defineConfig({
                 description:
                     "Plan Padrino UNAB, Sistema de Gestión y Seguimiento De Tutorías Estudiantiles En Línea Por Estudiantes Para Estudiantes.",
                 start_url: "https://stge.pages.dev",
-                display: "fullscreen",
+                display: "standalone",
                 theme_color: "#000000",
                 background_color: "#ffffff",
                 screenshots: [
