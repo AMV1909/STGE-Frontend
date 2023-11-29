@@ -28,7 +28,7 @@ export default defineConfig({
                     {
                         src: "https://stge.pages.dev/plan_padrino.png",
                         sizes: "1600x900",
-                        type: "image/jpg",
+                        type: "image/png",
                     },
                 ],
                 icons: [
