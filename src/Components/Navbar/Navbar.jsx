@@ -90,6 +90,7 @@ export function Navbar() {
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid navcolor">
                     <Link
+                        aria-label="Home"
                         className="navbar-brand"
                         to="/home"
                         onClick={() => resetTutors()}
@@ -149,6 +150,7 @@ export function Navbar() {
                             onSubmit={handleSubmit}
                         >
                             <select
+                                aria-label="Type search"
                                 className="form-select"
                                 name="type_search"
                                 id="Filtro"
@@ -185,6 +187,7 @@ export function Navbar() {
                                     id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
+                                    aria-label="Toggle notification"
                                 >
                                     <i className="fa-solid fa-bell iconbell"></i>
                                 </button>
@@ -225,6 +228,7 @@ export function Navbar() {
                                     id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown"
                                     aria-expanded="false"
+                                    aria-label="Toggle profile"
                                 >
                                     <i className="fa-solid fa-user iconbell"></i>
                                 </button>

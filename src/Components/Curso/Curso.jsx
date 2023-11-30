@@ -12,7 +12,7 @@ export function Curso({ course, handleSelectCourse, selected = false }) {
                                 : { appearance: "none", cursor: "auto" }
                         }
                         type="checkbox"
-                        name="SeleccionCurso"
+                        name={course.name}
                         id={course.nrc}
                         className="Checkbox"
                         onClick={() =>
